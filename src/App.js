@@ -1,14 +1,9 @@
 import logo from './logo.svg';
-import './pages/Login.css';
+import Login from './pages/Login';
 
 function App() {
   return (
-    <div className='background'>
-        <div className='left'>
-          <h1>Receba</h1>
-        </div>
-          <h1>Login</h1>
-    </div>
+    <Login/>
   );
 }
 
