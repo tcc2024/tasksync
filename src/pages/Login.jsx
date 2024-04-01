@@ -9,7 +9,6 @@ export default function Login() {
     <div className="background">
       <div className="left">
         <h1 id="login">Sign-Up</h1>
-        <h3 id="bemvindo">Seja Bem Vindo</h3>
       </div>
       <div className="right">
         <h1 id="title">Criar Conta</h1>

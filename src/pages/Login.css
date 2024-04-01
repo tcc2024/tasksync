@@ -92,10 +92,12 @@
 }
 
 #login {
-  padding-top: 50px;
-  padding-bottom: 150px;
+  margin-top: 50px;
+  margin-left: 175px;
   color: #ffffff;
 }
 #bemvindo {
+  align-content: center;  
+  align-items: center;
   color: #ffffff;
 }
