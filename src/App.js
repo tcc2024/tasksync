@@ -1,13 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './pages/Home/Home';
-import Login from './pages/Login';
+import { ToastContainer } from 'react-toastify';
 
-
-function App() {
+function App () {
   return (  
     <Home></Home>
-    
   );
 }
 
