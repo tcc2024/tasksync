@@ -9,35 +9,9 @@ import Login from './pages/Login/Login';
 import LandPage from './pages/LandPage/LandPage';
 import Cadastrar from './pages/Cadastrar/Cadastrar';
 
-
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <LandPage/>
-  },
-  {
-    path: "/login",
-    element: <Login/>
-  },
-  {
-    path: "/cadastrar",
-    element: <Cadastrar/>
-  },
-  {
-    path: "/home",
-    element: <Home/>
-  }
-
-])
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  
-  <React.StrictMode>
-    <RouterProvider   router={router}/>
-  </React.StrictMode>
-);
+)
 
 
 reportWebVitals();

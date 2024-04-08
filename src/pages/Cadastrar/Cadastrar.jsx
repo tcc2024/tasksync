@@ -23,7 +23,7 @@ export default function Cadastrar() {
               type="text"
               name="usuario"
               className="inputs"
-              placeholder="Email ou Usuário"
+              placeholder="Email"
             />
           </div>
           <div>
@@ -34,18 +34,11 @@ export default function Cadastrar() {
               className="inputs"
               placeholder="Senha"
             />
-              <input
-              id="input-senha"
-              type="password"
-              name="email"
-              className="inputs"
-              placeholder="Confirmar Senha"
-            />
             <div>
               <h5>Já Tem Uma Conta? Entre</h5>
             </div>
             <div>
-              <button className="btn">Cadastrar</button>
+              <button onclassName="btn">Cadastrar</button>
             </div>
           </div>
         </div>
