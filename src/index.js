@@ -1,17 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { createBrowserRouter, Route, Router, RouterProvider } from 'react-router-dom';
-import Home from './pages/Home/Home';
-import Login from './pages/Login/Login';
-import LandPage from './pages/LandPage/LandPage';
-import Cadastrar from './pages/Cadastrar/Cadastrar';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import 'react-toastify/dist/ReactToastify.css'
+
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-)
-
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
 
 reportWebVitals();
