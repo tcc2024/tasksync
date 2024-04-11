@@ -3,6 +3,7 @@ import "./Cadastrar.css";
 import "@fontsource/inter";
 import "@fontsource/inter/400.css";
 
+
 export default function Cadastrar() {
     return (
       <div className="background">

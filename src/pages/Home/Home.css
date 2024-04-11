@@ -1,0 +1,31 @@
+.container {
+    position: relative;
+  }
+  
+  .div-top {
+    height: 75px;
+    background-color: rgb(255, 255, 255);
+    text-align: right;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+      rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    position: relative; 
+    z-index: 1; 
+  } 
+  .div-left {
+    background-color: #d9d9d9;
+    position: absolute;
+    top: 0; 
+    left: 0;
+    height: 100vh; 
+    width: 20%;
+    z-index: 2; 
+  }
+
+  button{
+    height: 50px;
+    width: 135px;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    margin: 10px;
+  }
+  

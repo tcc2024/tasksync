@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthService from "../../services/AuthServices";
 import ApiService from "../../services/ApiService";
+import "./Home.css";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -29,9 +30,15 @@ export default function Home() {
   }
 
   return (
-    <div>
-      <div>Homeeeeeeee</div>
-      <div>{usuario.id}</div>
+    <div className="container">
+      
+      <div className="div-top">
+        <button className>Novo Projeto</button>
+        <button className>Nova Tarefa</button>
+        <div className="div-left">
+          
+        </div>
+      </div>
     </div>
   );
 }
