@@ -22,7 +22,6 @@ export default function Home() {
   }
 
   async function BuscarDadosUsuario() {
-    debugger;
     const response = await ApiService.get("/Usuario/getuserdata");
     if (response.status == 200) {
       setUsuario(response.data);
@@ -31,12 +30,19 @@ export default function Home() {
 
   return (
     <div className="container">
-      
-      <div className="div-top">
-        <button className>Novo Projeto</button>
-        <button className>Nova Tarefa</button>
-        <div className="div-left">
-          
+      <div className="div-left">
+        
+      </div> 
+      <div className="right">
+        <div className="div-top">
+          <button>Novo Projeto</button>
+          <button>Nova Tarefa</button>
+        </div>
+        <div className="div-bottom">
+          <div className="card">
+            <p>Nome: Lourival Cicero</p>
+            <p>Email: lourijr@gmail.com</p>
+          </div>
         </div>
       </div>
     </div>

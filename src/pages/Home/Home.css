@@ -9,7 +9,6 @@
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
       rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
     position: relative; 
-    z-index: 1; 
   } 
   .div-left {
     background-color: #d9d9d9;
@@ -29,4 +28,14 @@
     color: white;
     margin: 10px;
   }
-  
+  .card {
+    margin-left: 100px;
+    border: 1px solid;
+    padding: 10px;
+    width: 200px;
+    margin: 10px 10px;
+}
+  .div-bottom{
+    
+    background-color: chartreuse;
+  }
