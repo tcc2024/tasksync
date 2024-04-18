@@ -31,7 +31,6 @@ export default function Home() {
   return (
     <div className="container">
       <div className="div-left">
-        
       </div> 
       <div className="right">
         <div className="div-top">
