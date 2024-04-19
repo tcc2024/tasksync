@@ -29,15 +29,35 @@ button {
   margin: 10px;
 }
 .card {
+  background-color: #222831;
+  color: white;
   margin-left: 100px;
   border: 1px solid;
   padding: 10px;
-  width: 200px;
-  margin: 10px 10px;
+  height: 115px;
+  width: 290px;
+  border-radius: 15px;
+  margin: 15px;
+}
+.title {
+  text-align: center;
+  padding: 5px;
+}
+.descricao{
+  padding: 5px;
+  text-align: justify;
+}
+.projetos {
+  padding: 10px;
+  margin: 10px;
+}
+.title-project{
+  padding-right: 5px;
+  padding-top: 30px;
+  text-align: right;
 }
 .div-bottom {
-  margin:  auto;
+  margin: auto;
   width: 800px;
   height: 630px;
-  background-color: chartreuse;
 }

@@ -5,6 +5,8 @@ import Login from "./pages/Login/Login";
 import Home from "./pages/Home/Home";
 import LandPage from "./pages/LandPage/LandPage";
 import Cadastrar from "./pages/Cadastrar/Cadastrar";
+import ListaDeTarefas from "./pages/Home/ListadeTarefas";
+import ListaDeProjetos from "./pages/Home/ListaDeProjetos";
 
 function App() {
   const router = createBrowserRouter([
@@ -22,7 +24,7 @@ function App() {
     },
     {
       path: "/home",
-      element: <Home />,
+      element: <ListaDeTarefas/>, 
     },
   ]);
 

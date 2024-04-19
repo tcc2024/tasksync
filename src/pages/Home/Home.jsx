@@ -4,7 +4,7 @@ import AuthService from "../../services/AuthServices";
 import ApiService from "../../services/ApiService";
 import "./Home.css";
 
-export default function Home() {
+export default function Home({ projeto }) {
   const navigate = useNavigate();
   const [usuario, setUsuario] = useState({});
 
@@ -30,17 +30,25 @@ export default function Home() {
 
   return (
     <div className="container">
-      <div className="div-left">
-      </div> 
+      <div className="div-left"></div>
       <div className="right">
         <div className="div-top">
           <button>Novo Projeto</button>
           <button>Nova Tarefa</button>
         </div>
         <div className="div-bottom">
+          <p className="projetos">Projetos Recentes</p>
           <div className="card">
-            <p>Nome: Lourival Cicero</p>
-            <p>Email: lourijr@gmail.com</p>
+            <p className="title">{projeto.tituloProjeto}</p>
+            <hr />
+            <p className="descricao">{projeto.descricaoProjeto}</p>
+          </div>
+          <p className="projetos">Tarefas Recentes</p>
+          <div className="card">
+            <p className="title">{projeto.tituloTarefa}</p>
+            <hr />
+            <p className="descricao">{projeto.descricaoTarefa}</p>
+            <p className="title-project">{projeto.tituloProjeto}</p>
           </div>
         </div>
       </div>
