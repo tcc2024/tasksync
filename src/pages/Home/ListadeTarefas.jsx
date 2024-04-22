@@ -3,7 +3,7 @@ import React, { useState } from "react";
 
 export default function ListaDeTarefas() {
   const [projeto, setProjeto] = useState({
-    tituloTarefa: "TaskSync",
+    tituloTarefa: "Banco de Dados",
     descricaoTarefa: "AAAAAAAAAAAAAA",
     tituloProjeto: "TaskSync",
   });

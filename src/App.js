@@ -7,6 +7,9 @@ import LandPage from "./pages/LandPage/LandPage";
 import Cadastrar from "./pages/Cadastrar/Cadastrar";
 import ListaDeTarefas from "./pages/Home/ListadeTarefas";
 import ListaDeProjetos from "./pages/Home/ListaDeProjetos";
+import Calendario from "./pages/Calendario/Calendario";
+import Projetos from "./pages/Projetos/Projetos"
+import Config from "./pages/Config/Config"
 
 function App() {
   const router = createBrowserRouter([
@@ -25,6 +28,18 @@ function App() {
     {
       path: "/home",
       element: <ListaDeTarefas/>, 
+    },
+    {
+      path: "/calendario",
+      element: <Calendario/>
+    },
+    {
+      path: "/projetos",
+      element: <Projetos/>
+    },
+    {
+      path: "/config",
+      element: <Config/>
     },
   ]);
 

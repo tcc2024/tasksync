@@ -1,0 +1,12 @@
+.div-top-calendar{
+    height: 75px;
+    background-color :#222831;
+    text-align: center;
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+    position: relative;
+  }
+  h1{
+    padding-top: 15px;
+    padding-left: 300px;
+  }

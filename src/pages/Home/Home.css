@@ -6,11 +6,11 @@
   height: 75px;
   background-color: rgb(255, 255, 255);
   text-align: right;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
   position: relative;
 }
 .div-left {
+  align-items: center;
   background-color: #d9d9d9;
   position: absolute;
   top: 0;
@@ -18,9 +18,12 @@
   height: 100vh;
   width: 20%;
   z-index: 2;
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
 }
-
-button {
+.novos {
   height: 50px;
   width: 135px;
   border-radius: 15px;
@@ -60,4 +63,56 @@ button {
   margin: auto;
   width: 800px;
   height: 630px;
+}
+
+.botao-menu{
+  margin: 30px;
+  background-image: url("/src/assets/HomePage.png");
+  background-size: 40px 40px;
+  background-position-y: 10px;
+  background-position-x: 20px;
+  background-repeat: no-repeat;
+  width: 80px;
+  height: 60px;
+  border-radius: 20px;
+  background-color: #222831;
+
+}
+.botao-projetos{
+  margin: 30px;
+  background-image: url("/src/assets/Settings.png");
+  background-size: 40px 40px;
+  background-position-y: 10px;
+  background-position-x: 20px;
+  background-repeat: no-repeat;
+  width: 80px;
+  height: 60px;
+  border-radius: 20px;
+  background-color: #222831;
+
+}
+.botao-calendario{
+  margin: 30px;
+  background-image: url("/src/assets/Calendar31.png");
+  background-size: 40px 40px;
+  background-position-y: 10px;
+  background-position-x: 20px;
+  background-repeat: no-repeat;
+  width: 80px;
+  height: 60px;
+  border-radius: 20px;
+  background-color: #222831;
+  
+}
+.botao-config {  
+  margin: 30px;
+  background-image: url("/src/assets/Settings.png");
+  background-size: 40px 40px;
+  background-position-y: 10px;
+  background-position-x: 20px;
+  background-repeat: no-repeat;
+  width: 80px;
+  height: 60px;
+  border-radius: 20px;
+  background-color: #222831;
 }
