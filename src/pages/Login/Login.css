@@ -17,8 +17,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
- /* background-color: #ffffff;*/
-  /*background-image: linear-gradient(to bottom, #000000, #405b62, #ffffff);*/
 }
 
 .center {
@@ -133,6 +131,7 @@
 
 #title {
   padding-top: 10px;
+  padding-left: 0%;
   margin: 50px;
   padding-bottom: 25px;
 }
