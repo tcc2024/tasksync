@@ -1,7 +1,8 @@
 import React from "react";
 import "./Cadastrar.css";
 import "@fontsource/inter";
-import "@fontsource/inter/400.css";
+import "@fontsource/montserrat"
+import "@fontsource/montserrat/600.css"
 
 
 export default function Cadastrar() {

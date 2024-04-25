@@ -9,7 +9,7 @@ export default function ListaDeTarefas() {
   });
   return (
     <div>
-      <Home projeto={projeto} />
+      
     </div>
   );
 }
