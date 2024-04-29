@@ -1,0 +1,9 @@
+.sx-react-calendar-wrapper {
+    width: 100%;
+    height: 800px;
+    max-height: 90vh;
+  }
+  .sx__calendar{
+    width: 100%;
+    height: 800px;
+  }

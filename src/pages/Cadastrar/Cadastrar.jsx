@@ -1,6 +1,5 @@
 import React from "react";
 import "./Cadastrar.css";
-import "@fontsource/inter";
 import "@fontsource/montserrat"
 import "@fontsource/montserrat/600.css"
 
@@ -9,6 +8,7 @@ export default function Cadastrar() {
     return (
       <div className="background">
         <div className="center">
+
           <div>
             <h1 id="title">Sign Up</h1>
           </div>

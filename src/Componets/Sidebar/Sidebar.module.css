@@ -2,9 +2,10 @@
   background-color: #d9d9d9;
   height: 100%;
   width: 20%;
+  justify-content: center;
 }
-.botao-menu{
-  margin: 30px;
+.botaomenu{
+  margin: 150px;
   background-image: url("/src/assets/HomePage.png");
   background-size: 40px 40px;
   background-position-y: 10px;
@@ -14,10 +15,11 @@
   height: 60px;
   border-radius: 20px;
   background-color: #222831;
+  
 
 }
-.botao-projetos{
-  margin: 30px;
+.botaoprojetos{
+  margin: 150px;
   background-image: url("/src/assets/Settings.png");
   background-size: 40px 40px;
   background-position-y: 10px;
@@ -29,8 +31,8 @@
   background-color: #222831;
 
 }
-.botao-calendario{
-  margin: 30px;
+.botaocalendario{
+  margin: 150px;
   background-image: url("/src/assets/Calendar31.png");
   background-size: 40px 40px;
   background-position-y: 10px;
@@ -42,8 +44,8 @@
   background-color: #222831;
   
 }
-.botao-config {  
-  margin: 30px;
+.botaoconfig {  
+  margin: 150px;
   background-image: url("/src/assets/Settings.png");
   background-size: 40px 40px;
   background-position-y: 10px;
