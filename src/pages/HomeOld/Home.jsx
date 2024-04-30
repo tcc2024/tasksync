@@ -7,7 +7,7 @@ import "./Home.css";
 import "@fontsource/montserrat";
 import "@fontsource/montserrat/900.css";
 
-export default function Home() {
+export default function HomeOd() {
   const navigate = useNavigate();
   const [usuario, setUsuario] = useState({});
   const [projeto, setProjeto] = useState({

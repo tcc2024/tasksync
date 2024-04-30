@@ -2,10 +2,13 @@
   background-color: #d9d9d9;
   height: 100%;
   width: 20%;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 .botaomenu{
-  margin: 150px;
+  margin: 50px;
   background-image: url("/src/assets/HomePage.png");
   background-size: 40px 40px;
   background-position-y: 10px;
@@ -19,8 +22,8 @@
 
 }
 .botaoprojetos{
-  margin: 150px;
-  background-image: url("/src/assets/Settings.png");
+  margin: 50px;
+  background-image: url("/src/assets/Project.png");
   background-size: 40px 40px;
   background-position-y: 10px;
   background-position-x: 20px;
@@ -32,7 +35,7 @@
 
 }
 .botaocalendario{
-  margin: 150px;
+  margin: 50px;
   background-image: url("/src/assets/Calendar31.png");
   background-size: 40px 40px;
   background-position-y: 10px;
@@ -44,8 +47,8 @@
   background-color: #222831;
   
 }
-.botaoconfig {  
-  margin: 150px;
+.botaoconfig { 
+  margin: 50px;
   background-image: url("/src/assets/Settings.png");
   background-size: 40px 40px;
   background-position-y: 10px;
