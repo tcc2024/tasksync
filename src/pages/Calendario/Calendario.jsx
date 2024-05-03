@@ -5,8 +5,8 @@ import {
   viewMonthGrid,
   viewMonthAgenda,
 } from "@schedule-x/calendar";
-
 import "@schedule-x/theme-default/dist/index.css";
+import styles from "./Calendario.module.css";
 
 function Calendario() {
   const calendar = useCalendarApp({

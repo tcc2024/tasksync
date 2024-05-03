@@ -1,23 +1,22 @@
 .top {
-    height: 75px;
-    width: 100%;
-    background-color: #31363F;
-    align-items: left;
-    text-align: right;
-  }
-  
-  .cadastrar {
-    height: 50px;
-    width: 135px;
-    border-radius: 10px;
-    background-color: white;
-    color:  #31363F;
+  height: 75px;
+  width: 100%;
+  background-color: #31363f;
+  align-items: left;
+  text-align: right;
+}
 
-  }
-  
-  .entrar {
-      height: 50px;
-      width: 135px;
-      border-radius: 10px;
-      margin: 10px;
-    }
+.cadastrar {
+  height: 50px;
+  width: 135px;
+  border-radius: 10px;
+  background-color: white;
+  color: #31363f;
+}
+
+.entrar {
+  height: 50px;
+  width: 135px;
+  border-radius: 10px;
+  margin: 10px;
+}
