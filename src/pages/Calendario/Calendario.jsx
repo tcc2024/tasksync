@@ -6,7 +6,10 @@ import {
   viewMonthAgenda,
 } from "@schedule-x/calendar";
 import "@schedule-x/theme-default/dist/index.css";
-import styles from "./Calendario.module.css";
+import Sidebar from "../../Componets/Sidebar/Sidebar";
+import Header from "../../Componets/Header/Header";
+import { ToastContainer } from "react-toastify";
+import styles from "./Calendario.module.css"
 
 function Calendario() {
   const calendar = useCalendarApp({
@@ -23,8 +26,15 @@ function Calendario() {
   });
 
   return (
-    <div>
-      <ScheduleXCalendar calendarApp={calendar} />
+    <div className={styles.container}>
+      <Sidebar />
+      <div className={styles.appContainer}>
+        <Header />
+        <div className={styles.pages}>
+          <ScheduleXCalendar calendarApp={calendar} />
+        </div>
+      </div>
+      <ToastContainer />
     </div>
   );
 }

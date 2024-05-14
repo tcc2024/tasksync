@@ -12,8 +12,8 @@ export default function Header() {
         setModalAberto={setModalAberto}
       ></ModalCadastroProjeto>
       <div className={styles.container}>
-        <button onClick={() => setModalAberto(true)}>Criar Projeto</button>
-        <button>Criar Tarefa</button>
+        <button className={styles.btn}onClick={() => setModalAberto(true)}>Criar Projeto</button>
+        <button className={styles.btn}>Criar Tarefa</button>
       </div>
     </>
   );

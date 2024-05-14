@@ -1,5 +1,5 @@
 import React from "react";
-import "./Login.css";
+import styles from "./Login.module.css"
 import "@fontsource/inter";
 import "@fontsource/inter/400.css";
 import ApiService from "../../services/ApiService";
@@ -53,8 +53,8 @@ export default function Login() {
     }
   }
   return (
-    <div className="background">
-      <div className="center">
+    <div className={styles.background}>
+      <div className={styles.center}>
         <div>
           <h1 id="title">Log-In</h1>
         </div>
@@ -65,7 +65,7 @@ export default function Login() {
             id="input-email"
             type="text"
             name="usuario"
-            className="inputs"
+            className={styles.inputs}
             placeholder="Email ou Usuário"
           />
         </div>
@@ -76,14 +76,14 @@ export default function Login() {
             id="input-senha"
             type="password"
             name="email"
-            className="inputs"
+            className={styles.inputs}
             placeholder="Senha"
           />
           <div>
             <h5>Não Tem Uma Conta? Cadastre-se</h5>
           </div>
           <div>
-            <button onClick={Login} className="btn">
+            <button onClick={Login} className={styles.btn}>
               Cadastrar
             </button>
           </div>

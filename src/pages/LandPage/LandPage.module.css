@@ -1,8 +1,7 @@
 .top {
   height: 75px;
   width: 100%;
-  background-color: #31363f;
-  align-items: left;
+  background-color: #222831;
   text-align: right;
 }
 
@@ -11,12 +10,12 @@
   width: 135px;
   border-radius: 10px;
   background-color: white;
-  color: #31363f;
 }
 
 .entrar {
   height: 50px;
   width: 135px;
   border-radius: 10px;
+  background-color: white;
   margin: 10px;
 }
