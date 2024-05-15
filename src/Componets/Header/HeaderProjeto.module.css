@@ -1,5 +1,4 @@
 .container {
-  text-align: right;
   background-color: #ffffff;
   width: 100%;
   height: 10%;
@@ -7,9 +6,10 @@
 }
 
 .lugar {
+  margin: 5px;
   text-align: center;
   width: 135px;
   height: 50px;
   border-radius: 15px;
-  background-color: coral;
+  background-color: lightgray;
 }

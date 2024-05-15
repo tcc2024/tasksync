@@ -9,7 +9,7 @@
 }
 
 .botaomenu{
-  margin: 50px;
+  margin: 20%;
   background-image: url("/src/assets/HomePage.png");
   background-size: 40px 40px;
   background-position-y: 10px;
@@ -22,7 +22,7 @@
 
 }
 .botaoprojetos{
-  margin: 50px;
+  margin: 20%;
   background-image: url("/src/assets/Project.png");
   background-size: 40px 40px;
   background-position-y: 10px;
@@ -35,7 +35,7 @@
 
 }
 .botaocalendario{
-  margin: 50px;
+  margin: 20%;
   background-image: url("/src/assets/Calendar31.png");
   background-size: 40px 40px;
   background-position-y: 10px;
@@ -48,7 +48,7 @@
   
 }
 .botaoconfig { 
-  margin: 50px;
+  margin: 20%;
   background-image: url("/src/assets/Settings.png");
   background-size: 40px 40px;
   background-position-y: 10px;
