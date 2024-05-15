@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import ListaDeProjetos from "../../Componets/ListaDeProjetos/ListaDeProjetos";
 import AuthService from "../../services/AuthServices";
 import { useNavigate } from "react-router-dom";
-import Sidebar from '../../Componets/Sidebar/Sidebar'
-import Header from '../../Componets/Header/Header'
+import Sidebar from "../../Componets/Sidebar/Sidebar";
+import Header from "../../Componets/Header/Header";
 import { ToastContainer } from "react-toastify";
-import styles from "./Home.module.css"
-
+import styles from "./Home.module.css";
+import ApiService from "../../services/ApiService";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -31,15 +31,15 @@ export default function Home() {
   }
 
   return (
-      <div className={styles.container}>
-        <Sidebar />
-        <div className={styles.appContainer}>
-          <Header />
-          <div className={styles.pages}>
-            <ListaDeProjetos projetos={projetos} />
-          </div>
+    <div className={styles.container}>
+      <Sidebar />
+      <div className={styles.appContainer}>
+        <Header />
+        <div className={styles.pages}>
+          <ListaDeProjetos projetos={projetos} />
         </div>
-        <ToastContainer />
       </div>
+      <ToastContainer />
+    </div>
   );
 }

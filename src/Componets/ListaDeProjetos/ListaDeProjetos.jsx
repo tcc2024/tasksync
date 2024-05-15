@@ -5,9 +5,9 @@ export default function ListaDeProjetos({ projetos }) {
   return (
     <div className={styles.container}>
       {projetos.map((projeto) => (
-        <div className={styles.dados} onClick={() => (window.location.href = "/menuprojeto" )}>
+        <div className={styles.dados}>
           <p className={styles.projeto}>Projetos Recentes</p>
-          <div className={styles.card}>
+          <div className={styles.card}  onClick={() => (window.location.href = "/menuprojeto" )}>
             <p className={styles.titulo}>{projeto.tituloProjeto}</p>
             <hr />
             <p className={styles.descricao}>{projeto.descricaoProjeto}</p>

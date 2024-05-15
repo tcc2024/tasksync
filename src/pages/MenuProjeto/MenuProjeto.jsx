@@ -17,6 +17,9 @@ export default function MenuProjeto() {
             </h2>
             <div className={styles.task}>Tarefa 1</div>
             <div className={styles.task}>Tarefa 2</div>
+            <div className={styles.task}>Tarefa 2</div>
+            <div className={styles.task}>Tarefa 2</div>
+
             <center>
               <button className={styles.botao}>Adicionar Tarefa</button>
             </center>
@@ -27,6 +30,10 @@ export default function MenuProjeto() {
             </h2>
             <div className={styles.task}>Tarefa 3</div>
             <div className={styles.task}>Tarefa 4</div>
+            <div className={styles.task}>Tarefa 2</div>
+            <div className={styles.task}>Tarefa 2</div>
+            <div className={styles.task}>Tarefa 2</div>
+
             <center>
               <button className={styles.botao}>Adicionar Tarefa</button>
             </center>
