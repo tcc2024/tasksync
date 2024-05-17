@@ -37,20 +37,24 @@ export default function ModalCadastroProjeto({ modalAberto, setModalAberto }) {
     }
   }
 
+  function FecharModal() {
+    setModalAberto(false)
+}
+
   return (
-    <Modal isOpen={modalAberto} style={customStyles}>
+    <Modal isOpen={modalAberto} style={customStyles} onRequestClose={FecharModal}>
       <div className={styles.container}>
         <div className={styles.sidebar}>
           <h3 className={styles.title}>Vamos Criar um Projeto</h3>
 
-          <p>Nome do Projeto</p>
+          <p className={styles.nomeDescProjeto}>Nome do Projeto</p>
           <input
             placeholder="Nome"
             value={nome}
             onChange={(e) => setNome(e.target.value)}
           />
           <br />
-          <p>Descrição do Projeto</p>
+          <p className={styles.nomeDescProjeto}>Descrição do Projeto</p>
           <input
             placeholder="Descrição"
             value={descricao}
@@ -64,7 +68,8 @@ export default function ModalCadastroProjeto({ modalAberto, setModalAberto }) {
           </center>
         </div>
         <div className={styles.right}>
-          <p>Crie um projeto para gerenciar e organizar suas tarefas </p>
+
+          <p className={styles.tituloRight}>Crie um projeto para gerenciar e organizar suas tarefas </p>
         </div>
       </div>
     </Modal>
