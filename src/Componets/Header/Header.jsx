@@ -1,31 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styles from "./Header.module.css";
 import ModalCadastroProjeto from "../Modal/ModalCadastroProjeto";
-import ApiService from "../../services/ApiService";
 
 export default function Header() {
   const [modalAberto, setModalAberto] = useState(false);
-  const [usuario, setUsuario] = useState({});
-
-  
-  useEffect(() => {
-    BuscarDadosUsuario();
-  }, []);
-   
-  async function BuscarDadosUsuario() {
-    debugger;
-    const response = await ApiService.get("/Usuario/getuserdata");
-    if (response.status == 200) {
-      setUsuario(response.data);
-    }
-  }
-
-
-
 
   return (
     <>
-    <div>{usuario.id}</div>
       <ModalCadastroProjeto
         modalAberto={modalAberto}
         setModalAberto={setModalAberto}

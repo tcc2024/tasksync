@@ -1,0 +1,33 @@
+.container {
+    width: 400px;
+    height: 200px;
+    background-color: #222831;
+    color: #fff;
+    border-radius: 20px;
+    margin-top: 15px;
+    margin-left: 30px;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    height: 40px;
+  }
+  
+  .content {
+    width: 400px;
+    height: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+  }
+
+  .footer {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-right: 15px;
+  }
+  

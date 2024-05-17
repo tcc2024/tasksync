@@ -33,7 +33,7 @@ export default function ModalCadastroMateria({ modalAberto, setModalAberto, tare
                 projeto: {
                     id: idProjetoSelecionado
                 },
-                usuarioAtribuido:{
+                usuarioAtribuido: {
                     id: usuarioAtribuido
                 }
             }
@@ -72,4 +72,7 @@ export default function ModalCadastroMateria({ modalAberto, setModalAberto, tare
     function quandoSelecionadoUsuario(){
         
     }
+
+
+    
 }
