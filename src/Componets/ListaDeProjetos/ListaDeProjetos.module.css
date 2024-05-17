@@ -1,0 +1,12 @@
+.container {
+  width: 100%;
+}
+
+.projetos {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  white-space: nowrap;
+  width: 100%;
+  padding: 10px;
+}
