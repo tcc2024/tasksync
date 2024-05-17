@@ -19,10 +19,11 @@ export default function ModalCadastroMateria({ modalAberto, setModalAberto, tare
     Modal.setAppElement('#root');
 
     const [usuarioAtribuido, setUsuarioAtribuido] = useState([]);
-    const [projetoZ, setProjeto] = useState([]);
+    const [projeto, setProjeto] = useState([]);
     const [idProjetoSelecionado, setIdProjetoSelecionado] = useState('');
     const [nome, setNome] = useState("");
     const [descricao, setDescricao] = useState("");
+    const [dataEntrega, setDataEntrega] = useState("");
 
     async function Cadastrar(){
         try{
@@ -70,9 +71,57 @@ export default function ModalCadastroMateria({ modalAberto, setModalAberto, tare
     }
 
     function quandoSelecionadoUsuario(){
-        
+        setUsuarioAtribuido()
+        for(var i; i > idUsuarioSelecionado; i++){
+            setUsuarioAtribuido([]).add = idUsuarioSelecionado;
+        }
     }
 
 
+
+    return (
+        <Modal isOpen={modalAberto} style={customStyles}>
+          <div className={styles.container}>
+            <div className={styles.sidebar}>
+              <h3 className={styles.title}>Vamos Criar uma Tarefa</h3>
+    
+              <p>Nome da Tarefa</p>
+              <input
+                placeholder="Nome"
+                value={nome}
+                onChange={(e) => setNome(e.target.value)}
+              />
+              <br />
+              <p>Descrição da Tarefa</p>
+              <input
+                placeholder="Descrição"
+                value={descricao}
+                onChange={(e) => setDescricao(e.target.value)}
+              />
+              <br />
+              <p>Data de Entrega</p>
+              <input
+                type='datetime-local'
+                value={dataEntrega}
+                onChange={(e) => setDataEntrega(e.target.value)}
+              />
+              <br />
+              <p>Usuarios Atribuidos</p>
+              <button
+                value={descricao}
+                onChange={(e) => setDescricao(e.target.value)}>+</button>
+              <br />
+              <center>
+                <button className={styles.button} onClick={CadastrarTarefa}>
+                  Criar Tarefa
+                </button>
+              </center>
+            </div>
+            <div className={styles.right}>
+              <p>Crie sua tarefa e divirta-se fazendo, enquanto ganhamos dinheiro com isso, otario CLT</p>
+            </div>
+          </div>
+        </Modal>
+      );
     
 }
