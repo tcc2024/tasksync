@@ -17,4 +17,7 @@ export default function ModalCadastroProjeto({ modalAberto, setModalAberto }) {
     },
   }
 
+  const [nome, setNome] = useState("");
+  const [descricao, setDescricao] = useState("");
+  
 }
