@@ -68,7 +68,7 @@ export default function ModalCadastroProjeto({ modalAberto, setModalAberto }) {
           </center>
         </div>
         <div className={styles.right}>
-
+          <button onClick={FecharModal}>Fechar</button>
           <p className={styles.tituloRight}>Crie um projeto para gerenciar e organizar suas tarefas </p>
         </div>
       </div>

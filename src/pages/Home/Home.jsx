@@ -44,7 +44,6 @@ export default function Home() {
       <div className={styles.appContainer}>
         <Header />
         <div className={styles.pages}>
-          <p>{usuario.nome}</p>
           <ListaDeProjetos projetos={projetos} />
         </div>
       </div>

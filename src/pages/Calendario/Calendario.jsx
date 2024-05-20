@@ -9,7 +9,7 @@ import "@schedule-x/theme-default/dist/index.css";
 import Sidebar from "../../Componets/Sidebar/Sidebar";
 import Header from "../../Componets/Header/Header";
 import { ToastContainer } from "react-toastify";
-import styles from "./Calendario.module.css"
+import styles from "./Calendario.module.css";
 
 function Calendario() {
   const calendar = useCalendarApp({
@@ -23,7 +23,16 @@ function Calendario() {
         end: "2023-12-16",
       },
     ],
+    callbacks: {
+      onClickDate(date) {
+        onClickCalendar(date);
+      },
+    },
   });
+
+  function onClickCalendar(date) {
+    //Abrir Modal aqui
+  }
 
   return (
     <div className={styles.container}>
