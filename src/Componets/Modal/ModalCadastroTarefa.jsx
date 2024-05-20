@@ -22,7 +22,6 @@ export default function ModalCadastroMateria({
   };
   Modal.setAppElement("#root");
 
-  const [usuarios, setUsuarios] = useState([]);
   const [usuarioAtribuido, setUsuarioAtribuido] = useState([]);
   const [projetos, setProjetos] = useState([]);
   const [idProjetoSelecionado, setIdProjetoSelecionado] = useState("");
