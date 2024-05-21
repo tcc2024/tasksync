@@ -1,15 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Modal from "react-modal";
 import ApiService from "../../services/ApiService";
-import Multiselect from "multiselect-react-dropdown";
 import ToastService from "../../services/ToastService";
-import React, { useEffect, useState } from "react";
 import Modal from "react-modal";
-import ApiService from "../../services/ApiService";
 import Multiselect from "multiselect-react-dropdown";
-import ToastService from "../../services/ToastService";
 
-export default function ModalCadastroMateria({
+export default function ModalCadastroTarefa({
   modalAberto,
   setModalAberto,
   tarefas,
@@ -27,6 +22,7 @@ export default function ModalCadastroMateria({
   };
   Modal.setAppElement("#root");
 
+  const [usuario, setUsuario] = useState([])
   const [usuarioAtribuido, setUsuarioAtribuido] = useState([]);
   const [projetos, setProjetos] = useState([]);
   const [idProjetoSelecionado, setIdProjetoSelecionado] = useState("");
@@ -43,7 +39,9 @@ export default function ModalCadastroMateria({
         projeto: {
           id: idProjetoSelecionado,
         },
-        usuario: usuarioAtribuido
+        usuario: {
+          id: usuario,
+        }
       };
 
       await ApiService.post("/Tarefa/CriarTarefa", body);
@@ -64,8 +62,6 @@ export default function ModalCadastroMateria({
       ToastService.Error("Erro ao Listar Seus Projetos");
     }
   }
-
-
 
   useEffect(() => {
     BuscarProjetos();
@@ -130,17 +126,13 @@ export default function ModalCadastroMateria({
           </option>
         ))}
       </select>
-
-      <select value={usuarioAtribuido} onChange={selectAlteradoUsuario}>
-        <option value="" disabled>
-          Selecione um Usuario
-        </option>
-        {usuario.map((usuario) => (
-          <option key={usuario.id} value={usuario.id}>
-            {usuario.nome}
-          </option>
-        ))}
-      </select>
+      <Multiselect
+                options={tarefas}
+                selectedValues={projetos}
+                onSelect={quandoSelecionadoUsuario}
+                onRemove={quandoRemoverDependencia}
+                displayValue="nome"
+            />
 
       <button onClick={Cadastrar}>Cadastrar</button>
     </Modal>

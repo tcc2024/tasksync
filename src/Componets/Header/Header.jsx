@@ -1,23 +1,22 @@
 import React, { useState } from "react";
 import styles from "./Header.module.css";
 import ModalCadastroProjeto from "../Modal/ModalCadastroProjeto";
-import ModalCadastroMateria from "../Modal/ModalCadastroTarefa";
-import ModalCadastroMateria from "../Modal/ModalCadastroTarefa";
+import ModalCadastroTarefa from "../Modal/ModalCadastroTarefa";
 
 export default function Header() {
   const [modalAberto, setModalAberto] = useState(false);
 
   return (
     <>
-      <ModalCadastroMateria
+      <ModalCadastroProjeto
         modalAberto={modalAberto}
         setModalAberto={setModalAberto}
       ></ModalCadastroProjeto>
       <>
-        <ModalCadastroMateria
+        <ModalCadastroTarefa
           modalAberto={modalAberto}
           setModalAberto={setModalAberto}
-        ></ModalCadastroMateria>
+        ></ModalCadastroTarefa>
       </>
       <div className={styles.container}>
         <button className={styles.btn} onClick={() => setModalAberto(true)}>
