@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import styles from "./Header.module.css";
 import ModalCadastroProjeto from "../Modal/ModalCadastroProjeto";
 import ModalCadastroMateria from "../Modal/ModalCadastroTarefa";
+import ModalCadastroMateria from "../Modal/ModalCadastroTarefa";
 
 export default function Header() {
   const [modalAberto, setModalAberto] = useState(false);
 
   return (
     <>
-      <ModalCadastroProjeto
+      <ModalCadastroMateria
         modalAberto={modalAberto}
         setModalAberto={setModalAberto}
       ></ModalCadastroProjeto>

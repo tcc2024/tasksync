@@ -38,7 +38,7 @@ export default function ModalCadastroMateria({
         projeto: {
           id: idProjetoSelecionado,
         },
-        usuarioAtribuido: usuarioAtribuido.map((user) => ({ id: user.id })),
+        usuario: usuarioAtribuido
       };
 
       await ApiService.post("/Tarefa/CriarTarefa", body);
@@ -60,18 +60,10 @@ export default function ModalCadastroMateria({
     }
   }
 
-  async function BuscarUsuarios() {
-    try {
-      const response = await ApiService.get("/Usuario/listarUsuarios");
-      setUsuarios(response.data);
-    } catch (error) {
-      ToastService.Error("Erro ao Listar Usuários");
-    }
-  }
+
 
   useEffect(() => {
     BuscarProjetos();
-    BuscarUsuarios();
   }, []);
 
   function FecharModal() {
@@ -80,6 +72,9 @@ export default function ModalCadastroMateria({
 
   function selectAlterado(event) {
     setIdProjetoSelecionado(event.target.value);
+  }
+  function selectAlteradoUsuario(event) {
+    setUsuario(event.target.value);
   }
 
   function quandoSelecionadoUsuario(selectedList, selectedItem) {
@@ -131,13 +126,16 @@ export default function ModalCadastroMateria({
         ))}
       </select>
 
-      <Multiselect
-        options={usuarios}
-        selectedValues={usuarioAtribuido}
-        onSelect={quandoSelecionadoUsuario}
-        onRemove={quandoRemoverDependencia}
-        displayValue="nome"
-      />
+      <select value={usuarioAtribuido} onChange={selectAlteradoUsuario}>
+        <option value="" disabled>
+          Selecione um Usuario
+        </option>
+        {usuario.map((usuario) => (
+          <option key={usuario.id} value={usuario.id}>
+            {usuario.nome}
+          </option>
+        ))}
+      </select>
 
       <button onClick={Cadastrar}>Cadastrar</button>
     </Modal>
