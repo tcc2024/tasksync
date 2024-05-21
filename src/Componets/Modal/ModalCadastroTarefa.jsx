@@ -3,6 +3,11 @@ import Modal from "react-modal";
 import ApiService from "../../services/ApiService";
 import Multiselect from "multiselect-react-dropdown";
 import ToastService from "../../services/ToastService";
+import React, { useEffect, useState } from "react";
+import Modal from "react-modal";
+import ApiService from "../../services/ApiService";
+import Multiselect from "multiselect-react-dropdown";
+import ToastService from "../../services/ToastService";
 
 export default function ModalCadastroMateria({
   modalAberto,
