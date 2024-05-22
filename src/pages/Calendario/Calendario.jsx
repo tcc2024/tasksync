@@ -5,13 +5,16 @@ import {
   viewMonthGrid,
   viewMonthAgenda,
 } from "@schedule-x/calendar";
+import ModalCadastroEvento from "../../Componets/Modal/ModalCalendarioEventos";
 import "@schedule-x/theme-default/dist/index.css";
 import Sidebar from "../../Componets/Sidebar/Sidebar";
 import Header from "../../Componets/Header/Header";
 import { ToastContainer } from "react-toastify";
 import styles from "./Calendario.module.css";
+import { useState } from "react";
 
 function Calendario() {
+  const [modalAberto, setModalAberto] = useState(false);
   const calendar = useCalendarApp({
     defaultView: viewMonthGrid.name,
     views: [viewDay, viewWeek, viewMonthGrid, viewMonthAgenda],
@@ -31,7 +34,10 @@ function Calendario() {
   });
 
   function onClickCalendar(date) {
-    //Abrir Modal aqui
+    
+    <ModalCadastroEvento
+    modalAberto={modalAberto}
+    setModalAberto={setModalAberto}></ModalCadastroEvento>
   }
 
   return (
