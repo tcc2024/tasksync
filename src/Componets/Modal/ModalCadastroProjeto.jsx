@@ -21,7 +21,6 @@ export default function ModalCadastroProjeto({ modalAberto, setModalAberto }) {
   const [descricao, setDescricao] = useState("");
 
   async function CadastrarProjeto() {
-    console.log("test");
     try {
       const body = {
         nome,

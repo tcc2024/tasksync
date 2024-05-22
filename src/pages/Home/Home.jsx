@@ -10,7 +10,7 @@ import ApiService from "../../services/ApiService";
 
 export default function Home() {
   const navigate = useNavigate();
-  const [usuario, setUsuario] = useState({})
+  const [usuario, setUsuario] = useState({});
   const [projetos, setProjetos] = useState([
     {
       tituloTarefa: "Banco de Dados",
@@ -44,6 +44,8 @@ export default function Home() {
       <div className={styles.appContainer}>
         <Header />
         <div className={styles.pages}>
+          <div>{usuario.nome}</div>
+
           <ListaDeProjetos projetos={projetos} />
         </div>
       </div>

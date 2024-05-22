@@ -22,7 +22,7 @@ export default function ModalCadastroTarefa({
   };
   Modal.setAppElement("#root");
 
-  const [usuario, setUsuario] = useState([])
+  const [usuarios, setUsuarios] = useState([]);
   const [usuarioAtribuido, setUsuarioAtribuido] = useState([]);
   const [projetos, setProjetos] = useState([]);
   const [idProjetoSelecionado, setIdProjetoSelecionado] = useState("");
@@ -39,9 +39,7 @@ export default function ModalCadastroTarefa({
         projeto: {
           id: idProjetoSelecionado,
         },
-        usuario: {
-          id: usuario,
-        }
+        usuarios: usuarioAtribuido.map((usuario) => ({ id: usuario.id })),
       };
 
       await ApiService.post("/Tarefa/CriarTarefa", body);
@@ -63,8 +61,19 @@ export default function ModalCadastroTarefa({
     }
   }
 
+  async function BuscarUsuarios() {
+    try {
+      const response = await ApiService.get("/Usuario/listarUsuarios");
+      setUsuarios(response.data);
+      console.log("palmeiras", response.data);
+    } catch (error) {
+      ToastService.Error("Erro ao Listar Usuários");
+    }
+  }
+
   useEffect(() => {
     BuscarProjetos();
+    BuscarUsuarios();
   }, []);
 
   function FecharModal() {
@@ -74,17 +83,14 @@ export default function ModalCadastroTarefa({
   function selectAlterado(event) {
     setIdProjetoSelecionado(event.target.value);
   }
-  function selectAlteradoUsuario(event) {
-    setUsuario(event.target.value);
-  }
 
   function quandoSelecionadoUsuario(selectedList, selectedItem) {
     setUsuarioAtribuido([...usuarioAtribuido, selectedItem]);
   }
 
-  function quandoRemoverDependencia(selectedList, removedItem) {
+  function quandoRemoverUsuario(selectedList, removedItem) {
     setUsuarioAtribuido(
-      usuarioAtribuido.filter((user) => user.id !== removedItem.id)
+      usuarioAtribuido.filter((usuario) => usuario.id !== removedItem.id)
     );
   }
 
@@ -126,13 +132,14 @@ export default function ModalCadastroTarefa({
           </option>
         ))}
       </select>
+
       <Multiselect
-                options={tarefas}
-                selectedValues={projetos}
-                onSelect={quandoSelecionadoUsuario}
-                onRemove={quandoRemoverDependencia}
-                displayValue="nome"
-            />
+        options={usuarios}
+        selectedValues={usuarioAtribuido}
+        onSelect={quandoSelecionadoUsuario}
+        onRemove={quandoRemoverUsuario}
+        displayValue="nome"
+      />
 
       <button onClick={Cadastrar}>Cadastrar</button>
     </Modal>

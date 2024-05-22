@@ -4,25 +4,27 @@ import ModalCadastroProjeto from "../Modal/ModalCadastroProjeto";
 import ModalCadastroTarefa from "../Modal/ModalCadastroTarefa";
 
 export default function Header() {
-  const [modalAberto, setModalAberto] = useState(false);
+  const [modalProjetoAberto, setModalProjetoAberto] = useState(false);
+  const [modalTarefaAberto, setModalTarefaAberto] = useState(false);
+
 
   return (
     <>
-      <ModalCadastroProjeto
-        modalAberto={modalAberto}
-        setModalAberto={setModalAberto}
-      ></ModalCadastroProjeto>
       <>
+        <ModalCadastroProjeto
+          modalAberto={modalProjetoAberto}
+          setModalAberto={setModalProjetoAberto}
+        />
         <ModalCadastroTarefa
-          modalAberto={modalAberto}
-          setModalAberto={setModalAberto}
-        ></ModalCadastroTarefa>
+          modalAberto={modalTarefaAberto}
+          setModalAberto={setModalTarefaAberto}
+        />
       </>
       <div className={styles.container}>
-        <button className={styles.btn} onClick={() => setModalAberto(true)}>
+        <button className={styles.btn} onClick={() => setModalProjetoAberto(true)}>
           Criar Projeto
         </button>
-        <button className={styles.btn} onClick={() => setModalAberto(true)}>
+        <button className={styles.btn} onClick={() => setModalTarefaAberto(true)}>
           Criar Tarefa
         </button>
       </div>
