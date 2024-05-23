@@ -4,12 +4,13 @@ import ApiService from "../../services/ApiService";
 import ToastService from "../../services/ToastService";
 import styles from "./ModalCadastroProjeto.module.css";
 import Multiselect from "multiselect-react-dropdown";
+import "@schedule-x/theme-default/dist/index.css";
 
 export default function ModalCadastroEvento({
   modalAberto,
   setModalAberto,
-  eventos,
   buscarEventos,
+  data
 }) {
   const customStyles = {
     content: {
@@ -23,24 +24,29 @@ export default function ModalCadastroEvento({
   };
   Modal.setAppElement("#root");
 
-  const [usuario, setUsuario] = useState([])
+  const [usuarios, setUsuarios] = useState([])
   const [usuarioAtribuido, setUsuarioAtribuido] = useState([]);
-  const [nome, setNome] = useState("");
+  const [projetos, setProjetos] = useState([]);
+  const [idProjetoSelecionado, setIdProjetoSelecionado] = useState("");
+  const [titulo, setTitulo] = useState("");
   const [descricao, setDescricao] = useState("");
-  const [dataEntrega, setDataEntrega] = useState("");
+  const [dataHora, setDataHora] = useState(data);
 
   async function Cadastrar() {
     try {
       const body = {
-        nome,
+        titulo,
         descricao,
-        dataEntrega,
-        usuario: {
-          id: usuario,
+        dataHora,
+        projetoID: {
+          id: idProjetoSelecionado,
+        },
+        usuariosAtribuidos: {
+          id: usuarioAtribuido,
         }
       };
 
-      await ApiService.post("/Evento/CriarEvento", body);
+      await ApiService.post("/Eventos/CriarEvento", body);
 
       setModalAberto(false);
       ToastService.Success("Evento Criado com Sucesso");
@@ -50,23 +56,43 @@ export default function ModalCadastroEvento({
     }
   }
 
+  async function BuscarProjetos() {
+    try {
+      const response = await ApiService.get("/Projeto/listarProjeto");
+      setProjetos(response.data);
+    } catch (error) {
+      ToastService.Error("Erro ao Listar Seus Projetos");
+    }
+  }
+
+  async function BuscarUsuarios() {
+    try {
+      const response = await ApiService.get("/Usuario/listarUsuarios");
+      setUsuarios(response.data);
+    } catch (error) {
+      ToastService.Error("Erro ao Listar Usuarios");
+    }
+  }
+
   useEffect(() => {
-    buscarEventos();
+    BuscarProjetos();
+    BuscarUsuarios();
   }, []);
+
 
   function FecharModal() {
     setModalAberto(false);
-  }
-
-  function selectAlteradoUsuario(event) {
-    setUsuario(event.target.value);
   }
 
   function quandoSelecionadoUsuario(selectedList, selectedItem) {
     setUsuarioAtribuido([...usuarioAtribuido, selectedItem]);
   }
 
-  function quandoRemoverDependencia(selectedList, removedItem) {
+  function selectAlterado(event) {
+    setIdProjetoSelecionado(event.target.value);
+  }
+
+  function quandoRemoverUsuario(selectedList, removedItem) {
     setUsuarioAtribuido(
       usuarioAtribuido.filter((user) => user.id !== removedItem.id)
     );
@@ -86,28 +112,39 @@ export default function ModalCadastroEvento({
       <input
         className={styles.nomeDescProjeto}
         placeholder="Nome"
-        value={nome}
-        onChange={(e) => setNome(e.target.value)}
+        value={titulo}
+        onChange={(e) => setTitulo(e.target.value)}
       />
       <input
         className={styles.nomeDescProjeto}
         placeholder="Descricao"
         value={descricao}
         onChange={(e) => setDescricao(e.target.value)}
-      />
+      />{/*
       <input
         placeholder="Data de Entrega"
         value={dataEntrega}
         type="date"
-        onChange={(e) => setDataEntrega(e.target.value)}
-      />
+        onChange={(e) => setDataEntrega(dataHora)}
+  />*/}
       <Multiselect
-                options={eventos}
-                onSelect={quandoSelecionadoUsuario}
-                onRemove={quandoRemoverDependencia}
-                displayValue="nome"
-            />
+        options={usuarios}
+        selectedValues={usuarioAtribuido}
+        onSelect={quandoSelecionadoUsuario}
+        onRemove={quandoRemoverUsuario}
+        displayValue="nome"/>
 
+        <select value={idProjetoSelecionado} onChange={selectAlterado}>
+          <option value="" disabled>
+            Selecione Um Projeto
+          </option>
+          {projetos.map((projeto) => (
+            <option key={projeto.id} value={projeto.id}>
+              {projeto.nome}
+            </option>
+          ))}
+        </select>
+      
       <button className={styles.button} onClick={Cadastrar}>Cadastrar</button>
     </Modal>
   );
