@@ -15,6 +15,7 @@ import { useState } from "react";
 
 function Calendario() {
   const [modalAberto, setModalAberto] = useState(false);
+  const [dataSelecionada, setDataSelecionada] = useState(null);
   const calendar = useCalendarApp({
     defaultView: viewMonthGrid.name,
     views: [viewDay, viewWeek, viewMonthGrid, viewMonthAgenda],
@@ -32,12 +33,9 @@ function Calendario() {
       },
     },
   });
-
   function onClickCalendar(date) {
-    
-    <ModalCadastroEvento
-    modalAberto={modalAberto}
-    setModalAberto={setModalAberto}></ModalCadastroEvento>
+    setDataSelecionada(date); //Selecionar data do dia Clicado
+    setModalAberto(true);
   }
 
   return (
@@ -48,6 +46,13 @@ function Calendario() {
         <div className={styles.pages}>
           <ScheduleXCalendar calendarApp={calendar} />
         </div>
+        {modalAberto && (
+          <ModalCadastroEvento
+            modalAberto={modalAberto}
+            setModalAberto={setModalAberto}
+            dataHora={dataSelecionada}
+          />
+        )}
       </div>
       <ToastContainer />
     </div>
