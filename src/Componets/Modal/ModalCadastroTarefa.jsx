@@ -36,10 +36,8 @@ export default function ModalCadastroTarefa({
         nome,
         descricao,
         dataEntrega,
-        projeto: {
-          id: idProjetoSelecionado,
-        },
-        usuarios: usuarioAtribuido.map((usuario) => ({ id: usuario.id })),
+        projeto: idProjetoSelecionado,
+        usuariosAtribuidos: usuarioAtribuido.map((usuario) => usuario.id),
       };
 
       await ApiService.post("/Tarefa/CriarTarefa", body);

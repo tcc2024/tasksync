@@ -7,7 +7,6 @@ export default function Header() {
   const [modalProjetoAberto, setModalProjetoAberto] = useState(false);
   const [modalTarefaAberto, setModalTarefaAberto] = useState(false);
 
-
   return (
     <>
       <>
