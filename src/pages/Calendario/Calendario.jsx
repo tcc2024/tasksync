@@ -34,7 +34,8 @@ function Calendario() {
     },
   });
   function onClickCalendar(date) {
-    setDataSelecionada(date); //Selecionar data do dia Clicado
+    console.log(date);
+    setDataSelecionada(date);
     setModalAberto(true);
   }
 

@@ -10,7 +10,7 @@ export default function ModalCadastroEvento({
   modalAberto,
   setModalAberto,
   buscarEventos,
-  data
+  dataHora
 }) {
   const customStyles = {
     content: {
@@ -30,27 +30,25 @@ export default function ModalCadastroEvento({
   const [idProjetoSelecionado, setIdProjetoSelecionado] = useState("");
   const [titulo, setTitulo] = useState("");
   const [descricao, setDescricao] = useState("");
-  const [dataHora, setDataHora] = useState(data);
-
+ 
   async function Cadastrar() {
     try {
+
+      const usuariosAtribuidos = usuarioAtribuido.map((usuario) => ( usuario.id ));
+
       const body = {
         titulo,
         descricao,
         dataHora,
-        projetoID: {
-          id: idProjetoSelecionado,
-        },
-        usuariosAtribuidos: {
-          id: usuarioAtribuido,
-        }
+        projetoID: idProjetoSelecionado,
+        usuariosAtribuidos
       };
 
       await ApiService.post("/Eventos/CriarEvento", body);
 
       setModalAberto(false);
       ToastService.Success("Evento Criado com Sucesso");
-      await buscarEventos();
+      // await buscarEventos();
     } catch (error) {
       ToastService.Error("Erro ao Criar Evento");
     }
