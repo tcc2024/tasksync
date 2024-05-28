@@ -7,8 +7,7 @@ import Multiselect from "multiselect-react-dropdown";
 export default function ModalCadastroTarefa({
   modalAberto,
   setModalAberto,
-  tarefas,
-  buscarTarefas,
+  refresh,
 }) {
   const customStyles = {
     content: {
@@ -23,7 +22,7 @@ export default function ModalCadastroTarefa({
   Modal.setAppElement("#root");
 
   const [usuarios, setUsuarios] = useState([]);
-  const [usuarioAtribuido, setUsuarioAtribuido] = useState([]);
+  const [usuariosAtribuido, setUsuariosAtribuido] = useState([]);
   const [projetos, setProjetos] = useState([]);
   const [idProjetoSelecionado, setIdProjetoSelecionado] = useState("");
   const [nome, setNome] = useState("");
@@ -37,14 +36,14 @@ export default function ModalCadastroTarefa({
         descricao,
         dataEntrega,
         projeto: idProjetoSelecionado,
-        usuariosAtribuidos: usuarioAtribuido.map((usuario) => usuario.id),
+        usuariosAtribuidos: usuariosAtribuido.map((usuario) => usuario.id),
       };
 
       await ApiService.post("/Tarefa/CriarTarefa", body);
-
+      console.log(body)
       setModalAberto(false);
       ToastService.Success("Tarefa Criada com Sucesso");
-      await buscarTarefas();
+      refresh();
     } catch (error) {
       ToastService.Error("Erro ao Criar Tarefa");
     }
@@ -83,12 +82,12 @@ export default function ModalCadastroTarefa({
   }
 
   function quandoSelecionadoUsuario(selectedList, selectedItem) {
-    setUsuarioAtribuido([...usuarioAtribuido, selectedItem]);
+    setUsuariosAtribuido([...usuariosAtribuido, selectedItem]);
   }
 
   function quandoRemoverUsuario(selectedList, removedItem) {
-    setUsuarioAtribuido(
-      usuarioAtribuido.filter((usuario) => usuario.id !== removedItem.id)
+    setUsuariosAtribuido(
+      usuariosAtribuido.filter((usuario) => usuario.id !== removedItem.id)
     );
   }
 
@@ -133,7 +132,7 @@ export default function ModalCadastroTarefa({
 
       <Multiselect
         options={usuarios}
-        selectedValues={usuarioAtribuido}
+        selectedValues={usuariosAtribuido}
         onSelect={quandoSelecionadoUsuario}
         onRemove={quandoRemoverUsuario}
         displayValue="nome"

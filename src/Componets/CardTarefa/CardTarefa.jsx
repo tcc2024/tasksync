@@ -4,10 +4,7 @@ import styles from "./CardTarefa.module.css";
 export default function CardTarefa({ tarefa }) {
   return (
     <div className={styles.container}>
-      <div
-        className={styles.card}
-        onClick={() => (window.location.href = "/menuprojeto")}
-      >
+      <div className={styles.card}>
         <div className={styles.header}>
           <p className={styles.titulo}>{tarefa.titulo}</p>
           <hr />
@@ -18,7 +15,7 @@ export default function CardTarefa({ tarefa }) {
           </div>
 
           <div className={styles.footer}>
-            <p className={styles.projeto}>{tarefa.projeto}</p>
+            <p className={styles.projeto}></p>
           </div>
         </div>
       </div>

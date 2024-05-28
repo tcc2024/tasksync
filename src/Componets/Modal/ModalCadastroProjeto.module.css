@@ -1,55 +1,63 @@
 .container {
   display: flex;
   flex-direction: row;
-  height: 100%;
-  width: 100%;
   background-color: #222831;
+  border-radius: 1em;
+  width: 1000px;
+  height: 600px;
 }
 
 .sidebar {
-  margin: 30px;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 30%;
+  width: 100%;
+  margin: 5%;
   background-color: #222831;
   color: white;
+  border-radius: 1em;
 }
 
 .right {
   color: white;
   width: 70%;
   background: linear-gradient(0deg, #5fb1bb 0%, #76b5b8 14%, #222831 100%);
-  padding: 40px;  
+  border-radius: 0 1em 1em 0;
 }
 
 input {
   color: black;
-  width: 250px;
-  margin-bottom: 10px;
-  padding: 15px;
-  border-radius: 15px;
+  width: 60%;
+  
+  border-radius: 1em;
 }
 
-.nomeDescProjeto{
+.nomeDescProjeto {
   margin-bottom: 15px;
+}
+
+.textoRight {
+  margin: auto;
 }
 
 .tituloRight {
   font-size: 25px;
-  margin-bottom: 10px;
-  padding-left: 15px;
 }
 
 .button {
-  margin-top: 70px;
   width: 120px;
   height: 50px;
   background-color: white;
   border-radius: 15px;
 }
+.fecharModal {
+  text-align: right;
+}
+
+.botaoFechar {
+  width: 120px;
+  height: 50px;
+  background-color: white;
+  border-radius: 1em;
+}
 
 .title {
   width: 300px;
-  margin-bottom: 40px;
 }
