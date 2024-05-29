@@ -3,6 +3,7 @@ import ApiService from "../../services/ApiService";
 import ToastService from "../../services/ToastService";
 import Modal from "react-modal";
 import Multiselect from "multiselect-react-dropdown";
+import styles from "./ModalCadastroTarefa.module.css";
 
 export default function ModalCadastroTarefa({
   modalAberto,
@@ -17,6 +18,8 @@ export default function ModalCadastroTarefa({
       bottom: "auto",
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
+      background: "transparent",
+      border: "none",
     },
   };
   Modal.setAppElement("#root");
@@ -100,45 +103,86 @@ export default function ModalCadastroTarefa({
       shouldCloseOnOverlayClick={true}
       onRequestClose={FecharModal}
     >
-      <h2>Criar Tarefa</h2>
-      <button onClick={FecharModal}>Fechar</button>
-      <input
-        placeholder="Nome"
-        value={nome}
-        onChange={(e) => setNome(e.target.value)}
-      />
-      <input
-        placeholder="Descricao"
-        value={descricao}
-        onChange={(e) => setDescricao(e.target.value)}
-      />
-      <input
-        placeholder="Data de Entrega"
-        value={dataEntrega}
-        type="date"
-        onChange={(e) => setDataEntrega(e.target.value)}
-      />
+      <div className={styles.container}>
+        <div className={styles.sidebar}>
+          <div className={styles.titulo}>
+            <h3>Criar Tarefa</h3>
+          </div>
 
-      <select value={idProjetoSelecionado} onChange={selectAlterado}>
-        <option value="" disabled>
-          Selecione Um Projeto
-        </option>
-        {projetos.map((projeto) => (
-          <option key={projeto.id} value={projeto.id}>
-            {projeto.nome}
-          </option>
-        ))}
-      </select>
+          <div className={styles.inputRow}>
+            <div className={styles.inputNome}>
+              <p className={styles.nomeDescTarefa}>Nome da Tarefa</p>
+              <input
+                placeholder="Nome"
+                value={nome}
+                onChange={(e) => setNome(e.target.value)}
+              />
+            </div>
 
-      <Multiselect
-        options={usuarios}
-        selectedValues={usuariosAtribuido}
-        onSelect={quandoSelecionadoUsuario}
-        onRemove={quandoRemoverUsuario}
-        displayValue="nome"
-      />
+            <div className={styles.inputDesc}>
+              <p className={styles.nomeDescTarefa}>Descrição da Tarefa</p>
+              <input
+                placeholder="Descrição"
+                value={descricao}
+                onChange={(e) => setDescricao(e.target.value)}
+              />
+            </div>
+          </div>
 
-      <button onClick={Cadastrar}>Cadastrar</button>
+          <div className={styles.inputData}>
+            <p className={styles.nomeDescTarefa}>Data de Entrega</p>
+            <input
+              placeholder="Data de Entrega"
+              type="date"
+              value={dataEntrega}
+              onChange={(e) => setDataEntrega(e.target.value)}
+            />
+          </div>
+
+          <div className={styles.inputProjeto}>
+            <p className={styles.nomeDescTarefa}>Projeto</p>
+            <select
+              value={idProjetoSelecionado}
+              onChange={selectAlterado}
+            >
+              <option value="" disabled>
+                Selecione Um Projeto
+              </option>
+              {projetos.map((projeto) => (
+                <option key={projeto.id} value={projeto.id}>
+                  {projeto.nome}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className={styles.inputUsuarios}>
+            <p className={styles.nomeDescTarefa}>Usuários Atribuídos</p>
+            <Multiselect
+              options={usuarios}
+              selectedValues={usuariosAtribuido}
+              onSelect={quandoSelecionadoUsuario}
+              onRemove={quandoRemoverUsuario}
+              displayValue="nome"
+            />
+          </div>
+
+          <div className={styles.botaoCadastrar}>
+            <center>
+              <button className={styles.button} onClick={Cadastrar}>
+                Cadastrar
+              </button>
+            </center>
+          </div>
+        </div>
+        <div className={styles.right}>
+          <div className={styles.textoRight}>
+            <p className={styles.tituloRight}>
+              Crie uma tarefa para gerenciar e organizar suas atividades
+            </p>
+          </div>
+        </div>
+      </div>
     </Modal>
   );
 }
