@@ -58,19 +58,26 @@ export default function ModalCadastroProjeto({
           <div className={styles.titulo}>
             <h3>Vamos Criar um Projeto</h3>
           </div>
-          <p className={styles.nomeDescProjeto}>Nome do Projeto</p>
-          <input
-            placeholder="Nome"
-            value={nome}
-            onChange={(e) => setNome(e.target.value)}
-          />
-          <p className={styles.nomeDescProjeto}>Descrição do Projeto</p>
-          <input 
-          className={styles}
-            placeholder="Descrição"
-            value={descricao}
-            onChange={(e) => setDescricao(e.target.value)}
-          />
+          <div className={styles.inputNome}>
+            <p className={styles.nomeDescProjeto}>Nome do Projeto</p>
+            <input
+              className={styles.nome}
+              placeholder="Nome"
+              value={nome}
+              onChange={(e) => setNome(e.target.value)}
+            />
+          </div>
+
+          <div className={styles.inputDesc}>
+            <p className={styles.nomeDescProjeto}>Descrição do Projeto</p>
+            <input
+              className={styles.desc}
+              placeholder="Descrição"
+              value={descricao}
+              onChange={(e) => setDescricao(e.target.value)}
+            />
+          </div>
+
           <div className={styles.botaoCadastrar}>
             <center>
               <button className={styles.button} onClick={CadastrarProjeto}>
@@ -80,11 +87,10 @@ export default function ModalCadastroProjeto({
           </div>
         </div>
         <div className={styles.right}>
-          <div className={styles.fecharModal}>
-            <button onClick={FecharModal} className={styles.botaoFechar}>Fechar</button>
-          </div>
           <div className={styles.textoRight}>
-            <p className={styles.tituloRight}>Crie um projeto para gerenciar e organizar suas tarefas</p>
+            <p className={styles.tituloRight}>
+              Crie um projeto para gerenciar e organizar suas tarefas
+            </p>
           </div>
         </div>
       </div>
