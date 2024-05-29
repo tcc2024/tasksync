@@ -11,18 +11,34 @@ import ApiService from "../../services/ApiService";
 export default function Home() {
   const navigate = useNavigate();
   const [usuario, setUsuario] = useState({});
-  const [projetos, setProjetos] = useState([
-    {
-      tituloTarefa: "Banco de Dados",
-      descricaoTarefa: "AAAAAAAAAAAAAA",
-      tituloProjeto: "TaskSync",
-      descricaoProjeto: "TaskSync",
-    },
-  ]);
+  const [projetos, setProjetos] = useState([]);
+  const [tarefas, setTarefas] = useState([]);
+
+  async function BuscarDadosProjetosPorUsuario() {
+    const response = await ApiService.get("/Projeto/listarProjeto");
+    console.log(response.data);
+    if (response.status == 200) {
+      setProjetos(response.data);
+    }
+  }
+
+  async function BuscarDadosTarefasPorUsuario() {
+    const response = await ApiService.get("/Tarefa/listarTarefa");
+    if (response.status == 200) {
+      setTarefas(response.data);
+    }
+  }
+
+  async function refresh() {
+    await BuscarDadosProjetosPorUsuario();
+    await BuscarDadosTarefasPorUsuario();
+  }
 
   useEffect(() => {
     VerificarLogin();
     BuscarDadosUsuario();
+    BuscarDadosProjetosPorUsuario();
+    BuscarDadosTarefasPorUsuario();
   }, []);
 
   async function BuscarDadosUsuario() {
@@ -42,11 +58,10 @@ export default function Home() {
     <div className={styles.container}>
       <Sidebar />
       <div className={styles.appContainer}>
-        <Header />
+        <Header refresh={refresh} />
         <div className={styles.pages}>
           <div>{usuario.nome}</div>
-
-          <ListaDeProjetos projetos={projetos} />
+          <ListaDeProjetos projetos={projetos} tarefas={tarefas} />
         </div>
       </div>
       <ToastContainer />
