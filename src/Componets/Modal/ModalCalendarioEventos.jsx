@@ -28,7 +28,7 @@ export default function ModalCadastroEvento({
   const [usuarioAtribuido, setUsuarioAtribuido] = useState([]);
   const [projetos, setProjetos] = useState([]);
   const [idProjetoSelecionado, setIdProjetoSelecionado] = useState("");
-  const [titulo, setTitulo] = useState("");
+  const [nome, setNome] = useState("");
   const [descricao, setDescricao] = useState("");
  
   async function Cadastrar() {
@@ -37,7 +37,7 @@ export default function ModalCadastroEvento({
       const usuariosAtribuidos = usuarioAtribuido.map((usuario) => ( usuario.id ));
 
       const body = {
-        titulo,
+        nome,
         descricao,
         dataHora,
         projetoID: idProjetoSelecionado,
@@ -110,8 +110,8 @@ export default function ModalCadastroEvento({
       <input
         className={styles.nomeDescProjeto}
         placeholder="Nome"
-        value={titulo}
-        onChange={(e) => setTitulo(e.target.value)}
+        value={nome}
+        onChange={(e) => setNome(e.target.value)}
       />
       <input
         className={styles.nomeDescProjeto}
