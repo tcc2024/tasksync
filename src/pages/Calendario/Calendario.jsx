@@ -1,4 +1,4 @@
-import { useCalendarApp, ScheduleXCalendar } from "@schedule-x/react";
+import { useCalendarApp, ScheduleXCalendar, } from "@schedule-x/react";
 import {
   viewWeek,
   viewDay,
@@ -11,28 +11,51 @@ import Sidebar from "../../Componets/Sidebar/Sidebar";
 import Header from "../../Componets/Header/Header";
 import { ToastContainer } from "react-toastify";
 import styles from "./Calendario.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import ApiService from "../../services/ApiService";
 
 function Calendario() {
   const [modalAberto, setModalAberto] = useState(false);
   const [dataSelecionada, setDataSelecionada] = useState(null);
+  const [eventos, setEventos] = useState([]);
   const calendar = useCalendarApp({
     defaultView: viewMonthGrid.name,
     views: [viewDay, viewWeek, viewMonthGrid, viewMonthAgenda],
-    events: [
-      {
-        id: "1",
-        title: "Event 1",
-        start: "2023-12-16",
-        end: "2023-12-16",
-      },
-    ],
+    events: eventos,
     callbacks: {
       onClickDate(date) {
         onClickCalendar(date);
       },
     },
   });
+
+  async function BuscarDadosEventosPorUsuario() {
+    const response = await ApiService.get("/Eventos/listarEvento");
+    if (response.status == 200) {
+
+
+      response.data.forEach(evento => {
+        const eventoExiste = calendar.events.get(evento.id);
+        if (!eventoExiste) {
+
+          console.log(evento)
+          calendar.events.add({
+            id: evento.id,
+            title: evento.nome,
+            description: evento.descricao,
+            // people: evento.usuariosAtribuidos,
+            start: '2024-05-28',
+            end: '2024-05-28',
+          });
+        }
+      });
+    }
+  }
+
+  useEffect(() => {
+    BuscarDadosEventosPorUsuario();
+  }, []);
+
   function onClickCalendar(date) {
     console.log(date);
     setDataSelecionada(date);

@@ -63,7 +63,6 @@ export default function ModalCadastroTarefa({
     try {
       const response = await ApiService.get("/Usuario/listarUsuarios");
       setUsuarios(response.data);
-      console.log("palmeiras", response.data);
     } catch (error) {
       ToastService.Error("Erro ao Listar Usuários");
     }
