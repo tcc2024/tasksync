@@ -9,7 +9,7 @@ import "@schedule-x/theme-default/dist/index.css";
 export default function ModalCadastroEvento({
   modalAberto,
   setModalAberto,
-  buscarEventos,
+  resfresh,
   dataHora
 }) {
   const customStyles = {
@@ -48,7 +48,7 @@ export default function ModalCadastroEvento({
 
       setModalAberto(false);
       ToastService.Success("Evento Criado com Sucesso");
-      // await buscarEventos();
+      resfresh();
     } catch (error) {
       ToastService.Error("Erro ao Criar Evento");
     }
@@ -118,13 +118,7 @@ export default function ModalCadastroEvento({
         placeholder="Descricao"
         value={descricao}
         onChange={(e) => setDescricao(e.target.value)}
-      />{/*
-      <input
-        placeholder="Data de Entrega"
-        value={dataEntrega}
-        type="date"
-        onChange={(e) => setDataEntrega(dataHora)}
-  />*/}
+      />
       <Multiselect
         options={usuarios}
         selectedValues={usuarioAtribuido}

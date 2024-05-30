@@ -6,7 +6,7 @@ export default function CardTarefa({ tarefa }) {
     <div className={styles.container}>
       <div className={styles.card}>
         <div className={styles.header}>
-          <p className={styles.titulo}>{tarefa.titulo}</p>
+          <p className={styles.titulo}>{tarefa.nome}</p>
           <hr />
         </div>
         <div className={styles.content}>

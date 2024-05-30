@@ -34,16 +34,17 @@ export default function ModalCadastroTarefa({
 
   async function Cadastrar() {
     try {
+      console.log("idProjetoSelecionado", idProjetoSelecionado);
       const body = {
         nome,
         descricao,
         dataEntrega,
-        projeto: idProjetoSelecionado,
+        projeto_id: idProjetoSelecionado,
         usuariosAtribuidos: usuariosAtribuido.map((usuario) => usuario.id),
       };
 
       await ApiService.post("/Tarefa/CriarTarefa", body);
-      console.log(body)
+      console.log(body);
       setModalAberto(false);
       ToastService.Success("Tarefa Criada com Sucesso");
       refresh();
@@ -140,10 +141,7 @@ export default function ModalCadastroTarefa({
 
           <div className={styles.inputProjeto}>
             <p className={styles.nomeDescTarefa}>Projeto</p>
-            <select
-              value={idProjetoSelecionado}
-              onChange={selectAlterado}
-            >
+            <select value={idProjetoSelecionado} onChange={selectAlterado}>
               <option value="" disabled>
                 Selecione Um Projeto
               </option>
