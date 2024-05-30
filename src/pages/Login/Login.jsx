@@ -84,7 +84,7 @@ export default function Login() {
           </div>
           <div>
             <button onClick={Login} className={styles.btn}>
-              Cadastrar
+              Login
             </button>
           </div>
         </div>
