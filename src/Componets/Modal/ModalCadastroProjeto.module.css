@@ -38,6 +38,12 @@ input {
 
 input::placeholder {
   color: white;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+input:focus::placeholder {
+  color: transparent; 
 }
 
 .nomeDescProjeto {

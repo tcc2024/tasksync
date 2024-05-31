@@ -75,7 +75,7 @@ h3 {
 }
 
 input {
-  width: 100%; /* Make input take full width of parent container */
+  width: 100%; 
 }
 
 .textoRight {

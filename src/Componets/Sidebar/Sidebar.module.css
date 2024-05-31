@@ -11,51 +11,51 @@
 .botaomenu{
   margin: 20%;
   background-image: url("/src/assets/HomePage.png");
-  background-size: 40px 40px;
-  background-position-y: 10px;
-  background-position-x: 20px;
+  background-size: 50% 60%;
+  background-position-y: 50%;
+  background-position-x: 50%;
   background-repeat: no-repeat;
-  width: 80px;
-  height: 60px;
-  border-radius: 20px;
+  width: 25%;
+  height: 15%;
+  border-radius: 1em;
   background-color: #222831;
 
 }
 .botaoprojetos{
   margin: 20%;
   background-image: url("/src/assets/Project.png");
-  background-size: 40px 40px;
-  background-position-y: 10px;
-  background-position-x: 20px;
+  background-size: 50% 60%;
+  background-position-y: 50%;
+  background-position-x: 50%;
   background-repeat: no-repeat;
-  width: 80px;
-  height: 60px;
-  border-radius: 20px;
+  width: 25%;
+  height: 15%;
+  border-radius: 1em;
   background-color: #222831;
 
 }
 .botaocalendario{
   margin: 20%;
   background-image: url("/src/assets/Calendar31.png");
-  background-size: 40px 40px;
-  background-position-y: 10px;
-  background-position-x: 20px;
+  background-size: 50% 60%;
+  background-position-y: 50%;
+  background-position-x: 50%;
   background-repeat: no-repeat;
-  width: 80px;
-  height: 60px;
-  border-radius: 20px;
+  width: 25%;
+  height: 15%;
+  border-radius: 1em;
   background-color: #222831;
   
 }
 .botaoconfig { 
   margin: 20%;
   background-image: url("/src/assets/Settings.png");
-  background-size: 40px 40px;
-  background-position-y: 10px;
-  background-position-x: 20px;
+  background-size: 50% 60%;
+  background-position-y: 50%;
+  background-position-x: 50%;
   background-repeat: no-repeat;
-  width: 80px;
-  height: 60px;
-  border-radius: 20px;
+  width: 25%;
+  height: 15%;
+  border-radius: 1em;
   background-color: #222831;
 }

@@ -1,21 +1,50 @@
 .top {
-  height: 75px;
+  height: 10%;
   width: 100%;
   background-color: #222831;
   text-align: right;
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
 }
 
 .cadastrar {
   height: 50px;
   width: 135px;
-  border-radius: 10px;
+  border-radius: 1em;
   background-color: white;
 }
 
 .entrar {
   height: 50px;
   width: 135px;
-  border-radius: 10px;
+  border-radius: 1em;
   background-color: white;
   margin: 10px;
+}
+
+.pages {
+  width: 100%;
+  height: 90%;
+}
+.content {
+  width: 100%;
+  height: 60%;
+  color: white;
+  background: linear-gradient(70deg, #222831 50%, #76b5b8 90%);
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+}
+
+.texto {
+  width: 40%;
+  height: 60%;
+  padding: 3%;
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.useFree {
+  margin-top: 30%;
+  height: 50px;
+  width: 35%;
+  background-color: white;
+  border-radius: 1em;
 }
