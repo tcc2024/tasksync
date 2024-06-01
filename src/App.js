@@ -2,7 +2,7 @@ import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from "./pages/Login/Login";
 import Home from "./pages/Home/Home";
-import LandPage from "./pages/LandPage/LandPage";
+import LandingPage from "./pages/LandPage/LandingPage";
 import Cadastrar from "./pages/Cadastrar/Cadastrar";
 import Calendario from "./pages/Calendario/Calendario";
 import Projetos from "./pages/Projetos/Projetos";
@@ -20,7 +20,7 @@ function App() {
     },
     {
       path: "/",
-      element: <LandPage />,
+      element: <LandingPage />,
     },
     {
       path: "/cadastrar",

@@ -1,8 +1,8 @@
 import React from "react";
-import styles from "./LandPage.module.css";
+import styles from "./LandingPage.module.css";
 import { Link } from "react-router-dom";
 
-export default function LandPage() {
+export default function LandingPage() {
   return (
     <div className={styles.container}>
       <div className={styles.top}>
