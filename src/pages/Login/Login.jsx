@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Login.module.css"
+import styles from "./Login.module.css";
 import "@fontsource/inter";
 import "@fontsource/inter/400.css";
 import ApiService from "../../services/ApiService";
@@ -55,39 +55,22 @@ export default function Login() {
   return (
     <div className={styles.background}>
       <div className={styles.center}>
-        <div>
-          <h1 id="title">Log-In</h1>
-        </div>
-        <div>
-          <input
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            id="input-email"
-            type="text"
-            name="usuario"
-            className={styles.inputs}
-            placeholder="Email ou Usuário"
-          />
-        </div>
-        <div>
-          <input
-            value={senha}
-            onChange={(e) => setSenha(e.target.value)}
-            id="input-senha"
-            type="password"
-            name="email"
-            className={styles.inputs}
-            placeholder="Senha"
-          />
-          <div>
-            <h5>Não Tem Uma Conta? Cadastre-se</h5>
-          </div>
-          <div>
-            <button onClick={Login} className={styles.btn}>
-              Login
-            </button>
-          </div>
-        </div>
+        <h2>Faça Login</h2>
+        <input
+          type="text"
+          placeholder="E-mail"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className={styles.inputs}
+        />
+        <input
+          type="password"
+          placeholder="Senha"
+          value={senha}
+          onChange={(e) => setSenha(e.target.value)}
+          className={styles.inputs}
+        />
+        <button onClick={Login} className={styles.btn}>Entre</button>
       </div>
     </div>
   );

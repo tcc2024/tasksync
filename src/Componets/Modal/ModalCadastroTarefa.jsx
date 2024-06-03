@@ -113,6 +113,7 @@ export default function ModalCadastroTarefa({
             <div className={styles.inputNome}>
               <p className={styles.nomeDescTarefa}>Nome da Tarefa</p>
               <input
+                className={styles.input}
                 placeholder="Nome"
                 value={nome}
                 onChange={(e) => setNome(e.target.value)}
@@ -122,6 +123,7 @@ export default function ModalCadastroTarefa({
             <div className={styles.inputDesc}>
               <p className={styles.nomeDescTarefa}>Descrição da Tarefa</p>
               <input
+                className={styles.input}
                 placeholder="Descrição"
                 value={descricao}
                 onChange={(e) => setDescricao(e.target.value)}

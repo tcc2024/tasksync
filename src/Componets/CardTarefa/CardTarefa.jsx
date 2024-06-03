@@ -7,13 +7,12 @@ export default function CardTarefa({ tarefa }) {
       <div className={styles.card}>
         <div className={styles.header}>
           <p className={styles.titulo}>{tarefa.nome}</p>
-          <hr />
         </div>
+        <hr />
         <div className={styles.content}>
           <div className={styles.descricaoContainer}>
             <p className={styles.descricao}>{tarefa.descricao}</p>
           </div>
-
           <div className={styles.footer}>
             <p className={styles.projeto}></p>
           </div>
