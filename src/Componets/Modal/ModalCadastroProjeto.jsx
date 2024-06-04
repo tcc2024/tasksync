@@ -33,7 +33,6 @@ export default function ModalCadastroProjeto({
         descricao,
       };
 
-      console.log(body);
       await ApiService.post("/Projeto/CriarProjeto", body);
       ToastService.Success("Projeto Criado com Sucesso");
       setModalAberto(false);

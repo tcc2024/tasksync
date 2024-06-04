@@ -24,6 +24,12 @@ const ApiService = {
     const response = await axios.post(baseUrl + endpoint, body, header);
     return response;
   },
+
+  async put(endpoint, body) {
+    const header = createHeader();
+    const response = await axios.put(baseUrl + endpoint, body, header);
+    return response;
+  },
 };
 
 export default ApiService;

@@ -9,6 +9,7 @@ export default function ModalCadastroTarefa({
   modalAberto,
   setModalAberto,
   refresh,
+  projetoClicado
 }) {
   const customStyles = {
     content: {
@@ -31,10 +32,10 @@ export default function ModalCadastroTarefa({
   const [nome, setNome] = useState("");
   const [descricao, setDescricao] = useState("");
   const [dataEntrega, setDataEntrega] = useState("");
+  const [selectProjetoDisabled, setSelectProjetoDisabled] = useState(false);
 
   async function Cadastrar() {
     try {
-      console.log("idProjetoSelecionado", idProjetoSelecionado);
       const body = {
         nome,
         descricao,
@@ -44,7 +45,6 @@ export default function ModalCadastroTarefa({
       };
 
       await ApiService.post("/Tarefa/CriarTarefa", body);
-      console.log(body);
       setModalAberto(false);
       ToastService.Success("Tarefa Criada com Sucesso");
       refresh();
@@ -75,6 +75,15 @@ export default function ModalCadastroTarefa({
     BuscarProjetos();
     BuscarUsuarios();
   }, []);
+
+  useEffect(() => {
+    if(projetoClicado){
+      setSelectProjetoDisabled(true);
+      setIdProjetoSelecionado(projetoClicado);
+      return;
+    }
+    setSelectProjetoDisabled(false);  
+  }, [projetoClicado]);
 
   function FecharModal() {
     setModalAberto(false);
@@ -141,7 +150,7 @@ export default function ModalCadastroTarefa({
 
           <div className={styles.inputProjeto}>
             <p className={styles.nomeDescTarefa}>Projeto</p>
-            <select value={idProjetoSelecionado} onChange={selectAlterado}>
+            <select value={idProjetoSelecionado} onChange={selectAlterado} disabled={selectProjetoDisabled}>
               <option value="" disabled>
                 Selecione Um Projeto
               </option>

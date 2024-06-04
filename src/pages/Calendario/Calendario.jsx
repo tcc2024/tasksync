@@ -38,7 +38,6 @@ function Calendario() {
         const eventoExiste = calendar.events.get(evento.id);
         if (!eventoExiste) {
 
-          console.log(evento)
           calendar.events.add({
             id: evento.id,
             title: evento.nome,

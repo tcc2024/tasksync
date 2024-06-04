@@ -16,7 +16,6 @@ export default function Home() {
 
   async function BuscarDadosProjetosPorUsuario() {
     const response = await ApiService.get("/Projeto/listarProjeto");
-    console.log(response.data);
     if (response.status == 200) {
       setProjetos(response.data);
     }

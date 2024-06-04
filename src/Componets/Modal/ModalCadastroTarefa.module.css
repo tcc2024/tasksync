@@ -35,7 +35,7 @@ select {
   box-sizing: border-box;
   padding: 10px;
   border: 0.1px #7b7b7b solid;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
 }
 
 input::placeholder,

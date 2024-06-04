@@ -1,0 +1,42 @@
+.react-kanban-board {
+    width: 100%;
+}
+
+.react-kanban-board>div {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.react-kanban-column {
+    width: 30%;
+    background-color: #222831;
+    border-radius: 15px;
+    margin-top: 1em;
+    border-radius: 10px;
+    padding: 1em;
+    padding-top: 1em;
+    display: flex;
+}
+
+.react-kanban-column-header {
+    color: #fff;
+    font-size: x-large;
+}
+
+.react-kanban-card {
+    width: 400px;
+    height: 70px;
+    border-radius: 10px;
+    background-color: #d9d9d9;
+    margin-top: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div[data-rfd-droppable-id="1"],
+div[data-rfd-droppable-id="2"],
+div[data-rfd-droppable-id="3"] {
+    text-align: center;
+}
