@@ -59,7 +59,6 @@ export default function Home() {
       <div className={styles.appContainer}>
         <Header refresh={refresh} />
         <div className={styles.pages}>
-          <div>{usuario.nome}</div>
           <ListaDeProjetos projetos={projetos} tarefas={tarefas} />
         </div>
       </div>

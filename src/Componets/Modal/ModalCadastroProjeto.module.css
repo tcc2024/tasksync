@@ -13,7 +13,6 @@
   background-color: #222831;
   color: white;
   border-radius: 1em;
-  box-sizing: border-box;
 }
 
 .right {
@@ -21,19 +20,31 @@
   color: white;
   background: linear-gradient(0deg, #5fb1bb 0%, #76b5b8 14%, #222831 100%);
   border-radius: 0 1em 1em 0;
-  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-input {
+.input {
   color: white;
   background-color: #7b7b7b;
   border-radius: 1em;
   box-sizing: border-box;
-  padding: 10px;
   border: 0.1px #7b7b7b solid;
+  width: 80%;
+  height: 40px;
+  padding-left: 15px;
+}
+
+.desc {
+  color: white;
+  background-color: #7b7b7b;
+  border-radius: 1em;
+  box-sizing: border-box;
+  border: 0.1px #7b7b7b solid;
+  width: 80%;
+  height: 40px;
+  padding-left: 15px;
 }
 
 input::placeholder {
@@ -43,7 +54,7 @@ input::placeholder {
 }
 
 input:focus::placeholder {
-  color: transparent; 
+  color: transparent;
 }
 
 .nomeDescProjeto {
@@ -56,18 +67,6 @@ input:focus::placeholder {
 
 h3 {
   margin-bottom: 30px;
-}
-
-.nome {
-  padding: 15px;
-  width: 70%;
-}
-
-.desc {
-  width: 70%;
-  padding: 15px;
-  height: 90px;
-  box-sizing: border-box;
 }
 
 .inputDesc {

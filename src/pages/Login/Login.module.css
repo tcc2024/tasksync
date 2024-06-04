@@ -1,17 +1,4 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
-* {
-  font-family: "Inter", sans-serif;
-  font-weight: 400;
-}
-
 .background {
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   display: flex;
@@ -20,118 +7,32 @@
 }
 
 .center {
-  width: 600px;
-  height: 600px;
-  background-color: white;
+  width: 50%;
+  height: 50%;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 50px;
-  text-align: center; 
-
+  flex-direction: column;
 }
-.left {
-  width: 33%;
-  height: 100vh;
-  display: flex;
-  float: left;
-  background-image: linear-gradient(to bottom, #76b5b8, #405b62, #222831);
-  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
-    rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
-    rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+.inputs {
+  padding-left: 15px;
+  width: 50%;
+  height: 10%;
+  margin: 1.5em;
+  border: solid 1px #000000;
+  border-radius: 1em;
 }
 
-#input-usuario {
-  height: 30px;
-  width: 300px;
-  margin: 25px;
-  padding: 10px;
-  border-radius: 15px;
-  font-size: 15px;
-  background-image: url("/src/assets/UserNovo.png");
-  background-position: left 5px center;
-  background-position-y: 15px;
-  background-repeat: no-repeat;
-  background-size: 20px 20px;
-  padding-left: 30px;
-  padding-right: 40px;
-  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
-    rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
-    rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
-}
-
-#input-email {
-  height: 30px;
-  width: 300px;
-  margin: 25px;
-  padding: 10px;
-  border-radius: 15px;
-  font-size: 15px;
-  background-image: url("/src/assets/Email.png");
-  background-position: left 5px center;
-  background-position-y: 15px;
-  background-repeat: no-repeat;
-  background-size: 20px 20px;
-  padding-left: 30px;
-  padding-right: 40px;
-  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
-    rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
-    rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
-}
-
-#input-senha {
-  height: 30px;
-  width: 300px;
-  margin: 25px;
-  padding: 10px;
-  border-radius: 15px;
-  font-size: 15px;
-  background-image: url("/src/assets/Senha.png");
-  background-position: left 5px center;
-  background-repeat: no-repeat;
-  background-size: 20px 20px;
-  padding-left: 30px;
-  padding-right: 40px;
-  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
-    rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
-    rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
-}
-
-.btn {
-  transition: all 0.3s ease-in-out;
-  font-family: "Dosis", sans-serif;
-}
-
-.btn {
-  margin: 50px;
-  width: 170px;
-  height: 60px;
-  border-radius: 15px;
-  border: 1px solid black;
-  background-image: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
-  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
-    rgba(0, 0, 0, 0.07)0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
-    rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
-  outline: none;
-  cursor: pointer;
-  font-size: 24px;
+.inputs::placeholder {
   color: black;
 }
 
-.btn:hover {
-  background-color: #76b5b8;
-  transform: translateY(3px);
-  box-shadow: none;
-}
-
-.btn:active {
-  opacity: 0.5;
-}
-
-#title {
-  padding-top: 10px;
-  padding-left: 0%;
-  margin: 50px;
-  padding-bottom: 25px;
+.btn {
+  margin-top: 1.5em;
+  width: 20%;
+  height: 10%;
+  border-radius: 1em;
+  border: solid 1px #000000;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }

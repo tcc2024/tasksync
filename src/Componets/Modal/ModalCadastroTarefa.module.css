@@ -27,7 +27,7 @@
   justify-content: center;
 }
 
-input,
+.input,
 select {
   color: white;
   background-color: #7b7b7b;
@@ -46,12 +46,12 @@ select {
 .inputRow {
   display: flex;
   justify-content: space-between;
-  gap: 10px; /* Add a gap between inputs */
+  gap: 10px; 
 }
 
 .inputNome,
 .inputDesc {
-  flex: 1; /* Ensure both inputs take equal space */
+  flex: 1; 
 }
 
 .nomeDescTarefa {

@@ -60,7 +60,7 @@ export default function ModalCadastroProjeto({
           <div className={styles.inputNome}>
             <p className={styles.nomeDescProjeto}>Nome do Projeto</p>
             <input
-              className={styles.nome}
+              className={styles.input}
               placeholder="Nome"
               value={nome}
               onChange={(e) => setNome(e.target.value)}

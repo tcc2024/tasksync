@@ -3,10 +3,9 @@
   height: 100vh;
   max-height: 90vh;
 }
-  .sx__chevron-wrapper{
-    border-radius: 10px;
-  }
-
+.sx__chevron-wrapper {
+  border-radius: 10px;
+}
 
 .App {
   text-align: center;
@@ -46,18 +45,12 @@
     transform: rotate(360deg);
   }
 }
-
-.container {
-  display: flex;
-  flex-direction: row;
+* {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
 }
 
-.appContainer {
-  height: 100%;
-  width: 80%;
-}
-
-.pages {
-  height: 80%;
-  width: 100%;
+*{
+  margin: 0;
+  padding: 0;
 }
