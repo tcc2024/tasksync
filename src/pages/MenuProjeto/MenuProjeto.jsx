@@ -38,7 +38,7 @@ export default function MenuProjeto() {
     const navigate = useNavigate();
     useEffect(() => {
         if (!location.state) navigate("home");
-        setProjetoSelecionado({ value: location.state.id, label: location.state.nome })
+            setProjetoSelecionado({ value: location.state.id, label: location.state.nome })
         BuscarProjetos();
     }, []);
 
