@@ -5,12 +5,13 @@ import ToastService from "../../services/ToastService";
 import styles from "./ModalCadastroProjeto.module.css";
 import Multiselect from "multiselect-react-dropdown";
 import "@schedule-x/theme-default/dist/index.css";
+import { createEventsServicePlugin } from '@schedule-x/events-service'
 
-export default function ModalVisualizarEvento({
-  modalAberto,
-  setModalAberto,
+export default function ModalEditarEvento({
+  modalEditarAberto,
+  setModalEditarAberto,
   buscarEventos,
-  dataHora
+  idEventoSelecionado
 }) {
   const customStyles = {
     content: {
@@ -30,13 +31,16 @@ export default function ModalVisualizarEvento({
   const [idProjetoSelecionado, setIdProjetoSelecionado] = useState("");
   const [nome, setNome] = useState("");
   const [descricao, setDescricao] = useState("");
- 
+  const [dataHora, setDataHora] = useState("");
+  const eventsServicePlugin = createEventsServicePlugin();
+
   async function Editar() {
     try {
 
-      const usuariosAtribuidos = usuarioAtribuido.map((usuario) => ( usuario.id ));
+      const usuariosAtribuidos = usuarioAtribuido.map((usuario) => (usuario.id));
 
       const body = {
+        id: idEventoSelecionado,
         nome,
         descricao,
         dataHora,
@@ -44,9 +48,9 @@ export default function ModalVisualizarEvento({
         usuariosAtribuidos
       };
 
-      await ApiService.post("/Eventos/EditarEvento", body);
+      await ApiService.put("/Eventos/EditarEvento", body);
 
-      setModalAberto(false);
+      setModalEditarAberto(false);
       ToastService.Success("Evento Editado com Sucesso");
       // await buscarEventos();
     } catch (error) {
@@ -72,14 +76,30 @@ export default function ModalVisualizarEvento({
     }
   }
 
+  async function BuscarEventoPorID() {
+    try {
+      const response = await ApiService.get("/Eventos/listarEventoPorID?id=" + idEventoSelecionado);
+
+      setNome(response.data.nome);
+      setDescricao(response.data.descricao)
+      setDataHora(response.data.dataHora)
+      setUsuarioAtribuido(response.data.usuariosAtribuidos)
+      setIdProjetoSelecionado(response.data.idProjetoSelecionado)
+
+    } catch (error) {
+      ToastService.Error("Erro ao Listar Evento");
+    }
+  }
+
   useEffect(() => {
+    BuscarEventoPorID();
     BuscarProjetos();
     BuscarUsuarios();
   }, []);
 
 
   function FecharModal() {
-    setModalAberto(false);
+    setModalEditarAberto(false);
   }
 
   function quandoSelecionadoUsuario(selectedList, selectedItem) {
@@ -96,16 +116,21 @@ export default function ModalVisualizarEvento({
     );
   }
 
+  function DeletarEvento(){
+
+    eventsServicePlugin.remove(idEventoSelecionado)
+  }
+
   return (
     <Modal
-      isOpen={modalAberto}
+      isOpen={modalEditarAberto}
       style={customStyles}
       contentLabel="Example Modal"
       shouldCloseOnEsc={true}
       shouldCloseOnOverlayClick={true}
       onRequestClose={FecharModal}
     >
-      <h2 className={styles.title}>Criar Evento</h2>
+      <h2 className={styles.title}>Editar Evento</h2>
       <button onClick={FecharModal}>Fechar</button>
       <input
         className={styles.nomeDescProjeto}
@@ -115,22 +140,24 @@ export default function ModalVisualizarEvento({
       />
       <input
         className={styles.nomeDescProjeto}
-        placeholder="Descricao"
+        placeholder="Descrição"
         value={descricao}
         onChange={(e) => setDescricao(e.target.value)}
-      />{/*
+      />
+      <p className={styles.nomeDescTarefa}>Data do Evento</p>
+      <input
+        placeholder="Data do Evento"
+        type="date"
+        value={dataHora}
+        onChange={(e) => setDataHora(e.target.value)}
+      />
+      {/*
       <input
         placeholder="Data de Entrega"
         value={dataEntrega}
         type="date"
         onChange={(e) => setDataEntrega(dataHora)}
   />
-      <Multiselect
-        options={usuarios}
-        selectedValues={usuarioAtribuido}
-        onSelect={quandoSelecionadoUsuario}
-        onRemove={quandoRemoverUsuario}
-        displayValue="nome"/>
 
         <select value={idProjetoSelecionado} onChange={selectAlterado}>
           <option value="" disabled>
@@ -142,8 +169,16 @@ export default function ModalVisualizarEvento({
             </option>
           ))}
         </select>*/}
-      
+
+      <Multiselect
+        options={usuarios}
+        selectedValues={usuarioAtribuido}
+        onSelect={quandoSelecionadoUsuario}
+        onRemove={quandoRemoverUsuario}
+        displayValue="nome"/>
+
       <button className={styles.button} onClick={Editar}>Editar</button>
+      <button className={styles.button} onClick={DeletarEvento}>Deletar</button>
     </Modal>
   );
 }

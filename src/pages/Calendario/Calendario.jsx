@@ -6,6 +6,7 @@ import {
   viewMonthAgenda,
 } from "@schedule-x/calendar";
 import ModalCadastroEvento from "../../Componets/Modal/ModalCalendarioEventos";
+import ModalEditarEvento from "../../Componets/Modal/ModalEditarEventos";
 import "@schedule-x/theme-default/dist/index.css";
 import Sidebar from "../../Componets/Sidebar/Sidebar";
 import Header from "../../Componets/Header/Header";
@@ -13,12 +14,17 @@ import { ToastContainer } from "react-toastify";
 import styles from "./Calendario.module.css";
 import { useState, useEffect } from "react";
 import ApiService from "../../services/ApiService";
+import { createEventsServicePlugin } from '@schedule-x/events-service'
 
 function Calendario() {
-  const [modalAberto, setModalAberto] = useState(false);
+  const [modalCadastroAberto, setModalCadastroAberto] = useState(false);
+  const [modalEditarAberto, setModalEditarAberto] = useState(false);
   const [dataSelecionada, setDataSelecionada] = useState(null);
+  const [idSelecionado, setIdSelecionado] = useState(null);
   const [eventos, setEventos] = useState([]);
+  const eventsServicePlugin = createEventsServicePlugin();
   const calendar = useCalendarApp({
+    plugins: [eventsServicePlugin],
     defaultView: viewMonthGrid.name,
     views: [viewDay, viewWeek, viewMonthGrid, viewMonthAgenda],
     events: eventos,
@@ -26,8 +32,12 @@ function Calendario() {
       onClickDate(date) {
         onClickCalendar(date);
       },
+      onEventClick(calendarEvent) {
+        onClickEvent(calendarEvent.id);
+      },
     },
   });
+  
 
   async function BuscarDadosEventosPorUsuario() {
     const response = await ApiService.get("/Eventos/listarEvento");
@@ -38,13 +48,14 @@ function Calendario() {
         const eventoExiste = calendar.events.get(evento.id);
         if (!eventoExiste) {
 
+          console.log(evento)
           calendar.events.add({
             id: evento.id,
             title: evento.nome,
             description: evento.descricao,
             // people: evento.usuariosAtribuidos,
-            start: '2024-05-28',
-            end: '2024-05-28',
+            start: evento.dataHora,
+            end: evento.dataHora,
           });
         }
       });
@@ -58,7 +69,13 @@ function Calendario() {
   function onClickCalendar(date) {
     console.log(date);
     setDataSelecionada(date);
-    setModalAberto(true);
+    setModalCadastroAberto(true);
+  }
+
+  function onClickEvent(id) {
+    console.log(id);
+    setIdSelecionado(id);
+    setModalEditarAberto(true);
   }
 
   return (
@@ -69,11 +86,19 @@ function Calendario() {
         <div className={styles.pages}>
           <ScheduleXCalendar calendarApp={calendar} />
         </div>
-        {modalAberto && (
+        {modalCadastroAberto && (
           <ModalCadastroEvento
-            modalAberto={modalAberto}
-            setModalAberto={setModalAberto}
+            modalCadastroAberto={modalCadastroAberto}
+            setModalCadastroAberto={setModalCadastroAberto}
             dataHora={dataSelecionada}
+          />
+        )}
+        {modalEditarAberto && (
+          <ModalEditarEvento
+            modalEditarAberto={modalEditarAberto}
+            setModalEditarAberto={setModalEditarAberto}
+            idEventoSelecionado={idSelecionado}
+
           />
         )}
       </div>
