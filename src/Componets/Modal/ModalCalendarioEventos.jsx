@@ -9,7 +9,7 @@ import "@schedule-x/theme-default/dist/index.css";
 export default function ModalCadastroEvento({
   modalCadastroAberto,
   setModalCadastroAberto,
-  resfresh,
+  refresh,
   dataHora
 }) {
   const customStyles = {
@@ -48,7 +48,7 @@ export default function ModalCadastroEvento({
 
       setModalCadastroAberto(false);
       ToastService.Success("Evento Criado com Sucesso");
-      resfresh();
+      refresh();
     } catch (error) {
       ToastService.Error("Erro ao Criar Evento");
     }

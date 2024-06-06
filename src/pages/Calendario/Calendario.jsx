@@ -37,7 +37,10 @@ function Calendario() {
       },
     },
   });
-  
+
+  async function refresh() {
+    await BuscarDadosEventosPorUsuario();
+  }
 
   async function BuscarDadosEventosPorUsuario() {
     const response = await ApiService.get("/Eventos/listarEvento");
@@ -91,6 +94,7 @@ function Calendario() {
             modalCadastroAberto={modalCadastroAberto}
             setModalCadastroAberto={setModalCadastroAberto}
             dataHora={dataSelecionada}
+            refresh={refresh}
           />
         )}
         {modalEditarAberto && (
@@ -98,7 +102,7 @@ function Calendario() {
             modalEditarAberto={modalEditarAberto}
             setModalEditarAberto={setModalEditarAberto}
             idEventoSelecionado={idSelecionado}
-
+            refresh={refresh}
           />
         )}
       </div>

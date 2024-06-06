@@ -5,12 +5,12 @@ import ToastService from "../../services/ToastService";
 import styles from "./ModalCadastroProjeto.module.css";
 import Multiselect from "multiselect-react-dropdown";
 import "@schedule-x/theme-default/dist/index.css";
-import { createEventsServicePlugin } from '@schedule-x/events-service'
 
 export default function ModalEditarEvento({
   modalEditarAberto,
   setModalEditarAberto,
   buscarEventos,
+  refresh,
   idEventoSelecionado
 }) {
   const customStyles = {
@@ -32,7 +32,6 @@ export default function ModalEditarEvento({
   const [nome, setNome] = useState("");
   const [descricao, setDescricao] = useState("");
   const [dataHora, setDataHora] = useState("");
-  const eventsServicePlugin = createEventsServicePlugin();
 
   async function Editar() {
     try {
@@ -52,6 +51,8 @@ export default function ModalEditarEvento({
 
       setModalEditarAberto(false);
       ToastService.Success("Evento Editado com Sucesso");
+      FecharModal();
+      refresh();
       // await buscarEventos();
     } catch (error) {
       ToastService.Error("Erro ao Editar Evento");
@@ -91,6 +92,18 @@ export default function ModalEditarEvento({
     }
   }
 
+  async function DeletarEvento() {
+    try {
+      await ApiService.delete("/Eventos/ExcluirEvento?idE=" + idEventoSelecionado)
+      ToastService.Success("Evento Deletado com Sucesso");
+      FecharModal();
+      refresh();
+
+    } catch (error) {
+      ToastService.Error("Erro ao Excluir Evento");
+    }
+  }
+
   useEffect(() => {
     BuscarEventoPorID();
     BuscarProjetos();
@@ -114,11 +127,6 @@ export default function ModalEditarEvento({
     setUsuarioAtribuido(
       usuarioAtribuido.filter((user) => user.id !== removedItem.id)
     );
-  }
-
-  function DeletarEvento(){
-
-    eventsServicePlugin.remove(idEventoSelecionado)
   }
 
   return (
