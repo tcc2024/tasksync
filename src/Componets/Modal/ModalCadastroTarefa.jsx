@@ -9,7 +9,7 @@ export default function ModalCadastroTarefa({
   modalAberto,
   setModalAberto,
   refresh,
-  projetoClicado
+  projetoClicado,
 }) {
   const customStyles = {
     content: {
@@ -77,12 +77,12 @@ export default function ModalCadastroTarefa({
   }, []);
 
   useEffect(() => {
-    if(projetoClicado){
+    if (projetoClicado) {
       setSelectProjetoDisabled(true);
       setIdProjetoSelecionado(projetoClicado);
       return;
     }
-    setSelectProjetoDisabled(false);  
+    setSelectProjetoDisabled(false);
   }, [projetoClicado]);
 
   function FecharModal() {
@@ -152,7 +152,11 @@ export default function ModalCadastroTarefa({
 
           <div className={styles.inputProjeto}>
             <p className={styles.nomeDescTarefa}>Projeto</p>
-            <select value={idProjetoSelecionado} onChange={selectAlterado} disabled={selectProjetoDisabled}>
+            <select
+              value={idProjetoSelecionado}
+              onChange={selectAlterado}
+              disabled={selectProjetoDisabled}
+            >
               <option value="" disabled>
                 Selecione Um Projeto
               </option>
@@ -168,6 +172,7 @@ export default function ModalCadastroTarefa({
             <p className={styles.nomeDescTarefa}>Usuários Atribuídos</p>
             <Multiselect
               options={usuarios}
+              placeholder="Selecione ao menos um usuário para a tarefa"
               selectedValues={usuariosAtribuido}
               onSelect={quandoSelecionadoUsuario}
               onRemove={quandoRemoverUsuario}

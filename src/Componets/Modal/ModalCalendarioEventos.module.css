@@ -1,0 +1,45 @@
+.container {
+  border-radius: 1em;
+  width: 1000px;
+  height: 600px;
+  background-color: #222831;
+}
+.input {
+  margin: 3%;
+  width: 500px;
+  height: 300px;
+}
+.inputs {
+  margin: 3%;
+  border-radius: 1em;
+  width: 80%;
+  height: 40px;
+  padding-left: 15px;
+  width: 100%;
+  border: 0.1px #7b7b7b solid;
+  background-color: #7b7b7b;
+  color: #fff;
+}
+
+.button {
+  border-radius: 1em;
+  width: 50%;
+  height: 50px;
+  background-color: #7b7b7b;
+  color: white;
+  border: 0.1px #7b7b7b solid;
+}
+
+.title {
+  padding: 3%;
+  color: #fff;
+}
+.multiSelect {
+  width: 195px;
+  height: 45px;
+  border-radius: 1em;
+  margin: 3%;
+}
+.select {
+  margin: 3%;
+}

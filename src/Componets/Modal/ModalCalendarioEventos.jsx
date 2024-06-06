@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
+import styles from "./ModalCalendarioEventos.module.css";
 import Modal from "react-modal";
 import ApiService from "../../services/ApiService";
 import ToastService from "../../services/ToastService";
-import styles from "./ModalCadastroProjeto.module.css";
 import Multiselect from "multiselect-react-dropdown";
 import "@schedule-x/theme-default/dist/index.css";
 
@@ -20,30 +20,29 @@ export default function ModalCadastroEvento({
       bottom: "auto",
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
+      background: "transparent",
+      border: "none",
     },
   };
   Modal.setAppElement("#root");
 
-  const [usuarios, setUsuarios] = useState([])
+  const [usuarios, setUsuarios] = useState([]);
   const [usuarioAtribuido, setUsuarioAtribuido] = useState([]);
   const [projetos, setProjetos] = useState([]);
   const [idProjetoSelecionado, setIdProjetoSelecionado] = useState("");
   const [nome, setNome] = useState("");
   const [descricao, setDescricao] = useState("");
- 
+
   async function Cadastrar() {
     try {
-
-      const usuariosAtribuidos = usuarioAtribuido.map((usuario) => ( usuario.id ));
-
+      const usuariosAtribuidos = usuarioAtribuido.map((usuario) => usuario.id);
       const body = {
         nome,
         descricao,
         dataHora,
         projetoID: idProjetoSelecionado,
-        usuariosAtribuidos
+        usuariosAtribuidos,
       };
-
       await ApiService.post("/Eventos/CriarEvento", body);
 
       setModalCadastroAberto(false);
@@ -77,7 +76,6 @@ export default function ModalCadastroEvento({
     BuscarUsuarios();
   }, []);
 
-
   function FecharModal() {
     setModalCadastroAberto(false);
   }
@@ -105,39 +103,54 @@ export default function ModalCadastroEvento({
       shouldCloseOnOverlayClick={true}
       onRequestClose={FecharModal}
     >
-      <h2 className={styles.title}>Criar Evento</h2>
-      <button onClick={FecharModal}>Fechar</button>
-      <input
-        className={styles.nomeDescProjeto}
-        placeholder="Nome"
-        value={nome}
-        onChange={(e) => setNome(e.target.value)}
-      />
-      <input
-        className={styles.nomeDescProjeto}
-        placeholder="Descricao"
-        value={descricao}
-        onChange={(e) => setDescricao(e.target.value)}
-      />
-      <Multiselect
-        options={usuarios}
-        selectedValues={usuarioAtribuido}
-        onSelect={quandoSelecionadoUsuario}
-        onRemove={quandoRemoverUsuario}
-        displayValue="nome"/>
-
-        <select value={idProjetoSelecionado} onChange={selectAlterado}>
-          <option value="" disabled>
-            Selecione Um Projeto
-          </option>
-          {projetos.map((projeto) => (
-            <option key={projeto.id} value={projeto.id}>
-              {projeto.nome}
+      <div className={styles.container}>
+        <div className={styles.title}>
+          <h2>Criar Evento</h2>
+        </div>
+        <button onClick={FecharModal}></button>
+        <div className={styles.input}>
+          <input
+            className={styles.inputs}
+            placeholder="Nome"
+            value={nome}
+            onChange={(e) => setNome(e.target.value)}
+          />
+          <input
+            className={styles.inputs}
+            placeholder="Descricao"
+            value={descricao}
+            onChange={(e) => setDescricao(e.target.value)}
+          />
+          <select
+            className={styles.select}
+            value={idProjetoSelecionado}
+            onChange={selectAlterado}
+          >
+            <option value="" disabled>
+              Selecione Um Projeto
             </option>
-          ))}
-        </select>
-      
-      <button className={styles.button} onClick={Cadastrar}>Cadastrar</button>
+            {projetos.map((projeto) => (
+              <option key={projeto.id} value={projeto.id}>
+                {projeto.nome}
+              </option>
+            ))}
+          </select>
+          <Multiselect
+            className={styles.multiSelect}
+            options={usuarios}
+            selectedValues={usuarioAtribuido}
+            onSelect={quandoSelecionadoUsuario}
+            onRemove={quandoRemoverUsuario}
+            displayValue="nome"
+          />
+        </div>
+
+        <center>
+          <button className={styles.button} onClick={Cadastrar}>
+            Cadastrar
+          </button>
+        </center>
+      </div>
     </Modal>
   );
 }
