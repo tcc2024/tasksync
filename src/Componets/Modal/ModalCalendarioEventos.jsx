@@ -7,8 +7,8 @@ import Multiselect from "multiselect-react-dropdown";
 import "@schedule-x/theme-default/dist/index.css";
 
 export default function ModalCadastroEvento({
-  modalAberto,
-  setModalAberto,
+  modalCadastroAberto,
+  setModalCadastroAberto,
   resfresh,
   dataHora,
 }) {
@@ -44,7 +44,8 @@ export default function ModalCadastroEvento({
         usuariosAtribuidos,
       };
       await ApiService.post("/Eventos/CriarEvento", body);
-      setModalAberto(false);
+
+      setModalCadastroAberto(false);
       ToastService.Success("Evento Criado com Sucesso");
       resfresh();
     } catch (error) {
@@ -76,7 +77,7 @@ export default function ModalCadastroEvento({
   }, []);
 
   function FecharModal() {
-    setModalAberto(false);
+    setModalCadastroAberto(false);
   }
 
   function quandoSelecionadoUsuario(selectedList, selectedItem) {
@@ -95,7 +96,7 @@ export default function ModalCadastroEvento({
 
   return (
     <Modal
-      isOpen={modalAberto}
+      isOpen={modalCadastroAberto}
       style={customStyles}
       contentLabel="Example Modal"
       shouldCloseOnEsc={true}
