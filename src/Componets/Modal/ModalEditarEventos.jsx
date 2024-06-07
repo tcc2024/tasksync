@@ -129,9 +129,6 @@ export default function ModalEditarEvento({
     );
   }
 
-  function DeletarEvento(){
-
-  }
 
   return (
     <Modal

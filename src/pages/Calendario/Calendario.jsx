@@ -1,4 +1,4 @@
-import { useCalendarApp, ScheduleXCalendar, } from "@schedule-x/react";
+import { useCalendarApp, ScheduleXCalendar } from "@schedule-x/react";
 import {
   viewWeek,
   viewDay,
@@ -42,13 +42,10 @@ function Calendario() {
   async function BuscarDadosEventosPorUsuario() {
     const response = await ApiService.get("/Eventos/listarEvento");
     if (response.status == 200) {
-
-
-      response.data.forEach(evento => {
+      response.data.forEach((evento) => {
         const eventoExiste = calendar.events.get(evento.id);
         if (!eventoExiste) {
-
-          console.log(evento)
+          console.log(evento);
           calendar.events.add({
             id: evento.id,
             title: evento.nome,

@@ -11,7 +11,11 @@ export default function Config() {
       <div className="appContainer">
         <Header />
         <div className="pages">
-          
+          <div className=''>
+            <div>
+
+            </div>
+          </div>
         </div>
       </div>
       <ToastContainer />
