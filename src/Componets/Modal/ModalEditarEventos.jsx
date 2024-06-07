@@ -129,6 +129,10 @@ export default function ModalEditarEvento({
     );
   }
 
+  function DeletarEvento(){
+
+  }
+
   return (
     <Modal
       isOpen={modalEditarAberto}
