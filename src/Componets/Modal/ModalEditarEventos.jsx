@@ -10,6 +10,7 @@ export default function ModalEditarEvento({
   modalEditarAberto,
   setModalEditarAberto,
   buscarEventos,
+  refresh,
   idEventoSelecionado
 }) {
   const customStyles = {
@@ -50,6 +51,8 @@ export default function ModalEditarEvento({
 
       setModalEditarAberto(false);
       ToastService.Success("Evento Editado com Sucesso");
+      FecharModal();
+      refresh();
       // await buscarEventos();
     } catch (error) {
       ToastService.Error("Erro ao Editar Evento");
@@ -86,6 +89,18 @@ export default function ModalEditarEvento({
 
     } catch (error) {
       ToastService.Error("Erro ao Listar Evento");
+    }
+  }
+
+  async function DeletarEvento() {
+    try {
+      await ApiService.delete("/Eventos/ExcluirEvento?idE=" + idEventoSelecionado)
+      ToastService.Success("Evento Deletado com Sucesso");
+      FecharModal();
+      refresh();
+
+    } catch (error) {
+      ToastService.Error("Erro ao Excluir Evento");
     }
   }
 
