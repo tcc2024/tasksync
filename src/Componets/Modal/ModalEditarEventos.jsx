@@ -105,9 +105,9 @@ export default function ModalEditarEvento({
   }
 
   useEffect(() => {
+    BuscarUsuarios();
     BuscarEventoPorID();
     BuscarProjetos();
-    BuscarUsuarios();
   }, []);
 
 
@@ -182,9 +182,10 @@ export default function ModalEditarEvento({
       <Multiselect
         options={usuarios}
         selectedValues={usuarioAtribuido}
+        
         onSelect={quandoSelecionadoUsuario}
         onRemove={quandoRemoverUsuario}
-        displayValue="nome"/>
+        displayValue="nome" />
 
       <button className={styles.button} onClick={Editar}>Editar</button>
       <button className={styles.button} onClick={DeletarEvento}>Deletar</button>
