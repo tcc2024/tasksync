@@ -5,7 +5,6 @@ import ToastService from "../../services/ToastService";
 import styles from "./ModalCadastroProjeto.module.css";
 import Multiselect from "multiselect-react-dropdown";
 import "@schedule-x/theme-default/dist/index.css";
-import { createEventsServicePlugin } from '@schedule-x/events-service'
 
 export default function ModalEditarEvento({
   modalEditarAberto,
@@ -32,7 +31,6 @@ export default function ModalEditarEvento({
   const [nome, setNome] = useState("");
   const [descricao, setDescricao] = useState("");
   const [dataHora, setDataHora] = useState("");
-  const eventsServicePlugin = createEventsServicePlugin();
 
   async function Editar() {
     try {
@@ -118,7 +116,6 @@ export default function ModalEditarEvento({
 
   function DeletarEvento(){
 
-    eventsServicePlugin.remove(idEventoSelecionado)
   }
 
   return (

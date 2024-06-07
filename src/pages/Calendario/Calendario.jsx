@@ -14,7 +14,6 @@ import { ToastContainer } from "react-toastify";
 import styles from "./Calendario.module.css";
 import { useState, useEffect } from "react";
 import ApiService from "../../services/ApiService";
-import { createEventsServicePlugin } from '@schedule-x/events-service'
 
 function Calendario() {
   const [modalCadastroAberto, setModalCadastroAberto] = useState(false);
@@ -22,9 +21,7 @@ function Calendario() {
   const [dataSelecionada, setDataSelecionada] = useState(null);
   const [idSelecionado, setIdSelecionado] = useState(null);
   const [eventos, setEventos] = useState([]);
-  const eventsServicePlugin = createEventsServicePlugin();
   const calendar = useCalendarApp({
-    plugins: [eventsServicePlugin],
     defaultView: viewMonthGrid.name,
     views: [viewDay, viewWeek, viewMonthGrid, viewMonthAgenda],
     events: eventos,
