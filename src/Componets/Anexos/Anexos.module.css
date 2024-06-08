@@ -1,0 +1,66 @@
+.container {
+    width: 100%;
+    height: 100%;
+}
+
+.addButtonContainer {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.addButtonContainer img {
+    height: 25px;
+    width: 25px;
+}
+
+.content {
+    border-radius: 4px;
+    width: 99.632%;
+    height: 85%;
+    border: 1px solid #ccc;
+}
+
+.lineContent {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.lineContent span {
+    margin-left: 20px;
+    font-size: small;
+}
+
+.lineContent img {
+    margin-right: 20px;
+    height: 20px;
+    width: 20px;
+}
+
+.divider {
+    width: 95%;
+    height: 1px;
+    background-color: white;
+    margin: 0 auto;
+}
+
+.contentSemAnexo {
+    border-radius: 4px;
+    width: 99.632%;
+    height: 85%;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgAdd{
+    height: 50px;
+    width: 50px;
+}
