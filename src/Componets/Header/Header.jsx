@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Header.module.css";
-import ModalCadastroProjeto from "../Modal/ModalCadastroProjeto";
-import ModalCadastroTarefa from "../Modal/ModalCadastroTarefa";
+import ModalCadastroProjeto from "../Modal/ModalCadastroProjeto/ModalCadastroProjeto";
+import ModalCadastroTarefa from "../Modal/ModalCadastroTarefa/ModalCadastroTarefa";
 import ApiService from "../../services/ApiService";
 
 export default function Header({refresh}) {

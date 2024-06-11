@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import ApiService from "../../services/ApiService";
-import ToastService from "../../services/ToastService";
+import ApiService from "../../../services/ApiService";
+import ToastService from "../../../services/ToastService";
 import Modal from "react-modal";
 import Multiselect from "multiselect-react-dropdown";
 import styles from "./ModalCadastroTarefa.module.css";

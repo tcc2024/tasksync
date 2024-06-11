@@ -3,8 +3,8 @@ import styles from "./CardProjeto.module.css";
 import { useNavigate } from "react-router-dom";
 
 export default function CardProjeto({ projeto }) {
-
   const navigate = useNavigate();
+  
   return (
     <div className={styles.container}>
       <div

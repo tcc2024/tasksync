@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import styles from "./ModalCalendarioEventos.module.css";
 import Modal from "react-modal";
-import ApiService from "../../services/ApiService";
-import ToastService from "../../services/ToastService";
+import ApiService from "../../../services/ApiService";
+import ToastService from "../../../services/ToastService";
 import Multiselect from "multiselect-react-dropdown";
 import "@schedule-x/theme-default/dist/index.css";
 
