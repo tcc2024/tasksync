@@ -142,19 +142,21 @@ export default function ModalEditarEvento({
     >
       <div className={styles.container}>
       <h2 className={styles.title}>Editar Evento</h2>
+      <p>Nome</p>
       <input
         className={styles.inputs}
         placeholder="Nome"
         value={nome}
         onChange={(e) => setNome(e.target.value)}
       />
+      <p>Descrição</p>
       <input
         className={styles.inputs}
         placeholder="Descrição"
         value={descricao}
         onChange={(e) => setDescricao(e.target.value)}
       />
-      <p className={styles.title}>Data do Evento</p>
+      <p>Data do Evento</p>
       <input
         className={styles.data}
         placeholder="Data do Evento"
@@ -174,6 +176,7 @@ export default function ModalEditarEvento({
           ))}
         </select>*/}
 
+      <p>Usuarios Atribuidos</p>
       <Multiselect
         options={usuarios}
         selectedValues={usuarioAtribuido}
