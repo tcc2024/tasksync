@@ -5,8 +5,8 @@ import {
   viewMonthGrid,
   viewMonthAgenda,
 } from "@schedule-x/calendar";
-import ModalCadastroEvento from "../../Componets/Modal/ModalCalendarioEventos";
-import ModalEditarEvento from "../../Componets/Modal/ModalEditarEventos";
+import ModalCadastroEvento from "../../Componets/Modal/CadastroCadastroEvento/ModalCalendarioEventos";
+import ModalEditarEvento from "../../Componets/Modal/ModalEditarEvento/ModalEditarEventos";
 import "@schedule-x/theme-default/dist/index.css";
 import Sidebar from "../../Componets/Sidebar/Sidebar";
 import Header from "../../Componets/Header/Header";

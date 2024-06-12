@@ -1,14 +1,15 @@
 import { useState, useEffect } from "react";
 import Modal from "react-modal";
-import ApiService from "../../services/ApiService";
-import ToastService from "../../services/ToastService";
-import styles from "./ModalEditarEventos.module.css";
+import ApiService from "../../../services/ApiService";
+import ToastService from "../../../services/ToastService";
+import styles from "../ModalEditarEvento/ModalEditarEventos.module.css";
 import Multiselect from "multiselect-react-dropdown";
 import "@schedule-x/theme-default/dist/index.css";
 
 export default function ModalEditarEvento({
   modalEditarAberto,
   setModalEditarAberto,
+  buscarEventos,
   refresh,
   idEventoSelecionado
 }) {
@@ -20,8 +21,6 @@ export default function ModalEditarEvento({
       bottom: "auto",
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
-      background: "transparent",
-      border: "none",
     },
   };
   Modal.setAppElement("#root");
@@ -140,31 +139,36 @@ export default function ModalEditarEvento({
       shouldCloseOnOverlayClick={true}
       onRequestClose={FecharModal}
     >
-      <div className={styles.container}>
       <h2 className={styles.title}>Editar Evento</h2>
       <p>Nome</p>
       <input
-        className={styles.inputs}
+        className={styles.nomeDescProjeto}
         placeholder="Nome"
         value={nome}
         onChange={(e) => setNome(e.target.value)}
       />
       <p>Descrição</p>
       <input
-        className={styles.inputs}
+        className={styles.nomeDescProjeto}
         placeholder="Descrição"
         value={descricao}
         onChange={(e) => setDescricao(e.target.value)}
       />
       <p>Data do Evento</p>
       <input
-        className={styles.data}
         placeholder="Data do Evento"
         type="date"
         value={dataHora}
         onChange={(e) => setDataHora(e.target.value)}
       />
       {/*
+      <input
+        placeholder="Data de Entrega"
+        value={dataEntrega}
+        type="date"
+        onChange={(e) => setDataEntrega(dataHora)}
+  />
+
         <select value={idProjetoSelecionado} onChange={selectAlterado}>
           <option value="" disabled>
             Selecione Um Projeto
@@ -180,14 +184,13 @@ export default function ModalEditarEvento({
       <Multiselect
         options={usuarios}
         selectedValues={usuarioAtribuido}
-        className={styles.multiSelect}
         
         onSelect={quandoSelecionadoUsuario}
         onRemove={quandoRemoverUsuario}
         displayValue="nome" />
+
       <button className={styles.button} onClick={Editar}>Editar</button>
       <button className={styles.button} onClick={DeletarEvento}>Deletar</button>
-      </div>
     </Modal>
   );
 }

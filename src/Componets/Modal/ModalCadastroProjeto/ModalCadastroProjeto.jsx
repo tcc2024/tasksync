@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Modal from "react-modal";
-import ApiService from "../../services/ApiService";
-import ToastService from "../../services/ToastService";
+import ApiService from "../../../services/ApiService";
+import ToastService from "../../../services/ToastService";
 import styles from "./ModalCadastroProjeto.module.css";
 
 export default function ModalCadastroProjeto({
