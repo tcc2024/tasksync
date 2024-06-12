@@ -1,10 +1,18 @@
 import React from "react";
 import Sidebar from "../../Componets/Sidebar/Sidebar";
 import Header from "../../Componets/Header/Header";
-import { ToastContainer } from "react-toastify";
 import styles from "./Config.module.css";
+import AuthService from "../../services/AuthServices";
+import { ToastContainer } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 export default function Config() {
+  const navigate = useNavigate();
+  function Sair() {
+    AuthService.Sair();
+    navigate("/login");
+  }
+
   return (
     <div className={styles.container}>
       <Sidebar />
@@ -34,6 +42,13 @@ export default function Config() {
               </div>
               <div className={styles.config}>
                 <h3 className={styles.text}>Politicas de Privacidade</h3>
+              </div>
+              <div className={styles.espaçoBotao}>
+                <center>
+                  <button className={styles.botaoSair} onClick={Sair}>
+                    Sair da Conta
+                  </button>
+                </center>
               </div>
             </div>
           </div>

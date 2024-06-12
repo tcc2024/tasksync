@@ -10,8 +10,7 @@ import Anexos from "../../Anexos/Anexos";
 export default function ModalEditarTarefa({
     modalAberto,
     setModalAberto,
-    refresh,
-    tarefa
+    refresh
 }) {
     const customStyles = {
         content: {

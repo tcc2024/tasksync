@@ -51,10 +51,19 @@
   height: 10%;
   margin: 2%;
   color: #fff;
-  background-color: #7B7B7B;
+  background-color: #7b7b7b;
 }
 
-.text{
+.text {
   font-size: 20px;
   padding: 1.9%;
+}
+
+.botaoSair {
+  height: 75px;
+  width: 30%;
+  border-radius: 1em;
+  background-color: #7b7b7b;
+  font-size: large;
+  color: #fff;
 }

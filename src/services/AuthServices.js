@@ -8,6 +8,9 @@ const AuthService = {
     PegarToken() {
         return localStorage.getItem("jwt")
     },
+    Sair(){
+        return localStorage.removeItem("jwt")
+    },
     VerificarSeUsuarioEstaLogado() {
         const token = localStorage.getItem("jwt");
         if (token == null) { return false }

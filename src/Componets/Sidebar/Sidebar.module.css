@@ -8,7 +8,7 @@
   align-items: center;
 }
 
-.botaomenu{
+.botaomenu {
   margin: 15%;
   background-image: url("/src/assets/HomePage.png");
   background-size: 50% 60%;
@@ -16,12 +16,11 @@
   background-position-x: 50%;
   background-repeat: no-repeat;
   width: 25%;
-  height: 10%;
+  height: 8%;
   border-radius: 1em;
   background-color: #222831;
-
 }
-.botaoprojetos{
+.botaoprojetos {
   margin: 15%;
   background-image: url("/src/assets/Project.png");
   background-size: 50% 60%;
@@ -29,12 +28,11 @@
   background-position-x: 50%;
   background-repeat: no-repeat;
   width: 25%;
-  height: 10%;
+  height: 8%;
   border-radius: 1em;
   background-color: #222831;
-
 }
-.botaocalendario{
+.botaocalendario {
   margin: 15%;
   background-image: url("/src/assets/Calendar31.png");
   background-size: 50% 60%;
@@ -42,12 +40,11 @@
   background-position-x: 50%;
   background-repeat: no-repeat;
   width: 25%;
-  height: 10%;
+  height: 8%;
   border-radius: 1em;
   background-color: #222831;
-  
 }
-.botaoconfig { 
+.botaoconfig {
   margin: 15%;
   background-image: url("/src/assets/Settings.png");
   background-size: 50% 60%;
@@ -55,7 +52,20 @@
   background-position-x: 50%;
   background-repeat: no-repeat;
   width: 25%;
-  height: 10%;
+  height: 8%;
   border-radius: 1em;
   background-color: #222831;
 }
+
+.logo {
+  margin-right: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.pena{
+  margin-left: 30px
+}
+

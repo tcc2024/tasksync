@@ -3,8 +3,8 @@
   flex-direction: row;
   background-color: #222831;
   border-radius: 1em;
-  width: 1000px;
-  height: 600px;
+  width: 1200px;
+  height: 800px;
 }
 
 .sidebar {
@@ -45,12 +45,12 @@ select {
 .inputRow {
   display: flex;
   justify-content: space-between;
-  gap: 10px; 
+  gap: 10px;
 }
 
 .inputNome,
 .inputDesc {
-  flex: 1; 
+  flex: 1;
 }
 
 .nomeDescTarefa {
@@ -74,7 +74,7 @@ h3 {
 }
 
 input {
-  width: 100%; 
+  width: 100%;
 }
 
 .textoRight {
@@ -114,4 +114,10 @@ input {
 .botaoCadastrar {
   margin-top: 5%;
   text-align: center;
+}
+
+.anexosContainer {
+  margin-top: 5%;
+  width: 100%;
+  height: 30%;
 }

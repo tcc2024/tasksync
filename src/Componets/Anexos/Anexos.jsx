@@ -15,8 +15,7 @@ export default function Anexos({ anexos, adicionarAnexo, excluirAnexo }) {
     const handleDrop = (event) => {
         event.preventDefault();
         setDraggingFile(0);
-        const files = event.dataTransfer.files;
-        handleFiles(files);
+        const files = event.dataTransfer.files;        handleFiles(files);
     }
 
     const handleFileInputChange = (event) => {

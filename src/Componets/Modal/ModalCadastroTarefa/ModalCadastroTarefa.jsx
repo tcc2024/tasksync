@@ -4,6 +4,7 @@ import ToastService from "../../../services/ToastService";
 import Modal from "react-modal";
 import Multiselect from "multiselect-react-dropdown";
 import styles from "./ModalCadastroTarefa.module.css";
+import Anexos from "../../Anexos/Anexos";
 
 export default function ModalCadastroTarefa({
   modalAberto,
@@ -33,6 +34,40 @@ export default function ModalCadastroTarefa({
   const [descricao, setDescricao] = useState("");
   const [dataEntrega, setDataEntrega] = useState("");
   const [selectProjetoDisabled, setSelectProjetoDisabled] = useState(false);
+  const [anexos, setAnexos] = useState([]);
+
+  async function adicionarAnexo(file, base64) {
+    if (anexos.length == 4) {
+      ToastService.Error("Limite de 4 anexos atingido!");
+      return;
+    }
+
+    const novoAnexo = {
+      id: 0,
+      nome: file.name.replace(/\.[^.]+$/, ""),
+      extensao: file.name.split(".").pop(),
+      base64,
+      key: anexos.length,
+    };
+
+    setAnexos([...anexos, novoAnexo]);
+  }
+
+  async function excluirAnexo(key) {
+    const anexo = anexos.find((anexo) => anexo.key !== key);
+
+    if (anexo?.id !== 0) {
+      console.log("remover do backend");
+    }
+
+    let novosAnexos = anexos.filter((anexo) => anexo.key !== key);
+    novosAnexos = novosAnexos.map((anexo, index) => {
+      anexo.key = index;
+      return anexo;
+    });
+
+    setAnexos(novosAnexos);
+  }
 
   async function Cadastrar() {
     try {
@@ -42,6 +77,7 @@ export default function ModalCadastroTarefa({
         dataEntrega,
         projeto_id: idProjetoSelecionado,
         usuariosAtribuidos: usuariosAtribuido.map((usuario) => usuario.id),
+        anexos,
       };
 
       await ApiService.post("/Tarefa/CriarTarefa", body);
@@ -166,18 +202,24 @@ export default function ModalCadastroTarefa({
                 </option>
               ))}
             </select>
+            <div className={styles.inputUsuarios}>
+              <p className={styles.nomeDescTarefa}>Usuários Atribuídos</p>
+              <Multiselect
+                options={usuarios}
+                placeholder="Selecione ao menos um usuário para a tarefa"
+                selectedValues={usuariosAtribuido}
+                onSelect={quandoSelecionadoUsuario}
+                onRemove={quandoRemoverUsuario}
+                displayValue="nome"
+              />
+            </div>
           </div>
-
-          <div className={styles.inputUsuarios}>
-            <p className={styles.nomeDescTarefa}>Usuários Atribuídos</p>
-            <Multiselect
-              options={usuarios}
-              placeholder="Selecione ao menos um usuário para a tarefa"
-              selectedValues={usuariosAtribuido}
-              onSelect={quandoSelecionadoUsuario}
-              onRemove={quandoRemoverUsuario}
-              displayValue="nome"
-            />
+          <div className={styles.anexosContainer}>
+            <Anexos
+              anexos={anexos}
+              adicionarAnexo={adicionarAnexo}
+              excluirAnexo={excluirAnexo}
+            ></Anexos>
           </div>
 
           <div className={styles.botaoCadastrar}>
