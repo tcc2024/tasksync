@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Header.module.css";
+import ModalEditarUsuario from "../Modal/ModalEditarUsuario";
 import ModalCadastroProjeto from "../Modal/ModalCadastroProjeto/ModalCadastroProjeto";
 import ModalCadastroTarefa from "../Modal/ModalCadastroTarefa/ModalCadastroTarefa";
 import ApiService from "../../services/ApiService";
@@ -7,6 +8,7 @@ import ApiService from "../../services/ApiService";
 export default function Header({refresh}) {
   const [modalProjetoAberto, setModalProjetoAberto] = useState(false);
   const [modalTarefaAberto, setModalTarefaAberto] = useState(false);
+  const [modalUsuarioAberto, setModalUsuarioAberto] = useState(false);
   const [tarefas, setTarefas] = useState([]);
 
   async function buscarTarefas() {
@@ -21,6 +23,11 @@ export default function Header({refresh}) {
   return (
     <>
       <>
+        <ModalEditarUsuario
+          modalAberto={modalUsuarioAberto}
+          setModalAberto={setModalUsuarioAberto}
+          refresh={refresh}
+        />
         <ModalCadastroProjeto
           modalAberto={modalProjetoAberto}
           setModalAberto={setModalProjetoAberto}
@@ -34,6 +41,12 @@ export default function Header({refresh}) {
         />
       </>
       <div className={styles.container}>
+        <button
+          className={styles.btn}
+          onClick={() => setModalUsuarioAberto(true)}
+        >
+          Editar Usuario
+        </button>
         <button
           className={styles.btn}
           onClick={() => setModalProjetoAberto(true)}

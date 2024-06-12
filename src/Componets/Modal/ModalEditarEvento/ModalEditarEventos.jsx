@@ -140,20 +140,21 @@ export default function ModalEditarEvento({
       onRequestClose={FecharModal}
     >
       <h2 className={styles.title}>Editar Evento</h2>
-      <button onClick={FecharModal}>Fechar</button>
+      <p>Nome</p>
       <input
         className={styles.nomeDescProjeto}
         placeholder="Nome"
         value={nome}
         onChange={(e) => setNome(e.target.value)}
       />
+      <p>Descrição</p>
       <input
         className={styles.nomeDescProjeto}
         placeholder="Descrição"
         value={descricao}
         onChange={(e) => setDescricao(e.target.value)}
       />
-      <p className={styles.nomeDescTarefa}>Data do Evento</p>
+      <p>Data do Evento</p>
       <input
         placeholder="Data do Evento"
         type="date"
@@ -179,6 +180,7 @@ export default function ModalEditarEvento({
           ))}
         </select>*/}
 
+      <p>Usuarios Atribuidos</p>
       <Multiselect
         options={usuarios}
         selectedValues={usuarioAtribuido}

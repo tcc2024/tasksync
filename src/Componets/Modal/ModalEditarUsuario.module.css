@@ -1,7 +1,7 @@
 .container {
   border-radius: 1em;
   width: 1000px;
-  height: 650px;
+  height: 600px;
   background-color: #222831;
 }
 
@@ -24,8 +24,7 @@
   height: 40px;
   background-color: #7b7b7b;
   color: #fff;
-  margin: 3%;
-  margin-top: 1%;
+  margin-left: 3%;
   padding-inline: 15px;
 }
 
@@ -33,7 +32,7 @@
   margin: 3%;
   margin-top: 1%;
   border-radius: 1em;
-  width: 60%;
+  width: 90%;
   height: 40px;
   padding-left: 15px;
   border: 0.1px #7b7b7b solid;
@@ -42,11 +41,10 @@
 }
 
 .button {
-  margin-top: 2%;
-  margin-left: 5%;
+  margin-left: 3%;
   border-radius: 1em;
-  width: 42.5%;
-  height: 60px;
+  width: 45.5%;
+  height: 65px;
   background-color: #7b7b7b;
   color: white;
   font-size: large;
@@ -55,12 +53,7 @@
 }
 
 .title {
-  padding: 3% 3% 2% 3%;
-  color: #fff;
-}
-
-p {
-  padding: 0.1% 1% 1% 3%;
+  padding: 3%;
   color: #fff;
 }
 
@@ -69,7 +62,7 @@ p {
   height: 45px;
   border-radius: 1em;
   margin: 3%;
-  margin-top: 1%;
+  margin-bottom: 6%;
 }
 
 .select {
