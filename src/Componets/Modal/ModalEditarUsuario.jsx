@@ -81,16 +81,16 @@ export default function ModalEditarUsuario({
       onRequestClose={FecharModal}
     >
       <div className={styles.container}>
-      <h2 className={styles.title}>Editar Usuario</h2>
-        <p>Nome</p>
-      <input
-        className={styles.inputs}
-        placeholder="Nome"
-        value={nome}
-        onChange={(e) => setNome(e.target.value)}
-      />
-      <p>{email}</p>
-      <button className={styles.button} onClick={Editar}>Editar</button>
+        <h2 className={styles.title}>Editar Usuario</h2>
+        <p className={styles.p}>Nome</p>
+        <input
+          className={styles.inputs}
+          placeholder="Nome"
+          value={nome}
+          onChange={(e) => setNome(e.target.value)}
+        />
+        <p className={styles.p}>{email}</p>
+        <button className={styles.button} onClick={Editar}>Editar</button>
       </div>
     </Modal>
   );
