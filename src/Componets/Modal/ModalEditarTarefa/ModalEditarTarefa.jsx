@@ -74,12 +74,12 @@ export default function ModalEditarTarefa({
                 usuariosAtribuidos: usuariosAtribuido.map((usuario) => usuario.id),
             };
 
-            await ApiService.post("/Tarefa/CriarTarefa", body);
+            await ApiService.post("/Tarefa/EditarTarefa", body);
             setModalAberto(false);
-            ToastService.Success("Tarefa Criada com Sucesso");
+            ToastService.Success("Tarefa Editada com Sucesso");
             refresh();
         } catch (error) {
-            ToastService.Error("Erro ao Criar Tarefa");
+            ToastService.Error("Erro ao Editada Tarefa");
         }
     }
     async function BuscarUsuarios() {
