@@ -33,24 +33,27 @@ export default function ModalEditarUsuario({
     try {
       const body = {
         id,
-        nome
+        nome,
+        email: "",
+        senha: "",
+        projetos: []
       };
 
-      await ApiService.put("/Usuario/EditarNomeUsuario", body);
+      await ApiService.put("/Usuario/EditarUsuario", body);
 
       setModalAberto(false);
-      ToastService.Success("Nome Editado com Sucesso");
+      ToastService.Success("Usuario Editado com Sucesso");
       FecharModal();
       refresh();
     } catch (error) {
-      ToastService.Error("Erro ao Editar Nome");
+      ToastService.Error("Erro ao Editar Usuario");
     }
   }
 
   async function BuscarUsuario() {
     try {
       const response = await ApiService.get("/Usuario/getuserdata");
-      setUsuario(response.data.nome);
+      setNome(response.data.nome);
       setEmail(response.data.email);
       setId(response.data.id);
     } catch (error) {
@@ -78,13 +81,15 @@ export default function ModalEditarUsuario({
       onRequestClose={FecharModal}
     >
       <div className={styles.container}>
-      <p>{email}</p>
+      <h2 className={styles.title}>Editar Usuario</h2>
+        <p>Nome</p>
       <input
         className={styles.inputs}
         placeholder="Nome"
         value={nome}
         onChange={(e) => setNome(e.target.value)}
       />
+      <p>{email}</p>
       <button className={styles.button} onClick={Editar}>Editar</button>
       </div>
     </Modal>

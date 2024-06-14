@@ -1,8 +1,15 @@
 .container {
   border-radius: 1em;
-  width: 1000px;
-  height: 600px;
+  width: 450px;
+  height: 350px;
   background-color: #222831;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+}
+p{
+  text-align: left;
+  margin-left: 17%
 }
 
 .input {
@@ -30,9 +37,8 @@
 
 .inputs {
   margin: 3%;
-  margin-top: 1%;
   border-radius: 1em;
-  width: 90%;
+  width: 65%;
   height: 40px;
   padding-left: 15px;
   border: 0.1px #7b7b7b solid;
@@ -41,10 +47,10 @@
 }
 
 .button {
-  margin-left: 3%;
+  margin-top: 7%;
   border-radius: 1em;
-  width: 45.5%;
-  height: 65px;
+  width: 37%;
+  height: 55px;
   background-color: #7b7b7b;
   color: white;
   font-size: large;
@@ -53,7 +59,7 @@
 }
 
 .title {
-  padding: 3%;
+  padding-bottom: 8%;
   color: #fff;
 }
 
