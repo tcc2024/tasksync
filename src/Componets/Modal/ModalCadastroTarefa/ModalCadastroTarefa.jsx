@@ -37,7 +37,7 @@ export default function ModalCadastroTarefa({
   const [anexos, setAnexos] = useState([]);
 
   async function adicionarAnexo(file, base64) {
-    if (anexos.length == 4) {
+    if (anexos.length === 4) {
       ToastService.Error("Limite de 4 anexos atingido!");
       return;
     }
@@ -150,13 +150,12 @@ export default function ModalCadastroTarefa({
     >
       <div className={styles.container}>
         <div className={styles.sidebar}>
-          <div className={styles.titulo}>
+          <div className={styles.title}>
             <h3>Criar Tarefa</h3>
           </div>
-
           <div className={styles.inputRow}>
-            <div className={styles.inputNome}>
-              <p className={styles.nomeDescTarefa}>Nome da Tarefa</p>
+            <div className={styles.inputGroup}>
+              <p className={styles.inputLabel}>Nome da Tarefa</p>
               <input
                 className={styles.input}
                 placeholder="Nome"
@@ -165,8 +164,8 @@ export default function ModalCadastroTarefa({
               />
             </div>
 
-            <div className={styles.inputDesc}>
-              <p className={styles.nomeDescTarefa}>Descrição da Tarefa</p>
+            <div className={styles.inputGroup}>
+              <p className={styles.inputLabel}>Descrição da Tarefa</p>
               <input
                 className={styles.input}
                 placeholder="Descrição"
@@ -176,10 +175,10 @@ export default function ModalCadastroTarefa({
             </div>
           </div>
 
-          <div className={styles.inputData}>
-            <p className={styles.nomeDescTarefa}>Data de Entrega</p>
+          <div className={styles.inputGroup}>
+            <p className={styles.inputLabel}>Data de Entrega</p>
             <input
-            className={styles.data}
+              className={`${styles.input} ${styles.inputDate}`}
               placeholder="Data de Entrega"
               type="date"
               value={dataEntrega}
@@ -187,9 +186,10 @@ export default function ModalCadastroTarefa({
             />
           </div>
 
-          <div className={styles.inputProjeto}>
-            <p className={styles.nomeDescTarefa}>Projeto</p>
+          <div className={styles.inputGroup}>
+            <p className={styles.inputLabel}>Projeto</p>
             <select
+              className={`${styles.input} ${styles.selectInput}`}
               value={idProjetoSelecionado}
               onChange={selectAlterado}
               disabled={selectProjetoDisabled}
@@ -203,27 +203,30 @@ export default function ModalCadastroTarefa({
                 </option>
               ))}
             </select>
-            <div className={styles.inputUsuarios}>
-              <p className={styles.nomeDescTarefa}>Usuários Atribuídos</p>
-              <Multiselect
-                options={usuarios}
-                placeholder="Selecione ao menos um usuário para a tarefa"
-                selectedValues={usuariosAtribuido}
-                onSelect={quandoSelecionadoUsuario}
-                onRemove={quandoRemoverUsuario}
-                displayValue="nome"
-              />
-            </div>
           </div>
+
+          <div className={styles.inputGroup}>
+            <p className={styles.inputLabel}>Usuários Atribuídos</p>
+            <Multiselect
+              options={usuarios}
+              placeholder="Selecione ao menos um usuário para a tarefa"
+              selectedValues={usuariosAtribuido}
+              onSelect={quandoSelecionadoUsuario}
+              onRemove={quandoRemoverUsuario}
+              displayValue="nome"
+              className={styles.multiselect}
+            />
+          </div>
+
           <div className={styles.anexosContainer}>
             <Anexos
               anexos={anexos}
               adicionarAnexo={adicionarAnexo}
               excluirAnexo={excluirAnexo}
-            ></Anexos>
+            />
           </div>
 
-          <div className={styles.botaoCadastrar}>
+          <div className={styles.buttonContainer}>
             <center>
               <button className={styles.button} onClick={Cadastrar}>
                 Cadastrar
@@ -231,9 +234,9 @@ export default function ModalCadastroTarefa({
             </center>
           </div>
         </div>
-        <div className={styles.right}>
-          <div className={styles.textoRight}>
-            <p className={styles.tituloRight}>
+        <div className={styles.rightPanel}>
+          <div className={styles.rightText}>
+            <p className={styles.rightTitle}>
               Crie uma tarefa para gerenciar e organizar suas atividades
             </p>
           </div>

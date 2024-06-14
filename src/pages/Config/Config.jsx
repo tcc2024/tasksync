@@ -10,9 +10,9 @@ import { Navigate, useNavigate } from "react-router-dom";
 
 export default function Config() {
   const navigate = useNavigate();
-
   const [modalUsuarioAberto, setModalUsuarioAberto] = useState(false);
 
+  
   function Sair() {
     AuthService.Sair();
     navigate("/login");
@@ -36,8 +36,7 @@ export default function Config() {
 
             <div className={styles.functions}>
               <div className={styles.config}>
-                <h3 onClick={() => setModalUsuarioAberto(true)} className={styles.text}>Editar Perfil</h3>
-
+                <h3 className={styles.text}>Editar Perfil</h3>
               </div>
               <div className={styles.config}>
                 <h3 className={styles.text}>Idioma</h3>

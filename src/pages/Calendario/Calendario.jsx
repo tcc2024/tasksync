@@ -35,6 +35,7 @@ function Calendario() {
     },
   });
 
+
   async function refresh() {
     await BuscarDadosEventosPorUsuario();
   }

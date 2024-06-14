@@ -16,7 +16,7 @@
   box-sizing: border-box;
 }
 
-.right {
+.rightPanel {
   width: 40%;
   color: white;
   background: linear-gradient(0deg, #5fb1bb 0%, #76b5b8 14%, #222831 100%);
@@ -28,17 +28,20 @@
 }
 
 .input,
-select {
+.selectInput {
+  width: 319px;
+  height: 50px;
   background-color: #7b7b7b;
   border-radius: 1em;
   box-sizing: border-box;
-  padding: 10px;
+  padding: 15px;
   border: 0.1px #7b7b7b solid;
-  /* margin-bottom: 10px; */
+  color: #000;
+  font-size: medium;
 }
 
 input::placeholder,
-select {
+.selectInput {
   color: white;
 }
 
@@ -48,42 +51,37 @@ select {
   gap: 10px;
 }
 
-.inputNome,
-.inputDesc {
+.inputGroup {
   flex: 1;
-}
-
-.nomeDescTarefa {
-  margin: 5px;
-}
-
-.titulo {
-  font-size: 20px;
-}
-
-h3 {
-  margin-bottom: 30px;
-}
-
-.inputNome,
-.inputDesc,
-.inputData,
-.inputProjeto,
-.inputUsuarios {
   margin-top: 15px;
 }
 
-input {
+.inputLabel {
+  margin-right: 20px; ;
+}
+
+.title {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.inputDate {
+  width: 319px;
+  color: #fff;
+}
+
+.multiselect {
+  color: #000;
+  height: 50px;
+}
+
+.anexosContainer {
   width: 100%;
+  height: 30%;
 }
 
-.textoRight {
-  margin: auto;
-}
-
-.tituloRight {
-  font-size: 35px;
-  margin: 60px;
+.buttonContainer {
+  margin-top: 5%;
   text-align: center;
 }
 
@@ -96,38 +94,12 @@ input {
   border: 0.1px #7b7b7b solid;
 }
 
-.fecharModal {
-  text-align: right;
+.rightText {
+  margin: auto;
 }
 
-.botaoFechar {
-  width: 120px;
-  height: 50px;
-  background-color: white;
-  border-radius: 1em;
-}
-
-.title {
-  width: 300px;
-}
-
-.botaoCadastrar {
-  margin-top: 5%;
+.rightTitle {
+  font-size: 35px;
+  margin: 60px;
   text-align: center;
-}
-
-.anexosContainer {
-  margin-top: 5%;
-  width: 100%;
-  height: 30%;
-}
-
-.data {
-  border: 0.1px #7b7b7b solid;
-  border-radius: 1em;
-  width: 150px;
-  height: 40px;
-  background-color: #7b7b7b;
-  color: #fff;
-  padding-inline: 15px;
 }

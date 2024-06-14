@@ -15,10 +15,6 @@ export default function Sidebar() {
         onClick={() => (window.location.href = "/calendario")}
       ></div>
       <div
-        className={styles.botaoprojetos}
-        onClick={() => (window.location.href = "/projetos")}
-      ></div>
-      <div
         className={styles.botaoconfig}
         onClick={() => (window.location.href = "/config")}
       ></div>
