@@ -6,11 +6,6 @@ import texto from "../../assets/Task.Sync.svg";
 export default function Sidebar() {
   return (
     <div className={styles.container}>
-      <div className={styles.logo}>
-        <img src={logo} className={styles.pena} />
-        <img src={texto} />
-      </div>
-
       <div
         className={styles.botaomenu}
         onClick={() => (window.location.href = "/home")}

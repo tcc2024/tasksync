@@ -179,6 +179,7 @@ export default function ModalCadastroTarefa({
           <div className={styles.inputData}>
             <p className={styles.nomeDescTarefa}>Data de Entrega</p>
             <input
+            className={styles.data}
               placeholder="Data de Entrega"
               type="date"
               value={dataEntrega}
