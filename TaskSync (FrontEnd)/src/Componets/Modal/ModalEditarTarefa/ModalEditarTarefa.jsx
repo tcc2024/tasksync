@@ -10,7 +10,8 @@ import Anexos from "../../Anexos/Anexos";
 export default function ModalEditarTarefa({
     modalAberto,
     setModalAberto,
-    refresh
+    refresh,
+    idTarefaSelecionada,
 }) {
     const customStyles = {
         content: {
@@ -27,7 +28,7 @@ export default function ModalEditarTarefa({
     Modal.setAppElement("#root");
 
     const [usuarios, setUsuarios] = useState([]);
-    const [usuariosAtribuido, setUsuariosAtribuido] = useState([]);
+    const [usuarioAtribuido, setUsuarioAtribuido] = useState([]);
     const [nome, setNome] = useState("");
     const [descricao, setDescricao] = useState("");
     const [dataEntrega, setDataEntrega] = useState("");
@@ -66,12 +67,14 @@ export default function ModalEditarTarefa({
     }
 
     async function Editar() {
+        const usuariosAtribuidos = usuarioAtribuido.map((usuario) => usuario.id);
+
         try {
             const body = {
                 nome,
                 descricao,
                 dataEntrega,
-                usuariosAtribuidos: usuariosAtribuido.map((usuario) => usuario.id),
+                usuariosAtribuidos,
             };
 
             await ApiService.post("/Tarefa/EditarTarefa", body);
@@ -90,22 +93,55 @@ export default function ModalEditarTarefa({
             ToastService.Error("Erro ao Listar Usuários");
         }
     }
+
+    async function BuscarTarefaPorID() {
+      try {
+        const response = await ApiService.get(
+          "/Tarefa/listarTarefaPorID?id=" + idTarefaSelecionada
+        );
+  
+        console.log(response);
+  
+        setNome(response.data.nome);
+        setDescricao(response.data.descricao);
+        setDataEntrega(response.data.dataEntrega);
+  
+        setUsuarioAtribuido(response.data.usuariosAtribuidos);
+      } catch (error) {
+        ToastService.Error("Erro ao Listar Tarefa");
+      }
+    }
+
     function FecharModal() {
         setModalAberto(false);
     }
 
+    async function DeletarTarefa() {
+      try {
+        await ApiService.delete(
+          "/Tarefa/ExcluirTarefa?idE=" + idTarefaSelecionada
+        );
+        ToastService.Success("Tarefa Deletada com Sucesso");
+        FecharModal();
+        refresh();
+      } catch (error) {
+        ToastService.Error("Erro ao Excluir Tarefa");
+      }
+    }
+
     function quandoSelecionadoUsuario(selectedList, selectedItem) {
-        setUsuariosAtribuido([...usuariosAtribuido, selectedItem]);
+        setUsuarioAtribuido([...usuarioAtribuido, selectedItem]);
     }
 
     function quandoRemoverUsuario(selectedList, removedItem) {
-        setUsuariosAtribuido(
-            usuariosAtribuido.filter((usuario) => usuario.id !== removedItem.id)
+        setUsuarioAtribuido(
+            usuarioAtribuido.filter((usuario) => usuario.id !== removedItem.id)
         );
     }
 
     useEffect(() => {
         BuscarUsuarios();
+        BuscarTarefaPorID();
     }, []);
 
     return (
@@ -160,13 +196,12 @@ export default function ModalEditarTarefa({
                     <div className={styles.inputUsuarios}>
                         <p className={styles.nomeDescTarefa}>Usuários Atribuídos</p>
                         <Multiselect
-                            options={usuarios}
-                            placeholder="Selecione ao menos um usuário para a tarefa"
-                            selectedValues={usuariosAtribuido}
-                            onSelect={quandoSelecionadoUsuario}
-                            onRemove={quandoRemoverUsuario}
-                            displayValue="nome"
-                        />
+                        className={styles.multiSelect}
+                        options={usuarios}
+                        selectedValues={usuarioAtribuido}
+                        onSelect={quandoSelecionadoUsuario}
+                        onRemove={quandoRemoverUsuario}
+                        displayValue="nome"/>
                     </div>
 
                     <div className={styles.anexosContainer}>
