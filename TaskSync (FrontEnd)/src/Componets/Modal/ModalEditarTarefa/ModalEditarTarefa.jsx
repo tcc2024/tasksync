@@ -71,6 +71,7 @@ export default function ModalEditarTarefa({
 
         try {
             const body = {
+                id: idTarefaSelecionada,
                 nome,
                 descricao,
                 dataEntrega,
@@ -85,6 +86,23 @@ export default function ModalEditarTarefa({
             ToastService.Error("Erro ao Editada Tarefa");
         }
     }
+
+    async function BuscarTarefaPorID() {
+        try {
+          const response = await ApiService.get(
+            "/Tarefa/ListarTarefaPorId?id=" + idTarefaSelecionada
+          );
+    
+          console.log(response);
+    
+          setNome(response.data.nome);
+          setDescricao(response.data.descricao);
+          setDataEntrega(response.data.DataEntrega);
+        
+        } catch (error) {
+        }
+      }
+    
     async function BuscarUsuarios() {
         try {
             const response = await ApiService.get("/Usuario/listarUsuarios");

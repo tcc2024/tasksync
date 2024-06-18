@@ -1,12 +1,12 @@
 import React from "react";
 import Sidebar from "../../Componets/Sidebar/Sidebar";
-import Header from "../../Componets/Header/Header";
 import styles from "./Config.module.css";
 import AuthService from "../../services/AuthServices";
 import { ToastContainer } from "react-toastify";
 import { useState } from "react";
 import ModalEditarUsuario from "../../Componets/Modal/ModalEditarUsuario";
 import { Navigate, useNavigate } from "react-router-dom";
+import HeaderConfig from "../../Componets/Header/HeaderConfig/HeaderConfig";
 
 export default function Config() {
   const navigate = useNavigate();
@@ -27,7 +27,7 @@ export default function Config() {
     <div className={styles.container}>
       <Sidebar />
       <div className={styles.appContainer}>
-        <Header />
+        <HeaderConfig />
         <div className={styles.pages}>
           <div className={styles.content}>
             <div className={styles.header}>
@@ -39,7 +39,7 @@ export default function Config() {
                 <h3 className={styles.text}>Editar Perfil</h3>
               </div>
               <div className={styles.config}>
-                <h3 className={styles.text}>Idioma</h3>
+                <h3 className={styles.text}>Trocar de Conta</h3>
               </div>
               <div className={styles.config}>
                 <h3 className={styles.text}>Temas</h3>

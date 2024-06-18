@@ -9,8 +9,8 @@ import ModalCadastroEvento from "../../Componets/Modal/CadastroCadastroEvento/Mo
 import ModalEditarEvento from "../../Componets/Modal/ModalEditarEvento/ModalEditarEventos";
 import "@schedule-x/theme-default/dist/index.css";
 import Sidebar from "../../Componets/Sidebar/Sidebar";
-import Header from "../../Componets/Header/Header";
 import { ToastContainer } from "react-toastify";
+import Header from '../../Componets/Header/HeaderHome/Header'
 import styles from "./Calendario.module.css";
 import { useState, useEffect } from "react";
 import ApiService from "../../services/ApiService";

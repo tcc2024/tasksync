@@ -3,7 +3,7 @@ import ListaDeProjetos from "../../Componets/ListaDeProjetos/ListaDeProjetos";
 import AuthService from "../../services/AuthServices";
 import { useNavigate } from "react-router-dom";
 import Sidebar from "../../Componets/Sidebar/Sidebar";
-import Header from "../../Componets/Header/Header";
+import Header from "../../Componets/Header/HeaderHome/Header";
 import { ToastContainer } from "react-toastify";
 import styles from "./Home.module.css";
 import ApiService from "../../services/ApiService";

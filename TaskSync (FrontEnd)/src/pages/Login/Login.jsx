@@ -7,12 +7,20 @@ import AuthService from "../../services/AuthServices";
 import { useNavigate } from "react-router-dom";
 import ToastService from "../../services/ToastService";
 import { useEffect, useState } from "react";
+import elipse1 from '../../assets/Ellipse 1.png'
+import elipse2 from '../../assets/Ellipse 2.png'
 
 export default function Login() {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
+  const [mostrarSenha, setMostrarSenha] = useState(false);
+
+  const toggleMostrarSenha = () => {
+    setMostrarSenha(!mostrarSenha);
+  };
+
 
   useEffect(() => {
     VerificarLogin();
@@ -58,18 +66,27 @@ export default function Login() {
         <h2>Faça Login</h2>
         <input
           type="text"
-          placeholder="E-mail"
+          placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className={styles.inputs}
+          className={styles.email}
         />
         <input
-          type="password"
           placeholder="Senha"
           value={senha}
           onChange={(e) => setSenha(e.target.value)}
-          className={styles.inputs}
-        />
+          className={styles.senha}
+          type={mostrarSenha ? 'text' : 'password'} />
+
+        <div>
+          <a
+            onClick={toggleMostrarSenha}
+          >
+            {mostrarSenha ? 'Ocultar Senha' : 'Mostrar Senha'}
+          </a>
+        </div>
+
+
         <button onClick={Login} className={styles.btn}>Entre</button>
       </div>
     </div>

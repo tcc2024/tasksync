@@ -8,10 +8,11 @@
 
 
 .btn{
-  height: 60%;
-  width: 10%;
+  height: 70%;
+  width: 20%;
   border-radius: 15px;
   background-color: #222831;
   color: white;
-  margin: 10px;
+  margin: 15px;
+  font-size: medium;
 }
