@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Header.module.css";
-import ModalEditarUsuario from "../Modal/ModalEditarUsuario";
-import ModalCadastroProjeto from "../Modal/ModalCadastroProjeto/ModalCadastroProjeto";
-import ModalCadastroTarefa from "../Modal/ModalCadastroTarefa/ModalCadastroTarefa";
-import ApiService from "../../services/ApiService";
+import ModalEditarUsuario from "../../Modal/ModalEditarUsuario";
+import ModalCadastroProjeto from "../../Modal/ModalCadastroProjeto/ModalCadastroProjeto";
+import ModalCadastroTarefa from "../../Modal/ModalCadastroTarefa/ModalCadastroTarefa";
+import ApiService from "../../../services/ApiService";
 
 export default function Header({refresh}) {
   const [modalProjetoAberto, setModalProjetoAberto] = useState(false);
@@ -39,13 +39,13 @@ export default function Header({refresh}) {
           className={styles.btn}
           onClick={() => setModalProjetoAberto(true)}
         >
-          Criar Projeto
+          Criar Projeto +
         </button>
         <button
           className={styles.btn}
           onClick={() => setModalTarefaAberto(true)}
         >
-          Criar Tarefa
+          Criar Tarefa +
         </button>
       </div>
     </>

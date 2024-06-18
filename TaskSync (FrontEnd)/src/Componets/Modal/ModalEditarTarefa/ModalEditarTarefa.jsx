@@ -10,6 +10,7 @@ import Anexos from "../../Anexos/Anexos";
 export default function ModalEditarTarefa({
     modalAberto,
     setModalAberto,
+    idTarefaSelecionada,
     refresh
 }) {
     const customStyles = {
@@ -68,6 +69,7 @@ export default function ModalEditarTarefa({
     async function Editar() {
         try {
             const body = {
+                id: idTarefaSelecionada,
                 nome,
                 descricao,
                 dataEntrega,
@@ -82,6 +84,23 @@ export default function ModalEditarTarefa({
             ToastService.Error("Erro ao Editada Tarefa");
         }
     }
+
+    async function BuscarTarefaPorID() {
+        try {
+          const response = await ApiService.get(
+            "/Tarefa/ListarTarefaPorId?id=" + idTarefaSelecionada
+          );
+    
+          console.log(response);
+    
+          setNome(response.data.nome);
+          setDescricao(response.data.descricao);
+          setDataEntrega(response.data.DataEntrega);
+        
+        } catch (error) {
+        }
+      }
+    
     async function BuscarUsuarios() {
         try {
             const response = await ApiService.get("/Usuario/listarUsuarios");
@@ -106,6 +125,7 @@ export default function ModalEditarTarefa({
 
     useEffect(() => {
         BuscarUsuarios();
+        BuscarTarefaPorID();
     }, []);
 
     return (
@@ -160,6 +180,7 @@ export default function ModalEditarTarefa({
                     <div className={styles.inputUsuarios}>
                         <p className={styles.nomeDescTarefa}>Usuários Atribuídos</p>
                         <Multiselect
+                        className={styles.Multiselect}
                             options={usuarios}
                             placeholder="Selecione ao menos um usuário para a tarefa"
                             selectedValues={usuariosAtribuido}

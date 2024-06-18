@@ -9,11 +9,13 @@
 }
 
 .header {
+  margin-top: 15px;
+  width: 400px;
+  height: 20px;
   display: flex;
   justify-content: center;
   flex-direction: column;
   text-align: center;
-  height: 40px;
 }
 
 .content {

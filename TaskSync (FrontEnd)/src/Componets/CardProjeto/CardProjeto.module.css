@@ -9,8 +9,9 @@
 }
 
 .header {
+  margin-top: 15px;
   width: 400px;
-  height: 40px;
+  height: 20px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -20,7 +21,7 @@
 
 .content {
   width: 400px;
-  height: 160px;
+  height: 180px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

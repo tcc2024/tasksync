@@ -4,10 +4,17 @@ import ModalEditarTarefa from "../Modal/ModalEditarTarefa/ModalEditarTarefa";
 
 export default function CardTarefa({ tarefa }) {
   const [modalTarefaAberto, setModalTarefaAberto] = useState(false);
+  const [idSelecionado, setIdSelecionado] = useState(null);
+
 
   return (
     <>
-      <ModalEditarTarefa modalAberto={modalTarefaAberto} setModalAberto={setModalTarefaAberto} />
+      <ModalEditarTarefa 
+      modalAberto={modalTarefaAberto} 
+      setModalAberto={setModalTarefaAberto}
+      idTarefaSelecionada={idSelecionado}
+      />
+
       <div className={styles.container} onClick={() => setModalTarefaAberto(true)}>
         <div className={styles.card}>
           <div className={styles.header}>

@@ -31,9 +31,11 @@
 
 .btn{
   height: 50px;
-  width: 135px;
-  border-radius: 15px;
+  width: 13%;
+  height: 55%;
+  border-radius: 1em;
   background-color: #222831;
   color: white;
-  margin: 10px;
+  margin-left: 55%;
+  margin-right: 1%;
 }
