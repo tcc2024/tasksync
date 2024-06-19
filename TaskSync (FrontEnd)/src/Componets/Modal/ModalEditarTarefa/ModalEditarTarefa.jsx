@@ -10,8 +10,8 @@ import Anexos from "../../Anexos/Anexos";
 export default function ModalEditarTarefa({
     modalAberto,
     setModalAberto,
+    refresh,
     idTarefaSelecionada,
-    refresh
 }) {
     const customStyles = {
         content: {
@@ -28,9 +28,11 @@ export default function ModalEditarTarefa({
     Modal.setAppElement("#root");
 
     const [usuarios, setUsuarios] = useState([]);
-    const [usuariosAtribuido, setUsuariosAtribuido] = useState([]);
+    const [usuarioAtribuido, setUsuarioAtribuido] = useState([]);
     const [nome, setNome] = useState("");
+    const [projeto, setProjeto] = useState("");
     const [descricao, setDescricao] = useState("");
+    const [status, setStatus] = useState();
     const [dataEntrega, setDataEntrega] = useState("");
     const [anexos, setAnexos] = useState([]);
 
@@ -67,21 +69,26 @@ export default function ModalEditarTarefa({
     }
 
     async function Editar() {
+        const usuariosAtribuidos = usuarioAtribuido.map((usuario) => usuario.id);
+
         try {
             const body = {
                 id: idTarefaSelecionada,
+                projeto,
                 nome,
                 descricao,
                 dataEntrega,
-                usuariosAtribuidos: usuariosAtribuido.map((usuario) => usuario.id),
+                status,
+                usuariosAtribuidos,
+                anexos: []
             };
 
-            await ApiService.post("/Tarefa/EditarTarefa", body);
+            await ApiService.put("/Tarefa/EditarTarefa", body);
             setModalAberto(false);
             ToastService.Success("Tarefa Editada com Sucesso");
             refresh();
         } catch (error) {
-            ToastService.Error("Erro ao Editada Tarefa");
+            ToastService.Error("Erro ao Editar Tarefa");
         }
     }
 
@@ -94,8 +101,10 @@ export default function ModalEditarTarefa({
           console.log(response);
     
           setNome(response.data.nome);
+          setProjeto(response.data.projeto);
+          setStatus(response.data.status);
           setDescricao(response.data.descricao);
-          setDataEntrega(response.data.DataEntrega);
+          setDataEntrega(response.data.dataEntrega);
         
         } catch (error) {
         }
@@ -109,17 +118,49 @@ export default function ModalEditarTarefa({
             ToastService.Error("Erro ao Listar Usuários");
         }
     }
+
+    async function BuscarTarefaPorID() {
+      try {
+        const response = await ApiService.get(
+          "/Tarefa/listarTarefaPorID?id=" + idTarefaSelecionada
+        );
+  
+        console.log(response);
+  
+        setNome(response.data.nome);
+        setDescricao(response.data.descricao);
+        setDataEntrega(response.data.dataEntrega);
+  
+        setUsuarioAtribuido(response.data.usuariosAtribuidos);
+      } catch (error) {
+        ToastService.Error("Erro ao Listar Tarefa");
+      }
+    }
+
     function FecharModal() {
         setModalAberto(false);
     }
 
+    async function DeletarTarefa() {
+      try {
+        await ApiService.delete(
+          "/Tarefa/ExcluirTarefa?idE=" + idTarefaSelecionada
+        );
+        ToastService.Success("Tarefa Deletada com Sucesso");
+        FecharModal();
+        refresh();
+      } catch (error) {
+        ToastService.Error("Erro ao Excluir Tarefa");
+      }
+    }
+
     function quandoSelecionadoUsuario(selectedList, selectedItem) {
-        setUsuariosAtribuido([...usuariosAtribuido, selectedItem]);
+        setUsuarioAtribuido([...usuarioAtribuido, selectedItem]);
     }
 
     function quandoRemoverUsuario(selectedList, removedItem) {
-        setUsuariosAtribuido(
-            usuariosAtribuido.filter((usuario) => usuario.id !== removedItem.id)
+        setUsuarioAtribuido(
+            usuarioAtribuido.filter((usuario) => usuario.id !== removedItem.id)
         );
     }
 
@@ -180,14 +221,12 @@ export default function ModalEditarTarefa({
                     <div className={styles.inputUsuarios}>
                         <p className={styles.nomeDescTarefa}>Usuários Atribuídos</p>
                         <Multiselect
-                        className={styles.Multiselect}
-                            options={usuarios}
-                            placeholder="Selecione ao menos um usuário para a tarefa"
-                            selectedValues={usuariosAtribuido}
-                            onSelect={quandoSelecionadoUsuario}
-                            onRemove={quandoRemoverUsuario}
-                            displayValue="nome"
-                        />
+                        className={styles.multiSelect}
+                        options={usuarios}
+                        selectedValues={usuarioAtribuido}
+                        onSelect={quandoSelecionadoUsuario}
+                        onRemove={quandoRemoverUsuario}
+                        displayValue="nome"/>
                     </div>
 
                     <div className={styles.anexosContainer}>
@@ -198,6 +237,9 @@ export default function ModalEditarTarefa({
                         <center>
                             <button className={styles.button} onClick={Editar}>
                                 Editar
+                            </button>
+                            <button className={styles.button} onClick={DeletarTarefa}>
+                                Deletar
                             </button>
                         </center>
                     </div>

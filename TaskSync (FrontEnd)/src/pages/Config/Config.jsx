@@ -16,17 +16,19 @@ export default function Config() {
   function Sair() {
     AuthService.Sair();
     navigate("/login");
-
-    <ModalEditarUsuario
-      modalAberto={modalUsuarioAberto}
-      setModalAberto={setModalUsuarioAberto}
-    />;
   }
+
 
   return (
     <div className={styles.container}>
       <Sidebar />
       <div className={styles.appContainer}>
+        {modalUsuarioAberto && (
+        <ModalEditarUsuario
+          modalAberto={modalUsuarioAberto}
+          setModalAberto={setModalUsuarioAberto}
+        />
+        )}
         <HeaderConfig />
         <div className={styles.pages}>
           <div className={styles.content}>
@@ -36,7 +38,7 @@ export default function Config() {
 
             <div className={styles.functions}>
               <div className={styles.config}>
-                <h3 className={styles.text}>Editar Perfil</h3>
+                <h3 className={styles.text} onClick={() => setModalUsuarioAberto(true)}>Editar Perfil</h3>
               </div>
               <div className={styles.config}>
                 <h3 className={styles.text}>Trocar de Conta</h3>
