@@ -30,7 +30,9 @@ export default function ModalEditarTarefa({
     const [usuarios, setUsuarios] = useState([]);
     const [usuarioAtribuido, setUsuarioAtribuido] = useState([]);
     const [nome, setNome] = useState("");
+    const [projeto, setProjeto] = useState("");
     const [descricao, setDescricao] = useState("");
+    const [status, setStatus] = useState();
     const [dataEntrega, setDataEntrega] = useState("");
     const [anexos, setAnexos] = useState([]);
 
@@ -72,18 +74,21 @@ export default function ModalEditarTarefa({
         try {
             const body = {
                 id: idTarefaSelecionada,
+                projeto,
                 nome,
                 descricao,
                 dataEntrega,
+                status,
                 usuariosAtribuidos,
+                anexos: []
             };
 
-            await ApiService.post("/Tarefa/EditarTarefa", body);
+            await ApiService.put("/Tarefa/EditarTarefa", body);
             setModalAberto(false);
             ToastService.Success("Tarefa Editada com Sucesso");
             refresh();
         } catch (error) {
-            ToastService.Error("Erro ao Editada Tarefa");
+            ToastService.Error("Erro ao Editar Tarefa");
         }
     }
 
@@ -96,8 +101,10 @@ export default function ModalEditarTarefa({
           console.log(response);
     
           setNome(response.data.nome);
+          setProjeto(response.data.projeto);
+          setStatus(response.data.status);
           setDescricao(response.data.descricao);
-          setDataEntrega(response.data.DataEntrega);
+          setDataEntrega(response.data.dataEntrega);
         
         } catch (error) {
         }
@@ -230,6 +237,9 @@ export default function ModalEditarTarefa({
                         <center>
                             <button className={styles.button} onClick={Editar}>
                                 Editar
+                            </button>
+                            <button className={styles.button} onClick={DeletarTarefa}>
+                                Deletar
                             </button>
                         </center>
                     </div>

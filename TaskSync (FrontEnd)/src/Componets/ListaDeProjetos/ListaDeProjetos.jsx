@@ -17,6 +17,7 @@ export default function ListaDeProjetos({ projetos, tarefas }) {
       <p className={styles.projeto}>Tarefas</p>
       <div className={styles.projetos}>
         {tarefas.map((tarefa, key) => (
+          console.log(tarefa),
           <CardTarefa tarefa={tarefa} key={key} />
         ))}
       </div>

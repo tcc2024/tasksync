@@ -4,8 +4,7 @@ import ModalEditarTarefa from "../Modal/ModalEditarTarefa/ModalEditarTarefa";
 
 export default function CardTarefa({ tarefa }) {
   const [modalTarefaAberto, setModalTarefaAberto] = useState(false);
-  const [idSelecionado, setIdSelecionado] = useState(null);
-
+  const [idSelecionado, setIdSelecionado] = useState(tarefa.id);
 
   return (
     <>
