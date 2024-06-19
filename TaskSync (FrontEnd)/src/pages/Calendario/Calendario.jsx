@@ -14,6 +14,8 @@ import Header from '../../Componets/Header/HeaderHome/Header'
 import styles from "./Calendario.module.css";
 import { useState, useEffect } from "react";
 import ApiService from "../../services/ApiService";
+import HeaderConfig from "../../Componets/Header/HeaderConfig/HeaderConfig";
+import HeaderCalendario from "../../Componets/Header/HeaderCalendario/HeaderCalendario";
 
 function Calendario() {
   const [modalCadastroAberto, setModalCadastroAberto] = useState(false);
@@ -80,7 +82,7 @@ function Calendario() {
     <div className={styles.container}>
       <Sidebar />
       <div className={styles.appContainer}>
-        <Header />
+        <HeaderCalendario />
         <div className={styles.pages}>
           <ScheduleXCalendar calendarApp={calendar} />
         </div>
