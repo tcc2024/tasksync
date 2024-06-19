@@ -211,6 +211,7 @@ export default function ModalEditarTarefa({
                     <div className={styles.inputData}>
                         <p className={styles.nomeDescTarefa}>Data de Entrega</p>
                         <input
+                        className={`${styles.input} ${styles.inputDate}`}
                             placeholder="Data de Entrega"
                             type="date"
                             value={dataEntrega}

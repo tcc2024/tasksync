@@ -3,8 +3,8 @@
   flex-direction: row;
   background-color: #222831;
   border-radius: 1em;
-  width: 1000px;
-  height: 600px;
+  width: 1200px;
+  height: 800px;
 }
 
 .sidebar {
@@ -27,6 +27,11 @@
   justify-content: center;
 }
 
+.inputDate {
+  width: 319px;
+  color: #fff;
+}
+
 .input,
 select {
   background-color: #7b7b7b;
@@ -34,7 +39,9 @@ select {
   box-sizing: border-box;
   padding: 10px;
   border: 0.1px #7b7b7b solid;
-  /* margin-bottom: 10px; */
+  width: 319px;
+  height: 50px;
+  color: #fff;
 }
 
 input::placeholder,
@@ -89,24 +96,22 @@ select {
   border: 0.1px #7b7b7b solid;
 }
 
+
+
 .fecharModal {
   text-align: right;
 }
 
-.botaoFechar {
-  width: 120px;
-  height: 50px;
-  background-color: white;
-  border-radius: 1em;
-}
 
 .title {
   width: 300px;
 }
 
 .botaoCadastrar {
-  margin-top: 5%;
+  margin-top: 10%;
   text-align: center;
+  width: 100%;
+  height: 20%;
 }
 
 
@@ -116,6 +121,6 @@ select {
   height: 30%;
 }
 
-.Multiselect {
+.multiSelect {
   color: #000;
 }

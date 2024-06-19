@@ -82,15 +82,23 @@ export default function ModalEditarUsuario({
     >
       <div className={styles.container}>
         <h2 className={styles.title}>Editar Usuario</h2>
-        <p className={styles.p}>Nome</p>
+        <input
+          className={styles.inputs}
+          placeholder="Nome"
+          value={email}
+          onChange={(e) => setNome(e.target.value)}
+        />
         <input
           className={styles.inputs}
           placeholder="Nome"
           value={nome}
           onChange={(e) => setNome(e.target.value)}
         />
-        <p className={styles.p}>{email}</p>
-        <button className={styles.button} onClick={Editar}>Editar</button>
+        <div className={styles.botaoDiv}>
+          <center>        
+              <button className={styles.button} onClick={Editar}>Editar</button>
+          </center>
+        </div>
       </div>
     </Modal>
   );
