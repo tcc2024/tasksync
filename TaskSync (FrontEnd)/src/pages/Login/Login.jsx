@@ -87,7 +87,7 @@ export default function Login() {
         </div>
 
 
-        <button onClick={Login} className={styles.btn}>Entre</button>
+        <button onClick={Login} className={styles.btn}>Entrar</button>
       </div>
     </div>
   );
