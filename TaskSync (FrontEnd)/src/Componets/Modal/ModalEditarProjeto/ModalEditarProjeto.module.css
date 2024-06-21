@@ -1,0 +1,111 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  background-color: #222831;
+  border-radius: 1em;
+  width: 1000px;
+  height: 600px;
+}
+
+.sidebar {
+  width: 60%;
+  margin: 5%;
+  background-color: #222831;
+  color: white;
+  border-radius: 1em;
+}
+
+.right {
+  width: 40%;
+  color: white;
+  background: linear-gradient(0deg, #5fb1bb 0%, #76b5b8 14%, #222831 100%);
+  border-radius: 0 1em 1em 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input {
+  color: white;
+  background-color: #7b7b7b;
+  border-radius: 1em;
+  box-sizing: border-box;
+  border: 0.1px #7b7b7b solid;
+  width: 80%;
+  height: 40px;
+  padding-left: 15px;
+}
+
+.desc {
+  color: white;
+  background-color: #7b7b7b;
+  border-radius: 1em;
+  box-sizing: border-box;
+  border: 0.1px #7b7b7b solid;
+  width: 80%;
+  height: 40px;
+  padding-left: 15px;
+}
+
+input::placeholder {
+  color: white;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+input:focus::placeholder {
+  color: transparent;
+}
+
+.nomeDescProjeto {
+  margin: 5px;
+}
+
+.titulo {
+  font-size: 20px;
+}
+
+h3 {
+  margin-bottom: 30px;
+}
+
+.inputDesc {
+  margin-top: 15%;
+}
+
+.textoRight {
+  margin: auto;
+}
+
+.tituloRight {
+  font-size: 35px;
+  margin: 60px;
+}
+
+.button {
+  width: 50%;
+  height: 50px;
+  background-color: #7b7b7b;
+  color: white;
+  border-radius: 1em;
+  border: 0.1px #7b7b7b solid;
+}
+
+.fecharModal {
+  text-align: right;
+}
+
+.botaoFechar {
+  width: 120px;
+  height: 50px;
+  background-color: white;
+  border-radius: 1em;
+}
+
+.title {
+  width: 300px;
+}
+
+.botaoCadastrar {
+  margin-top: 25%;
+}

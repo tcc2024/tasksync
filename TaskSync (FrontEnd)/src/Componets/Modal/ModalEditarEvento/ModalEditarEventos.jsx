@@ -83,8 +83,6 @@ export default function ModalEditarEvento({
         "/Eventos/listarEventoPorID?id=" + idEventoSelecionado
       );
 
-      console.log(response);
-
       setNome(response.data.nome);
       setDescricao(response.data.descricao);
       setDataHora(response.data.dataHora);
@@ -121,7 +119,6 @@ export default function ModalEditarEvento({
   }
 
   function quandoSelecionadoUsuario(selectedList, selectedItem) {
-    console.log(selectedItem);
     setUsuarioAtribuido([...usuarioAtribuido, selectedItem]);
   }
 

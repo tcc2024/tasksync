@@ -48,7 +48,6 @@ function Calendario() {
       response.data.forEach((evento) => {
         const eventoExiste = calendar.events.get(evento.id);
         if (!eventoExiste) {
-          console.log(evento);
           calendar.events.add({
             id: evento.id,
             title: evento.nome,
@@ -67,13 +66,11 @@ function Calendario() {
   }, []);
 
   function onClickCalendar(date) {
-    console.log(date);
     setDataSelecionada(date);
     setModalCadastroAberto(true);
   }
 
   function onClickEvent(id) {
-    console.log(id);
     setIdSelecionado(id);
     setModalEditarAberto(true);
   }

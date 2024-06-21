@@ -8,6 +8,7 @@ import ApiService from "../../services/ApiService";
 import Select from "react-select";
 import { useLocation, useNavigate } from "react-router-dom";
 import ModalCadastroTarefa from "../../Componets/Modal/ModalCadastroTarefa/ModalCadastroTarefa";
+import ModalEditarProjeto from "../../Componets/Modal/ModalEditarProjeto/ModalEditarProjeto";
 
 export default function MenuProjeto() {
   const initialBoard = {
@@ -33,12 +34,14 @@ export default function MenuProjeto() {
   const location = useLocation();
   const [board, setBoard] = useState(initialBoard);
   const [projetos, setProjetos] = useState([]);
-  const [projetoSelecionado, setProjetoSelecionado] = useState();
+  const [projetoSelecionado, setProjetoSelecionado] = useState(location.state.id);
   const [modalTarefaAberto, setModalTarefaAberto] = useState(false);
+  const [modalProjetoAberto, setModalProjetoAberto] = useState(false);
 
   const navigate = useNavigate();
   useEffect(() => {
     if (!location.state) navigate("home");
+    console
     setProjetoSelecionado({
       value: location.state.id,
       label: location.state.nome,
@@ -92,9 +95,10 @@ export default function MenuProjeto() {
   async function BuscarTarefas() {
     try {
       if (!projetoSelecionado) return;
+      if (!location?.state?.id) return;
 
       const response = await ApiService.get(
-        `/tarefa/projeto/${projetoSelecionado.value}/tarefas`
+        `/tarefa/projeto/${location.state.id}/tarefas`
       );
       const json = response.data;
 
@@ -167,6 +171,10 @@ export default function MenuProjeto() {
     await BuscarTarefas();
   }
 
+  function handleProjetoSelectChange(projeto) {
+    setProjetoSelecionado(projeto)
+  }
+
   return (
     <div className={styles.container}>
       <ModalCadastroTarefa
@@ -174,6 +182,12 @@ export default function MenuProjeto() {
         setModalAberto={setModalTarefaAberto}
         refresh={refresh}
         projetoClicado={projetoSelecionado?.value}
+      />
+      <ModalEditarProjeto
+        modalAberto={modalProjetoAberto}
+        setModalAberto={setModalProjetoAberto}
+        refresh={refresh}
+        idProjetoSelecionado={projetoSelecionado?.value}
       />
       <Sidebar />
       <div className={styles.appContainer}>
@@ -183,8 +197,14 @@ export default function MenuProjeto() {
             value={projetoSelecionado}
             className={styles.select}
             placeholder="Projetos..."
-            onChange={(projeto) => setProjetoSelecionado(projeto)}
+            onChange={handleProjetoSelectChange}
           ></Select>
+          <button
+            className={styles.btn}
+            onClick={() => setModalProjetoAberto(true)}
+          >
+            Editar Projeto
+          </button>
           <button
             className={styles.btn}
             onClick={() => setModalTarefaAberto(true)}

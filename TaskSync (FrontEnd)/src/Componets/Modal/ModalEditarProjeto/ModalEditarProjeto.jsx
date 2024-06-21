@@ -2,12 +2,13 @@ import { useState, useEffect } from "react";
 import Modal from "react-modal";
 import ApiService from "../../../services/ApiService";
 import ToastService from "../../../services/ToastService";
-import styles from "./ModalCadastroProjeto.module.css";
 import Multiselect from "multiselect-react-dropdown";
+import styles from "./ModalEditarProjeto.module.css";
 
-export default function ModalCadastroProjeto({
+export default function ModalEditarProjeto({
   modalAberto,
   setModalAberto,
+  idProjetoSelecionado,
   refresh,
 }) {
   Modal.setAppElement("#root");
@@ -24,25 +25,43 @@ export default function ModalCadastroProjeto({
     },
   };
 
+  const [usuarios, setUsuarios] = useState([]);
+  const [usuarioAtribuido, setUsuarioAtribuido] = useState([]);
   const [nome, setNome] = useState("");
   const [descricao, setDescricao] = useState("");
-  const [usuarios, setUsuarios] = useState([]);
-  const [usuariosAtribuido, setUsuariosAtribuido] = useState([]);
+  useEffect(() => {
+    BuscarUsuarios();
+    BuscarProjetoPorID();
+  }, [modalAberto]);
 
-  async function CadastrarProjeto() {
+  async function EditarProjeto() {
     try {
       const body = {
         nome,
         descricao,
-        usuariosAtribuidos: usuariosAtribuido.map((usuario) => usuario.id),
+        usuariosAtribuidos
       };
 
-      await ApiService.post("/Projeto/CriarProjeto", body);
-      ToastService.Success("Projeto Criado com Sucesso");
+      await ApiService.post("/Projeto/EditarProjeto", body);
+      ToastService.Success("Projeto Editado com Sucesso");
       setModalAberto(false);
       refresh();
     } catch (error) {
-      ToastService.Error("Erro ao Criar Projeto");
+      ToastService.Error("Erro ao Editar Projeto");
+    }
+  }
+
+  async function BuscarProjetoPorID() {
+    try {
+      const response = await ApiService.get(
+        "/Projeto/listarProjetoPorID?id=" + idProjetoSelecionado
+      );
+
+      setNome(response.data.nome);
+      setDescricao(response.data.descricao);
+      setUsuarioAtribuido(response.data.usuariosAtribuidos);
+    } catch (error) {
+      ToastService.Error("Erro ao Listar Projeto");
     }
   }
 
@@ -55,23 +74,34 @@ export default function ModalCadastroProjeto({
     }
   }
 
-  function quandoSelecionadoUsuario(selectedList, selectedItem) {
-    setUsuariosAtribuido([...usuariosAtribuido, selectedItem]);
-  }
-
-  function quandoRemoverUsuario(selectedList, removedItem) {
-    setUsuariosAtribuido(
-      usuariosAtribuido.filter((usuario) => usuario.id !== removedItem.id)
-    );
-  }
-
-  useEffect(() => {
-    BuscarUsuarios();
-  }, []);
-
   function FecharModal() {
     setModalAberto(false);
   }
+
+  async function DeletarProjeto() {
+    try {
+      await ApiService.delete(
+        "/Projeto/ExcluirProjeto?idE=" + idProjetoSelecionado
+      );
+      ToastService.Success("Projeto Deletada com Sucesso");
+      FecharModal();
+      refresh();
+    } catch (error) {
+      ToastService.Error("Erro ao Excluir Projeto");
+    }
+  }
+
+  function quandoSelecionadoUsuario(selectedList, selectedItem) {
+    setUsuarioAtribuido([...usuarioAtribuido, selectedItem]);
+  }
+
+  function quandoRemoverUsuario(selectedList, removedItem) {
+    setUsuarioAtribuido(
+      usuarioAtribuido.filter((usuario) => usuario.id !== removedItem.id)
+    );
+  }
+
+
 
   return (
     <Modal
@@ -82,7 +112,7 @@ export default function ModalCadastroProjeto({
       <div className={styles.container}>
         <div className={styles.sidebar}>
           <div className={styles.titulo}>
-            <h3>Vamos Criar um Projeto</h3>
+            <h3>Editar Projeto</h3>
           </div>
           <div className={styles.inputNome}>
             <p className={styles.nomeDescProjeto}>Nome do Projeto</p>
@@ -104,23 +134,24 @@ export default function ModalCadastroProjeto({
             />
           </div>
 
-          <div className={styles.inputGroup}>
-            <p className={styles.inputLabel}>Usuários Atribuídos</p>
+          <div className={styles.inputUsuarios}>
+            <p className={styles.nomeDescTarefa}>Usuários Atribuídos</p>
             <Multiselect
+              className={styles.multiSelect}
               options={usuarios}
-              placeholder="Selecione ao menos um usuário para a tarefa"
-              selectedValues={usuariosAtribuido}
+              selectedValues={usuarioAtribuido}
               onSelect={quandoSelecionadoUsuario}
               onRemove={quandoRemoverUsuario}
-              displayValue="nome"
-              className={styles.multiselect}
-            />
+              displayValue="nome" />
           </div>
 
           <div className={styles.botaoCadastrar}>
             <center>
-              <button className={styles.button} onClick={CadastrarProjeto}>
-                Criar Projeto
+              <button className={styles.button} onClick={EditarProjeto}>
+                Editar Projeto
+              </button>
+              <button className={styles.button} onClick={DeletarProjeto}>
+                Deletar Projeto
               </button>
             </center>
           </div>
