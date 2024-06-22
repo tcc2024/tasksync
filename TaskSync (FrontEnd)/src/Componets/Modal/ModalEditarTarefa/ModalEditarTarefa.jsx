@@ -96,9 +96,7 @@ export default function ModalEditarTarefa({
           const response = await ApiService.get(
             "/Tarefa/ListarTarefaPorId?id=" + idTarefaSelecionada
           );
-    
-          console.log(response);
-    
+       
           setNome(response.data.nome);
           setProjeto(response.data.projeto);
           setStatus(response.data.status);
@@ -123,9 +121,6 @@ export default function ModalEditarTarefa({
         const response = await ApiService.get(
           "/Tarefa/listarTarefaPorID?id=" + idTarefaSelecionada
         );
-  
-        console.log(response);
-  
         setNome(response.data.nome);
         setDescricao(response.data.descricao);
         setDataEntrega(response.data.dataEntrega);

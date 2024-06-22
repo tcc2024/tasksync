@@ -1,0 +1,71 @@
+.background {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .center {
+    border-radius: 1em;
+    width: 50%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .senha {
+    padding-left: 60px; 
+    width: 50%;
+    height: 7%;
+    margin: 1.5em;
+    border: solid 1px #000000;
+    border-radius: 1em;
+    background-image: url("../../assets/Senha.png");
+    background-repeat: no-repeat;
+    background-size: 35px 35px;
+    background-position: 15px 8px; 
+  }
+  
+  .email {
+    padding-left: 60px; 
+    width: 50%;
+    height: 7%;
+    margin: 1.5em;
+    border: solid 1px #000000;
+    border-radius: 1em;
+    background-image: url("../../assets/Email.png");
+    background-repeat: no-repeat;
+    background-size: 35px 35px;
+    background-position: 15px 8px; 
+  }
+  
+  .email::placeholder {
+    color: black;
+  }
+  
+  
+  .senha::placeholder {
+    color: black;
+  }
+  
+  
+  .email::placeholder {
+    color: black;
+  }
+  
+  .btn {
+    margin-top: 1.5em;
+    width: 20%;
+    height: 7%;
+    border-radius: 1em;
+    border: solid 1px #000000;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  }
+  
+  .elipse2{
+    transition: rotate(90deg);
+  }
