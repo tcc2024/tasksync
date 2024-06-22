@@ -88,7 +88,6 @@ export default function ModalEditarTarefa({
             ToastService.Success("Tarefa Editada com Sucesso");
             refresh();
         } catch (error) {
-            ToastService.Error("Erro ao Editar Tarefa");
         }
     }
 

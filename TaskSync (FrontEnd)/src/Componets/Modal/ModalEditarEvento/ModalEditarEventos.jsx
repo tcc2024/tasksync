@@ -21,6 +21,7 @@ export default function ModalEditarEvento({
       bottom: "auto",
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
+      border: "none",
     },
   };
   Modal.setAppElement("#root");
@@ -71,7 +72,6 @@ export default function ModalEditarEvento({
     try {
       const response = await ApiService.get("/Usuario/listarUsuarios");
       setUsuarios(response.data);
-
     } catch (error) {
       ToastService.Error("Erro ao Listar Usuarios");
     }
@@ -83,14 +83,10 @@ export default function ModalEditarEvento({
         "/Eventos/listarEventoPorID?id=" + idEventoSelecionado
       );
 
-      console.log(response);
-
       setNome(response.data.nome);
       setDescricao(response.data.descricao);
       setDataHora(response.data.dataHora);
-
       setUsuarioAtribuido(response.data.usuariosAtribuidos);
-
       setIdProjetoSelecionado(response.data.idProjetoSelecionado);
     } catch (error) {
       ToastService.Error("Erro ao Listar Evento");
@@ -121,7 +117,6 @@ export default function ModalEditarEvento({
   }
 
   function quandoSelecionadoUsuario(selectedList, selectedItem) {
-    console.log(selectedItem);
     setUsuarioAtribuido([...usuarioAtribuido, selectedItem]);
   }
 
@@ -195,7 +190,6 @@ export default function ModalEditarEvento({
           onSelect={quandoSelecionadoUsuario}
           onRemove={quandoRemoverUsuario}
           displayValue="nome"
-          
         />
 
         <button className={styles.button} onClick={Editar}>

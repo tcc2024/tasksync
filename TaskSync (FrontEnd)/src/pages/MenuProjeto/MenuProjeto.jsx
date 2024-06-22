@@ -77,7 +77,7 @@ export default function MenuProjeto() {
         .map(function (obj) {
           return {
             value: obj.id,
-            label: obj.nome,
+            label: obj.nome
           };
         })
         .filter(function (obj) {

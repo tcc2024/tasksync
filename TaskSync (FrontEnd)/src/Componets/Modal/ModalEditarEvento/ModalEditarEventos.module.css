@@ -1,12 +1,13 @@
+
 .container {
   border-radius: 1em;
-  width: 1000px;
-  height: 650px;
+  width: 1200px;
+  height: 900px;
   background-color: #222831;
 }
 
 .input {
-  margin: 3%;
+  margin: 2%;
   border-radius: 1em;
   width: 80%;
   height: 100px;
@@ -18,19 +19,21 @@
 }
 
 .data{
+  display: flex;
+  justify-content: center;
   border: 0.1px #7b7b7b solid;
   border-radius: 1em;
-  width: 125px;
+  width: 200px;
   height: 40px;
   background-color: #7b7b7b;
   color: #fff;
-  margin: 3%;
+  margin: 2%;
   margin-top: 1%;
   padding-inline: 15px;
 }
 
 .inputs {
-  margin: 3%;
+  margin: 2%;
   margin-top: 1%;
   border-radius: 1em;
   width: 60%;
@@ -42,10 +45,10 @@
 }
 
 .button {
-  margin-top: 2%;
-  margin-left: 5%;
+  margin-top: 5%;
+  margin-left: 20%;
   border-radius: 1em;
-  width: 42.5%;
+  width: 20%;
   height: 60px;
   background-color: #7b7b7b;
   color: white;
@@ -55,20 +58,24 @@
 }
 
 .title {
-  padding: 3% 3% 2% 3%;
+  padding: 4%;
+  margin-top: 2%;
   color: #fff;
 }
 
-
+p {
+  padding: 0.1% 1% 1% 2%;
+  color: #fff;
+}
 
 .multiSelect {
-  width: 195px;
+  width: 250px;
   height: 45px;
   border-radius: 1em;
-  margin: 3%;
+  margin: 2%;
   margin-top: 1%;
 }
 
 .select {
-  margin: 3%;
+  margin: 2%;
 }

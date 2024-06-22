@@ -1,7 +1,7 @@
 .container {
   border-radius: 1em;
-  width: 800px;
-  height: 600px;
+  width: 900px;
+  height: 540px;
   background-color: #222831;
 
 }
@@ -16,7 +16,7 @@
   width: 40%;
   height: 5%;
   color: #fff; 
-  margin: 5%;
+  margin: 4%;
   padding: 1%;
   border-radius: 1em;
   border: #7b7b7b 0.1px solid;
@@ -32,5 +32,5 @@
 }
 
 .botaoDiv{
-  margin-top: 5%;
+  margin-top: 7%;
 }
