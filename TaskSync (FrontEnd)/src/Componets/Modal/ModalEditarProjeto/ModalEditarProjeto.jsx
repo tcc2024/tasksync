@@ -33,13 +33,13 @@ export default function ModalEditarProjeto({
     BuscarUsuarios();
     BuscarProjetoPorID();
   }, [modalAberto]);
-
+  
   async function EditarProjeto() {
     try {
       const body = {
         nome,
         descricao,
-        usuariosAtribuidos
+        usuarioAtribuido
       };
 
       await ApiService.post("/Projeto/EditarProjeto", body);

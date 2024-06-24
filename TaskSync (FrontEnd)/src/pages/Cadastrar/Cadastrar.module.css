@@ -1,71 +1,100 @@
 .background {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .center {
-    border-radius: 1em;
-    width: 50%;
-    height: 70%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  
-  .senha {
-    padding-left: 60px; 
-    width: 50%;
-    height: 7%;
-    margin: 1.5em;
-    border: solid 1px #000000;
-    border-radius: 1em;
-    background-image: url("../../assets/Senha.png");
-    background-repeat: no-repeat;
-    background-size: 35px 35px;
-    background-position: 15px 8px; 
-  }
-  
-  .email {
-    padding-left: 60px; 
-    width: 50%;
-    height: 7%;
-    margin: 1.5em;
-    border: solid 1px #000000;
-    border-radius: 1em;
-    background-image: url("../../assets/Email.png");
-    background-repeat: no-repeat;
-    background-size: 35px 35px;
-    background-position: 15px 8px; 
-  }
-  
-  .email::placeholder {
-    color: black;
-  }
-  
-  
-  .senha::placeholder {
-    color: black;
-  }
-  
-  
-  .email::placeholder {
-    color: black;
-  }
-  
-  .btn {
-    margin-top: 1.5em;
-    width: 20%;
-    height: 7%;
-    border-radius: 1em;
-    border: solid 1px #000000;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-  }
-  
-  .elipse2{
-    transition: rotate(90deg);
-  }
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center {
+  border-radius: 1em;
+  width: 77%;
+  height: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.usuario {
+  padding-left: 60px;
+  width: 50%;
+  height: 7%;
+  margin: 1.5em;
+  border: solid 1px #000000;
+  border-radius: 1em;
+  background-image: url("../../assets/UserNovo.png");
+  background-repeat: no-repeat;
+  background-size: 35px 35px;
+  background-position: 15px 8px;
+}
+
+
+.senha {
+  padding-left: 60px;
+  width: 50%;
+  height: 7%;
+  margin: 1.5em;
+  border: solid 1px #000000;
+  border-radius: 1em;
+  background-image: url("../../assets/Senha.png");
+  background-repeat: no-repeat;
+  background-size: 35px 35px;
+  background-position: 15px 8px;
+}
+
+.email {
+  padding-left: 60px;
+  width: 50%;
+  height: 7%;
+  margin: 1.5em;
+  border: solid 1px #000000;
+  border-radius: 1em;
+  background-image: url("../../assets/Email.png");
+  background-repeat: no-repeat;
+  background-size: 35px 35px;
+  background-position: 15px 8px;
+}
+
+.usuario::placeholder {
+  color: black;
+}
+
+
+.senha::placeholder {
+  color: black;
+}
+
+
+.email::placeholder {
+  color: black;
+}
+
+.btn {
+  margin-top: 1.5em;
+  width: 20%;
+  height: 7%;
+  border-radius: 1em;
+  border: solid 1px #000000;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.left {
+  width: 35%;
+  height: 100%;
+  display: flex;
+  float: left;
+  background-image: linear-gradient(to bottom, #76b5b8, #405b62, #222831);
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
+    rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
+    rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+}
+
+.subTitle {
+  font-size: x-large;
+}
+
+.title {
+  font-size: 60px;
+}

@@ -3,8 +3,8 @@
   flex-direction: row;
   background-color: #222831;
   border-radius: 1em;
-  width: 1000px;
-  height: 600px;
+  width: 1200px;
+  height: 800px;
 }
 
 .sidebar {
@@ -108,4 +108,12 @@ h3 {
 
 .botaoCadastrar {
   margin-top: 25%;
+}
+
+.inputLabel{
+  margin-top: 10%;
+}
+.multiselect{
+  margin-top: 1%;
+  color: #000;
 }

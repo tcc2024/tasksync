@@ -11,40 +11,67 @@
 
 .botaomenu {
   margin: 25%;
-  background-image: url("/src/assets/HomePage.png");
-  background-size: 50% 60%;
-  background-position-y: 50%;
-  background-position-x: 50%;
-  background-repeat: no-repeat;
-  width: 25%;
+  width: 60%;
   height: 8%;
   border-radius: 1em;
   background-color: #222831;
+  color: #d9d9d9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 
 .botaocalendario {
   margin: 25%;
-  background-image: url("/src/assets/Calendar31.png");
-  background-size: 50% 60%;
-  background-position-y: 50%;
-  background-position-x: 50%;
-  background-repeat: no-repeat;
-  width: 25%;
+  width: 60%;
   height: 8%;
   border-radius: 1em;
   background-color: #222831;
+  color: #d9d9d9;
+  justify-items: start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 .botaoconfig {
   margin: 25%;
-  background-image: url("/src/assets/Settings.png");
-  background-size: 50% 60%;
-  background-position-y: 50%;
-  background-position-x: 50%;
-  background-repeat: no-repeat;
-  width: 25%;
+  width: 60%;
   height: 8%;
   border-radius: 1em;
   background-color: #222831;
+  color: #d9d9d9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+.botaoconfig:hover{
+  width: 65%;
+  height: 10%;
+  font-size: large;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+.botaomenu:hover{
+  width: 65%;
+  height: 10%;
+  font-size: large;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
 
+.botaocalendario:hover{
+  width: 65%;
+  height: 10%;
+  font-size: large;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+.imagem {
+  padding-right: 7%;
+  max-width: 200px;
+  max-height: 150px;
+  width: auto;
+  height: auto;
+  float: left;
+}

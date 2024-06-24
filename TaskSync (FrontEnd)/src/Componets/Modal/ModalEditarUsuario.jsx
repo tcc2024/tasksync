@@ -24,10 +24,11 @@ export default function ModalEditarUsuario({
   };
   Modal.setAppElement("#root");
 
-  const [usuario, setUsuario] = useState()
+  const [usuario, setUsuario] = useState();
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [id, setId] = useState("");
+  const [imageSrc, setImageSrc] = useState("img.png"); // Adicionando estado para imagem
 
   async function Editar() {
     try {
@@ -36,7 +37,7 @@ export default function ModalEditarUsuario({
         nome,
         email: "",
         senha: "",
-        projetos: []
+        projetos: [],
       };
 
       await ApiService.put("/Usuario/EditarUsuario", body);
@@ -65,11 +66,16 @@ export default function ModalEditarUsuario({
     BuscarUsuario();
   }, []);
 
-
   function FecharModal() {
     setModalAberto(false);
   }
 
+  function handleInputChange(event) {
+    const file = event.target.files[0];
+    if (file) {
+      setImageSrc(URL.createObjectURL(file)); 
+    }
+  }
 
   return (
     <Modal
@@ -82,6 +88,11 @@ export default function ModalEditarUsuario({
     >
       <div className={styles.container}>
         <h2 className={styles.title}>Editar Usuario</h2>
+        <div className={styles.profile}>
+          <img src={imageSrc} className={styles.foto} alt="Profile" /> {}
+        </div>
+        <input type="file" onChange={handleInputChange} />
+        <div>
         <input
           className={styles.inputs}
           placeholder="Nome"
@@ -94,9 +105,11 @@ export default function ModalEditarUsuario({
           value={nome}
           onChange={(e) => setNome(e.target.value)}
         />
+        </div>
+
         <div className={styles.botaoDiv}>
-          <center>        
-              <button className={styles.button} onClick={Editar}>Editar</button>
+          <center>
+            <button className={styles.button} onClick={Editar}>Editar</button>
           </center>
         </div>
       </div>

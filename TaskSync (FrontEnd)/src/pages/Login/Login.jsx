@@ -45,8 +45,11 @@ export default function Login() {
 
       AuthService.SalvarToken(token);
 
+      ToastService.Success("Seja Bem Vindo" + email)
+
       navigate("/home");
     } catch (error) {
+      
       if (error.response?.status == 401) {
         ToastService.Error(
           "Erro ao realizar login",
@@ -62,6 +65,12 @@ export default function Login() {
   }
   return (
     <div className={styles.background}>
+      <div className={styles.left}>
+        <p className={styles.subTitle}>Log - In</p>
+        <div className={styles.titulo}>
+          <p className={styles.title}>Bem Vindo de Volta</p>
+        </div>
+      </div>
       <div className={styles.center}>
         <h2>Faça Login</h2>
         <input

@@ -175,6 +175,9 @@ export default function MenuProjeto() {
     setProjetoSelecionado(projeto)
   }
 
+  var idProjeto = projetoSelecionado.value
+  console.log(idProjeto)
+
   return (
     <div className={styles.container}>
       <ModalCadastroTarefa
@@ -187,7 +190,7 @@ export default function MenuProjeto() {
         modalAberto={modalProjetoAberto}
         setModalAberto={setModalProjetoAberto}
         refresh={refresh}
-        idProjetoSelecionado={projetoSelecionado?.value}
+        idProjetoSelecionado={idProjeto}
       />
       <Sidebar />
       <div className={styles.appContainer}>
@@ -199,6 +202,7 @@ export default function MenuProjeto() {
             placeholder="Projetos..."
             onChange={handleProjetoSelectChange}
           ></Select>
+
           <button
             className={styles.btn}
             onClick={() => setModalProjetoAberto(true)}
@@ -211,6 +215,7 @@ export default function MenuProjeto() {
           >
             Criar Tarefa
           </button>
+
         </div>
         <div className={styles.pages}>
           <ControlledBoard

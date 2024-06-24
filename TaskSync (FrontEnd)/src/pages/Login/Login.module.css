@@ -8,7 +8,7 @@
 
 .center {
   border-radius: 1em;
-  width: 50%;
+  width: 75%;
   height: 70%;
   display: flex;
   justify-content: center;
@@ -18,7 +18,7 @@
 
 .senha {
   padding-left: 60px; 
-  width: 50%;
+  width: 40%;
   height: 7%;
   margin: 1.5em;
   border: solid 1px #000000;
@@ -31,7 +31,7 @@
 
 .email {
   padding-left: 60px; 
-  width: 50%;
+  width: 40%;
   height: 7%;
   margin: 1.5em;
   border: solid 1px #000000;
@@ -66,6 +66,30 @@
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
 
-.elipse2{
-  transition: rotate(90deg);
+.left{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 35%;
+  height: 100%;
+  display: flex;
+  float: left;
+  background-image: linear-gradient(to bottom, #76b5b8, #405b62, #222831);
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
+    rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
+    rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+}
+
+.subTitle{
+  font-size: x-large;
+  margin-bottom: 45%;
+}
+.titulo{
+  width: 500px;
+  margin: 5%;
+}
+.title{
+  margin-bottom: 70%;
+  font-size: 60px;
 }

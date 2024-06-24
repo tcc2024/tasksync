@@ -1,17 +1,13 @@
 import React from "react";
 import styles from "./LandingPage.module.css";
-import { Link } from "react-router-dom";
 
 export default function LandingPage() {
   return (
     <div className={styles.container}>
       <div className={styles.top}>
-        <Link to={"/Cadastrar"}>
-          <button className={styles.cadastrar}>Cadastrar</button>
-        </Link>
-        <Link to={"/Login"}>
-          <button className={styles.entrar}>Entrar</button>
-        </Link>
+
+        <button className={styles.cadastrar} onClick={() => (window.location.href = "/cadastrar")}>Cadastrar</button>
+        <button className={styles.entrar} onClick={() => (window.location.href = "/login")}>Entrar</button>
       </div>
       <div className={styles.pages}>
         <div className={styles.content}>

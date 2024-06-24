@@ -1,7 +1,7 @@
 .container {
   border-radius: 1em;
-  width: 900px;
-  height: 540px;
+  width: 1000px;
+  height: 900px;
   background-color: #222831;
 
 }
@@ -33,4 +33,18 @@
 
 .botaoDiv{
   margin-top: 7%;
+}
+
+.profile{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.foto{
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #dfdfdf;
 }
