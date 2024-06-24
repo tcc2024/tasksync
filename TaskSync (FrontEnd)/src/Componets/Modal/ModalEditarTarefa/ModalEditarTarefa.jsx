@@ -138,7 +138,7 @@ export default function ModalEditarTarefa({
     async function DeletarTarefa() {
       try {
         await ApiService.delete(
-          "/Tarefa/ExcluirTarefa?idE=" + idTarefaSelecionada
+          "/Tarefa/ExcluirTarefa?idT=" + idTarefaSelecionada
         );
         ToastService.Success("Tarefa Deletada com Sucesso");
         FecharModal();
